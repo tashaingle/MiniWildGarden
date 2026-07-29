@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Icon } from "@/components/Icon";
 import { PageHero } from "@/components/PageHero";
+import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Mini Wild Garden with a question, correction or guide suggestion.",
+  description: "Ask a wildlife gardening question, share your garden story or suggest a future Mini Wild Garden guide.",
 };
 
 export default function ContactPage() {
@@ -12,33 +12,25 @@ export default function ContactPage() {
     <main>
       <PageHero
         eyebrow="Contact"
-        title="Questions, ideas or a creature you want us to cover?"
-        intro="Mini Wild Garden is growing. Send a guide suggestion, flag something that needs updating or share the wildlife project you have started."
-        icon="mail"
+        title="Tell us what is happening in your patch."
+        intro="Ask a question, share a garden visitor or suggest the guide you would love to read next."
+        image="/images/butterfly.webp"
+        imageAlt="A butterfly feeding from a bright garden flower"
+        focal="48% 48%"
       />
-      <section className="section">
+      <section className="section contact-section">
         <div className="shell contact-grid">
-          <div className="contact-copy">
-            <span className="eyebrow">Say hello</span>
-            <h2>We would love to hear what would help.</h2>
-            <p>Use the form to open a prepared email in your usual mail app. Before launch, replace the email address below if you prefer to use a different inbox.</p>
-            <a className="contact-email" href="mailto:hello@miniwildgarden.co.uk"><span><Icon name="mail" size={24} /></span>hello@miniwildgarden.co.uk</a>
+          <div className="contact-copy" data-reveal>
+            <span className="eyebrow">Write to Mini Wild Garden</span>
+            <h2>Every wild corner has a story.</h2>
+            <p>The form opens your normal email app so you can review the message before sending it.</p>
+            <a className="contact-email" href="mailto:hello@miniwildgarden.co.uk">hello@miniwildgarden.co.uk <span>↗</span></a>
+            <div className="contact-note">
+              <strong>Useful things to include</strong>
+              <p>Your rough location, the size of your space, how much sun it gets and any wildlife you have already noticed.</p>
+            </div>
           </div>
-
-          <form className="contact-form" action="mailto:hello@miniwildgarden.co.uk" method="post" encType="text/plain">
-            <label>Name<input name="name" type="text" autoComplete="name" required /></label>
-            <label>Email<input name="email" type="email" autoComplete="email" required /></label>
-            <label>What is your message about?
-              <select name="subject" defaultValue="Guide suggestion">
-                <option>Guide suggestion</option>
-                <option>Question</option>
-                <option>Correction or update</option>
-                <option>Something else</option>
-              </select>
-            </label>
-            <label>Message<textarea name="message" rows={7} required /></label>
-            <button className="button" type="submit">Prepare email <Icon name="arrow" size={18} /></button>
-          </form>
+          <ContactForm />
         </div>
       </section>
     </main>

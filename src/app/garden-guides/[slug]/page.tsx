@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GuideArticle } from "@/components/GuideArticle";
 import { gardenGuides, getGardenGuide } from "@/lib/content";
+import { getGuideImage } from "@/lib/images";
 
 export function generateStaticParams() {
   return gardenGuides.map((guide) => ({ slug: guide.slug }));
@@ -10,7 +11,13 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const guide = getGardenGuide(slug);
-  return guide ? { title: guide.title, description: guide.excerpt } : {};
+  if (!guide) return {};
+  const image = getGuideImage(guide);
+  return {
+    title: guide.title,
+    description: guide.excerpt,
+    openGraph: { images: [{ url: image.src, alt: image.alt }] },
+  };
 }
 
 export default async function GardenGuidePage({ params }: { params: Promise<{ slug: string }> }) {

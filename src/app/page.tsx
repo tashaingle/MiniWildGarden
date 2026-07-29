@@ -1,138 +1,216 @@
+import Image from "next/image";
 import Link from "next/link";
 import { GuideCard } from "@/components/GuideCard";
 import { Icon } from "@/components/Icon";
 import { gardenGuides, seasons, wildlifeGuides } from "@/lib/content";
+import { seasonalImages } from "@/lib/images";
 
 export default function Home() {
   return (
     <main>
-      <section className="home-hero">
-        <div className="shell home-hero__grid">
-          <div className="home-hero__copy">
-            <span className="kicker"><span /> Wildlife starts just outside your door</span>
-            <h1>Make a little more room for <em>the wild.</em></h1>
-            <p>
-              Simple, practical guides for turning gardens, balconies and tiny outdoor spaces into safer places for nature.
-            </p>
-            <div className="button-row">
-              <Link className="button" href="/wildlife-guides">Explore wildlife guides <Icon name="arrow" size={18} /></Link>
-              <Link className="text-link" href="/garden-guides">Find a weekend project <span>→</span></Link>
-            </div>
-            <div className="hero-note">
-              <div className="hero-note__avatars"><span>🐝</span><span>🐦</span><span>🦔</span></div>
-              <p><strong>No garden is too small.</strong><br />Start with one pot, one water dish or one untidy corner.</p>
+      <section className="cinematic-hero" data-parallax-root>
+        <Image
+          className="cinematic-hero__image parallax-image"
+          src="/images/hero-garden.webp"
+          alt="A thriving wildlife garden with a pond, wildflowers and a nesting box"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectPosition: "52% 53%" }}
+        />
+        <span className="cinematic-hero__shade" />
+        <span className="cinematic-hero__grain" />
+        <span className="cinematic-hero__sun" aria-hidden="true" />
+        <div className="pollen pollen--one" aria-hidden="true" />
+        <div className="pollen pollen--two" aria-hidden="true" />
+        <div className="pollen pollen--three" aria-hidden="true" />
+
+        <div className="shell cinematic-hero__content">
+          <div className="cinematic-hero__copy">
+            <span className="hero-kicker"><i /> A field guide for the wildlife next door</span>
+            <h1>Make space<br />for the <em>wild.</em></h1>
+            <p>Transform any garden, balcony or tiny outdoor corner into somewhere life can feed, drink, shelter and thrive.</p>
+            <div className="hero-actions">
+              <Link className="button button--lime" href="/wildlife-guides">Meet your visitors <Icon name="arrow" size={18} /></Link>
+              <Link className="hero-text-link" href="/garden-guides">Start with a weekend project <span>↗</span></Link>
             </div>
           </div>
 
-          <div className="hero-scene" aria-hidden="true">
-            <span className="hero-scene__sun" />
-            <span className="hero-scene__cloud hero-scene__cloud--one" />
-            <span className="hero-scene__cloud hero-scene__cloud--two" />
-            <span className="hero-scene__hill hero-scene__hill--back" />
-            <span className="hero-scene__hill hero-scene__hill--front" />
-            <span className="hero-scene__house"><i /><b /></span>
-            <span className="hero-scene__tree"><i /><b /></span>
-            <span className="hero-scene__flowers">✦ ✿ ✦ ✿</span>
-            <span className="hero-scene__bird"><Icon name="bird" size={56} /></span>
-            <span className="hero-scene__bee"><Icon name="bee" size={34} /></span>
-            <span className="hero-scene__path" />
+          <aside className="hero-field-note" aria-label="Mini Wild Garden philosophy">
+            <span className="hero-field-note__number">01</span>
+            <p><strong>No garden is too small.</strong> One water dish, one flowering pot or one untidy corner can become part of something much bigger.</p>
+          </aside>
+        </div>
+
+        <div className="hero-species" aria-hidden="true">
+          <span>Birds</span><i />
+          <span>Bees</span><i />
+          <span>Hedgehogs</span><i />
+          <span>Frogs</span>
+        </div>
+        <a className="scroll-cue" href="#discover"><span /> Scroll to explore</a>
+      </section>
+
+      <section className="marquee" aria-label="Wildlife gardening principles">
+        <div className="marquee__track">
+          <span>Plant for pollinators ✦ Add water ✦ Leave the leaves ✦ Connect habitats ✦ Avoid pesticides ✦ Let nature participate ✦ </span>
+          <span aria-hidden="true">Plant for pollinators ✦ Add water ✦ Leave the leaves ✦ Connect habitats ✦ Avoid pesticides ✦ Let nature participate ✦ </span>
+        </div>
+      </section>
+
+      <section className="section ecosystem" id="discover">
+        <div className="shell ecosystem__grid">
+          <div className="ecosystem__copy" data-reveal>
+            <span className="eyebrow">Look closer</span>
+            <h2>Your garden is already an <em>ecosystem.</em></h2>
+            <p>Every flower, stone, puddle and fallen leaf can play a part. Mini Wild Garden shows you how to notice what is already there, then make thoughtful changes that help it flourish.</p>
+            <Link className="text-link" href="/about">Discover our approach <span>→</span></Link>
+          </div>
+
+          <div className="ecosystem__mosaic" data-reveal>
+            <figure className="mosaic-image mosaic-image--large">
+              <Image src="/images/uk-garden.webp" alt="A flower-filled British garden with a pond" fill sizes="(max-width: 800px) 100vw, 45vw" />
+            </figure>
+            <figure className="mosaic-image mosaic-image--small">
+              <Image src="/images/frog.webp" alt="A frog among pond plants" fill sizes="220px" />
+            </figure>
+            <div className="mosaic-stat"><strong>4</strong><span>essentials</span><small>Food · water · shelter · access</small></div>
           </div>
         </div>
       </section>
 
-      <section className="trust-strip">
-        <div className="shell trust-strip__inner">
-          <span><Icon name="sprout" size={22} /> Beginner-friendly</span>
-          <span><Icon name="garden" size={22} /> Ideas for small spaces</span>
-          <span><Icon name="leaf" size={22} /> Practical, low-cost changes</span>
-          <span><Icon name="bee" size={22} /> Built around real habitats</span>
-        </div>
-      </section>
-
-      <section className="section">
+      <section className="section section--forest visitors">
         <div className="shell">
-          <div className="section-heading">
+          <div className="section-heading section-heading--light" data-reveal>
             <div>
-              <span className="eyebrow">Start with a visitor</span>
-              <h2>Who would you like to help?</h2>
-              <p>Choose a wildlife guide and find the changes that matter most.</p>
+              <span className="eyebrow eyebrow--light">Choose a visitor</span>
+              <h2>Who is your garden for?</h2>
             </div>
-            <Link className="text-link" href="/wildlife-guides">View every guide <span>→</span></Link>
+            <p>Follow the life already moving through your space and learn what will genuinely help.</p>
           </div>
-          <div className="card-grid card-grid--three">
-            {wildlifeGuides.slice(0, 6).map((guide) => (
-              <GuideCard key={guide.slug} guide={guide} basePath="/wildlife-guides" />
+          <div className="guide-grid">
+            {wildlifeGuides.map((guide, index) => (
+              <GuideCard key={guide.slug} guide={guide} basePath="/wildlife-guides" priority={index < 2} />
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section section--dark">
-        <div className="shell feature-band">
-          <div className="feature-band__art" aria-hidden="true">
-            <span className="feature-band__moon" />
-            <span className="feature-band__hill feature-band__hill--one" />
-            <span className="feature-band__hill feature-band__hill--two" />
-            <span className="feature-band__logs"><Icon name="logs" size={116} /></span>
-            <span className="feature-band__hedgehog"><Icon name="hedgehog" size={76} /></span>
-            <span className="feature-band__stars">✦ · ✦ · ✧</span>
-          </div>
-          <div className="feature-band__copy">
-            <span className="eyebrow eyebrow--light">A wilder weekend</span>
-            <h2>Build one useful habitat in an afternoon.</h2>
-            <p>Choose a manageable garden project, follow the steps and give local wildlife somewhere new to feed, drink or shelter.</p>
-            <Link className="button button--light" href="/garden-guides">Choose a garden project <Icon name="arrow" size={18} /></Link>
+          <div className="centred-action" data-reveal>
+            <Link className="button button--outline-light" href="/wildlife-guides">Explore every wildlife guide <Icon name="arrow" size={18} /></Link>
           </div>
         </div>
       </section>
 
-      <section className="section section--soft">
+      <section className="pond-story" data-parallax-root>
+        <Image
+          className="pond-story__image parallax-image"
+          src="/images/pond.webp"
+          alt="A lush garden pond surrounded by plants"
+          fill
+          sizes="100vw"
+          style={{ objectPosition: "50% 58%" }}
+        />
+        <span className="pond-story__shade" />
+        <div className="shell pond-story__content">
+          <span className="pond-story__chapter">Field project · 01</span>
+          <div data-reveal>
+            <span className="eyebrow eyebrow--light">The fastest habitat upgrade</span>
+            <h2>Add water.<br /><em>Watch life arrive.</em></h2>
+            <p>A pond can be no bigger than a washing-up bowl. Give it a shallow edge, a little cover and time, then let wildlife discover it.</p>
+            <Link className="button button--lime" href="/garden-guides/make-a-mini-wildlife-pond">Build a mini pond <Icon name="arrow" size={18} /></Link>
+          </div>
+          <div className="pond-story__note" data-reveal>
+            <span>Why water?</span>
+            <p>It supports drinking, bathing, breeding and hunting, often bringing several layers of the garden food web together.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section garden-worlds">
         <div className="shell">
-          <div className="section-heading">
+          <div className="section-heading" data-reveal>
             <div>
-              <span className="eyebrow">Follow the seasons</span>
-              <h2>What can you do right now?</h2>
-              <p>Wildlife needs different things as the year changes.</p>
+              <span className="eyebrow">One garden, many worlds</span>
+              <h2>Build habitat in layers.</h2>
             </div>
+            <p>A thriving garden is a patchwork: flowers in the sun, shelter in the shade, water at ground level and safe routes between them.</p>
           </div>
-          <div className="season-grid">
-            {seasons.map((season) => (
-              <Link className={`season-card season-card--${season.slug}`} href={`/seasonal-advice/${season.slug}`} key={season.slug}>
-                <span className="season-card__icon"><Icon name={season.icon} size={34} /></span>
-                <span className="eyebrow">{season.label}</span>
-                <h3>{season.name}</h3>
-                <p>{season.intro}</p>
-                <span className="text-link">See the seasonal jobs <span>→</span></span>
+
+          <div className="worlds-grid">
+            <Link className="world-card world-card--wide" href="/garden-guides/grow-a-wildflower-patch" data-reveal>
+              <Image src="/images/garden-bed.webp" alt="A wildlife garden filled with flowers around a pond" fill sizes="(max-width: 800px) 100vw, 66vw" />
+              <span className="world-card__shade" />
+              <div><span>01 · Nectar</span><h3>Let flowers carry the garden.</h3></div>
+            </Link>
+            <Link className="world-card world-card--tall" href="/garden-guides/build-a-log-pile" data-reveal>
+              <Image src="/images/log-pile.webp" alt="A log pile providing wildlife shelter" fill sizes="(max-width: 800px) 100vw, 34vw" />
+              <span className="world-card__shade" />
+              <div><span>02 · Shelter</span><h3>Make decay part of the design.</h3></div>
+            </Link>
+            <Link className="world-card" href="/garden-guides/chemical-free-garden" data-reveal>
+              <Image src="/images/hands-gardening.webp" alt="Hands planting in a wildlife garden" fill sizes="(max-width: 800px) 100vw, 33vw" />
+              <span className="world-card__shade" />
+              <div><span>03 · Care</span><h3>Garden gently.</h3></div>
+            </Link>
+            <Link className="world-card" href="/wildlife-guides/wildlife-small-garden" data-reveal>
+              <Image src="/images/balcony.webp" alt="A compact planted balcony with a water feature" fill sizes="(max-width: 800px) 100vw, 33vw" />
+              <span className="world-card__shade" />
+              <div><span>04 · Small spaces</span><h3>Use every layer.</h3></div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section projects-preview">
+        <div className="shell projects-preview__grid">
+          <div className="projects-preview__intro" data-reveal>
+            <span className="eyebrow">A wilder weekend</span>
+            <h2>Make something useful by Sunday.</h2>
+            <p>Start with a project that fits the time, space and energy you have. Small changes compound when they connect.</p>
+            <Link className="button button--dark" href="/garden-guides">See all garden projects <Icon name="arrow" size={18} /></Link>
+          </div>
+          <div className="project-list">
+            {gardenGuides.slice(0, 4).map((guide, index) => (
+              <Link key={guide.slug} href={`/garden-guides/${guide.slug}`} data-reveal>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div><h3>{guide.title}</h3><p>{guide.time} · {guide.difficulty}</p></div>
+                <Icon name="arrow" size={18} />
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="shell manifesto">
-          <div className="manifesto__copy">
-            <span className="eyebrow">The Mini Wild Garden approach</span>
-            <h2>Less perfection.<br /><em>More life.</em></h2>
-            <p>A wildlife-friendly garden can still feel calm, useful and beautiful. The difference is that every corner is allowed to do a little more.</p>
+      <section className="section seasons-section">
+        <div className="shell">
+          <div className="section-heading" data-reveal>
+            <div>
+              <span className="eyebrow">The garden year</span>
+              <h2>Move with the seasons.</h2>
+            </div>
+            <p>What wildlife needs changes throughout the year. Let the garden’s rhythm guide what you do next.</p>
           </div>
-          <div className="manifesto__list">
-            <div><span>01</span><h3>Start small</h3><p>Make one achievable improvement instead of redesigning everything.</p></div>
-            <div><span>02</span><h3>Join habitats together</h3><p>Water, planting and shelter work better when wildlife can move safely between them.</p></div>
-            <div><span>03</span><h3>Let nature participate</h3><p>Leave room for fallen leaves, chewed plants and unexpected visitors.</p></div>
+          <div className="season-grid">
+            {seasons.map((season) => {
+              const image = seasonalImages[season.slug];
+              return (
+                <Link className={`season-card season-card--${season.slug}`} href={`/seasonal-advice/${season.slug}`} key={season.slug} data-reveal>
+                  <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 25vw" style={{ objectPosition: image.focal }} />
+                  <span className="season-card__shade" />
+                  <span className="season-card__number">{season.label}</span>
+                  <div><span>{season.name}</span><h3>{season.intro}</h3><i>Explore the season →</i></div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="section section--cta">
-        <div className="shell cta-panel">
-          <div className="cta-panel__art"><Icon name="flower" size={94} /></div>
-          <div>
-            <span className="eyebrow">Ready to begin?</span>
-            <h2>Pick one small change for this weekend.</h2>
-            <p>You do not need a large budget or a huge garden. Just start with the space you already have.</p>
-          </div>
-          <Link className="button" href="/garden-guides">Find your first project <Icon name="arrow" size={18} /></Link>
+      <section className="closing-cta">
+        <Image src="/images/wildflowers.webp" alt="Wildflowers glowing in sunlight" fill sizes="100vw" />
+        <span className="closing-cta__shade" />
+        <div className="shell closing-cta__content" data-reveal>
+          <span className="eyebrow eyebrow--light">Begin where you are</span>
+          <h2>One pot.<br />One puddle.<br /><em>One wilder future.</em></h2>
+          <Link className="button button--lime" href="/garden-guides">Choose your first project <Icon name="arrow" size={18} /></Link>
         </div>
       </section>
     </main>

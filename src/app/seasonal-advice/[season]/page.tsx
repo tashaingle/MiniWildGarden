@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Icon } from "@/components/Icon";
 import { getSeason, seasons } from "@/lib/content";
+import { seasonalImages } from "@/lib/images";
 
 export function generateStaticParams() {
   return seasons.map((season) => ({ season: season.slug }));
@@ -11,51 +13,57 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ season: string }> }): Promise<Metadata> {
   const { season: slug } = await params;
   const season = getSeason(slug);
-  return season ? { title: `${season.name} wildlife gardening`, description: season.intro } : {};
+  if (!season) return {};
+  const image = seasonalImages[season.slug];
+  return {
+    title: `${season.name} wildlife gardening`,
+    description: season.intro,
+    openGraph: { images: [{ url: image.src, alt: image.alt }] },
+  };
 }
 
 export default async function SeasonPage({ params }: { params: Promise<{ season: string }> }) {
   const { season: slug } = await params;
   const season = getSeason(slug);
   if (!season) notFound();
+  const image = seasonalImages[season.slug];
 
   return (
     <main>
-      <section className={`season-detail-hero season-detail-hero--${season.slug}`}>
-        <div className="shell season-detail-hero__grid">
-          <div>
-            <Link className="back-link" href="/seasonal-advice">← All seasonal advice</Link>
-            <span className="eyebrow">{season.label}</span>
-            <h1>{season.name} in the wildlife garden</h1>
-            <p className="lead">{season.intro}</p>
-          </div>
-          <div className="season-detail-hero__icon"><Icon name={season.icon} size={110} /></div>
+      <section className="season-detail-hero" data-parallax-root>
+        <Image className="season-detail-hero__image parallax-image" src={image.src} alt={image.alt} fill priority sizes="100vw" style={{ objectPosition: image.focal }} />
+        <span className="season-detail-hero__shade" />
+        <div className="shell season-detail-hero__content">
+          <Link className="back-link" href="/seasonal-advice">← The garden year</Link>
+          <span className="eyebrow eyebrow--light">{season.label}</span>
+          <h1>{season.name}</h1>
+          <p className="lead">{season.intro}</p>
         </div>
       </section>
 
       <section className="section">
         <div className="shell seasonal-jobs">
-          <div className="seasonal-jobs__intro">
-            <span className="eyebrow">Your seasonal checklist</span>
-            <h2>Five useful things to do</h2>
-            <p>Choose one or work through the list gradually. Wildlife gardening is about steady improvement, not completing everything at once.</p>
+          <div className="seasonal-jobs__intro" data-reveal>
+            <span className="eyebrow">This season</span>
+            <h2>Five gentle jobs with real value.</h2>
+            <p>Choose what fits your space. Doing one task thoughtfully is more useful than trying to overhaul the whole garden at once.</p>
           </div>
           <div className="seasonal-jobs__list">
             {season.jobs.map((job, index) => (
-              <div className="season-job" key={job}>
+              <div className="season-job" key={job} data-reveal>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <p>{job}</p>
-                <Icon name="check" size={22} />
+                <Icon name="leaf" size={22} />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section section--soft">
-        <div className="shell next-step">
-          <div><span className="eyebrow">Build the habitat</span><h2>Choose a project to put this advice into action.</h2></div>
-          <Link className="button" href="/garden-guides">Browse garden projects <Icon name="arrow" size={18} /></Link>
+      <section className="section section--forest">
+        <div className="shell next-step next-step--light" data-reveal>
+          <div><span className="eyebrow eyebrow--light">Build habitat</span><h2>Turn this season’s energy into one lasting garden change.</h2></div>
+          <Link className="button button--lime" href="/garden-guides">Choose a project <Icon name="arrow" size={18} /></Link>
         </div>
       </section>
     </main>
