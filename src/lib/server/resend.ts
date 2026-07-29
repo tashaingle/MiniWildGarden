@@ -32,13 +32,22 @@ export async function resendRequest<T>(path: string, init: RequestInit): Promise
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
-        "User-Agent": "mini-wild-garden/1.0",
+        "User-Agent": "mini-wild-garden/1.1",
         ...(init.headers ?? {}),
       },
       cache: "no-store",
     });
 
-    const payload = await response.json().catch(() => null);
+    const responseText = await response.text();
+    let payload: unknown = null;
+
+    if (responseText) {
+      try {
+        payload = JSON.parse(responseText);
+      } catch {
+        payload = { raw: responseText };
+      }
+    }
 
     if (response.ok) {
       return payload as T;
@@ -51,7 +60,7 @@ export async function resendRequest<T>(path: string, init: RequestInit): Promise
 
     const isRetryable = response.status >= 500 && attempt < MAX_ATTEMPTS;
     if (isRetryable) {
-      await wait(250 * 2 ** (attempt - 1));
+      await wait(400 * 2 ** (attempt - 1));
       continue;
     }
 
