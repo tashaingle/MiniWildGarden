@@ -5,6 +5,13 @@ import { Icon } from "@/components/Icon";
 import { gardenGuides, seasons, wildlifeGuides } from "@/lib/content";
 import { seasonalImages } from "@/lib/images";
 
+const featuredProjectSlugs = [
+  "make-a-mini-wildlife-pond",
+  "best-flowers-for-bees-and-pollinators",
+  "build-a-log-and-leaf-habitat",
+  "create-a-wildlife-friendly-balcony",
+] as const;
+
 export default function Home() {
   return (
     <main>
@@ -135,13 +142,13 @@ export default function Home() {
           </div>
 
           <div className="worlds-grid">
-            <Link className="world-card world-card--wide" href="/garden-guides/grow-a-wildflower-patch" data-reveal>
-              <Image src="/images/garden-bed.webp" alt="A wildlife garden filled with flowers around a pond" fill sizes="(max-width: 800px) 100vw, 66vw" />
+            <Link className="world-card world-card--wide" href="/garden-guides/best-flowers-for-bees-and-pollinators" data-reveal>
+              <Image src="/images/bee-guide/pollinator-border.webp" alt="A vibrant mixed border full of pollinator-friendly flowers" fill sizes="(max-width: 800px) 100vw, 66vw" />
               <span className="world-card__shade" />
-              <div><span>01 · Nectar</span><h3>Let flowers carry the garden.</h3></div>
+              <div><span>01 · Nectar</span><h3>Plant for bees from spring to autumn.</h3></div>
             </Link>
-            <Link className="world-card world-card--tall" href="/garden-guides/build-a-log-pile" data-reveal>
-              <Image src="/images/log-pile.webp" alt="A log pile providing wildlife shelter" fill sizes="(max-width: 800px) 100vw, 34vw" />
+            <Link className="world-card world-card--tall" href="/garden-guides/build-a-log-and-leaf-habitat" data-reveal>
+              <Image src="/images/log-guide/finished-habitat.webp" alt="A finished log and leaf habitat in a garden corner" fill sizes="(max-width: 800px) 100vw, 34vw" />
               <span className="world-card__shade" />
               <div><span>02 · Shelter</span><h3>Make decay part of the design.</h3></div>
             </Link>
@@ -150,10 +157,10 @@ export default function Home() {
               <span className="world-card__shade" />
               <div><span>03 · Care</span><h3>Garden gently.</h3></div>
             </Link>
-            <Link className="world-card" href="/wildlife-guides/wildlife-small-garden" data-reveal>
-              <Image src="/images/balcony.webp" alt="A compact planted balcony with a water feature" fill sizes="(max-width: 800px) 100vw, 33vw" />
+            <Link className="world-card" href="/garden-guides/create-a-wildlife-friendly-balcony" data-reveal>
+              <Image src="/images/balcony-guide/finished-balcony.webp" alt="A small planted balcony with containers and a shallow water dish" fill sizes="(max-width: 800px) 100vw, 33vw" />
               <span className="world-card__shade" />
-              <div><span>04 · Small spaces</span><h3>Use every layer.</h3></div>
+              <div><span>04 · Small spaces</span><h3>Build a tiny refuge above the street.</h3></div>
             </Link>
           </div>
         </div>
@@ -168,13 +175,18 @@ export default function Home() {
             <Link className="button button--dark" href="/garden-guides">See all garden projects <Icon name="arrow" size={18} /></Link>
           </div>
           <div className="project-list">
-            {gardenGuides.slice(0, 4).map((guide, index) => (
-              <Link key={guide.slug} href={`/garden-guides/${guide.slug}`} data-reveal>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div><h3>{guide.title}</h3><p>{guide.time} · {guide.difficulty}</p></div>
-                <Icon name="arrow" size={18} />
-              </Link>
-            ))}
+            {featuredProjectSlugs
+              .flatMap((slug) => {
+                const guide = gardenGuides.find((item) => item.slug === slug);
+                return guide ? [guide] : [];
+              })
+              .map((guide, index) => (
+                <Link key={guide.slug} href={`/garden-guides/${guide.slug}`} data-reveal>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div><h3>{guide.title}</h3><p>{guide.time} · {guide.difficulty}</p></div>
+                  <Icon name="arrow" size={18} />
+                </Link>
+              ))}
           </div>
         </div>
       </section>

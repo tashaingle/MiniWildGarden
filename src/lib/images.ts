@@ -52,6 +52,21 @@ const guideImages: Record<string, GuideImage> = {
     alt: "A wildlife log and leaf pile beside a pond",
     focal: "50% 48%",
   },
+  "best-flowers-for-bees-and-pollinators": {
+    src: "/images/bee-guide/flower-border-hero.webp",
+    alt: "A flower-filled border of lavender, cosmos and echinacea for bees and pollinators",
+    focal: "50% 50%",
+  },
+  "build-a-log-and-leaf-habitat": {
+    src: "/images/log-guide/finished-habitat.webp",
+    alt: "A finished log and leaf habitat built from stacked branches and leaf litter",
+    focal: "50% 52%",
+  },
+  "create-a-wildlife-friendly-balcony": {
+    src: "/images/balcony-guide/finished-balcony.webp",
+    alt: "A planted wildlife-friendly balcony with pots and a shallow water dish",
+    focal: "50% 52%",
+  },
   "plant-a-wildlife-hedge": {
     src: "/images/garden-bed.webp",
     alt: "A wildlife-rich garden bed with a pond and mixed flowers",

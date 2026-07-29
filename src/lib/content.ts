@@ -332,6 +332,111 @@ export const gardenGuides: Guide[] = [
     ],
   },
   {
+    slug: "best-flowers-for-bees-and-pollinators",
+    title: "Best flowers for bees and pollinators",
+    excerpt: "Choose flowers that keep nectar and pollen available from spring into autumn, whether you have a border, a few pots or a window box.",
+    category: "Pollinators",
+    difficulty: "Easy",
+    time: "An afternoon",
+    icon: "flower",
+    colour: "gold",
+    intro:
+      "The most useful bee planting offers a long season of open flowers rather than a single short burst. Repeating a few reliable plants across borders and containers helps pollinators feed more efficiently and makes even a small space feel generous.",
+    steps: [
+      {
+        title: "Plan a long flowering season",
+        text: "Combine early, mid-season and late flowers so pollinators can find food for as much of the year as possible. Crocus, primrose and pulmonaria help in spring, while lavender, cosmos, echinacea, sedum and flowering herbs extend the season.",
+      },
+      {
+        title: "Choose open, nectar-rich flowers",
+        text: "Single flowers are usually easier for bees and hoverflies to access than tightly doubled blooms. Favour plants with visible centres and avoid choosing purely for show if the pollen is hidden or difficult to reach.",
+      },
+      {
+        title: "Plant in drifts and repeat in pots",
+        text: "Clumps of the same flower are easier for pollinators to spot and work quickly. A border can use generous drifts, while balconies and patios can repeat the same bee-friendly plants across several containers for a stronger effect.",
+      },
+      {
+        title: "Add water and garden gently",
+        text: "A shallow dish with stones gives insects a safe place to drink. Avoid pesticides, let herbs flower and leave a little bare ground where practical because many solitary bees prefer simple nesting opportunities close to food.",
+      },
+    ],
+    tips: [
+      "Lavender, marjoram, catmint, salvia, thyme and chives are strong container choices.",
+      "Deadhead some plants for longer flowering but leave a few seed heads standing later in the year.",
+      "Try to keep something in flower from March to October.",
+    ],
+  },
+  {
+    slug: "build-a-log-and-leaf-habitat",
+    title: "Build a log and leaf habitat",
+    excerpt: "Turn cut branches, bark and fallen leaves into a cool, sheltered refuge for beetles, spiders, amphibians and more.",
+    category: "Shelter",
+    difficulty: "Easy",
+    time: "45 minutes",
+    icon: "logs",
+    colour: "earth",
+    intro:
+      "A good habitat pile is more than garden leftovers. Different timber sizes, pockets of leaf litter and direct contact with the ground create moisture, darkness and slow decay, which many invertebrates and small animals need.",
+    steps: [
+      {
+        title: "Choose a shaded or semi-shaded corner",
+        text: "Pick a calm spot that will not need frequent access and can stay a little damp. Near shrubs, a fence line or the back of a border is often ideal because wildlife can move in and out under cover.",
+      },
+      {
+        title: "Start with larger logs on the soil",
+        text: "Lay the thickest logs directly onto the ground so fungi, beetles and other decomposers can begin their work. Vary the spacing rather than making the stack too neat, because uneven gaps create more usable crevices.",
+      },
+      {
+        title: "Layer in sticks, bark and leaf litter",
+        text: "Add smaller branches, twigs, bark and handfuls of dry leaves between the larger pieces. This creates pockets with different moisture levels and helps the pile shelter everything from insects to frogs and overwintering pollinators.",
+      },
+      {
+        title: "Cap it with leaves and leave it undisturbed",
+        text: "Top the structure with extra leaves or loose brushwood to hold shade and slow the drying wind. Once built, disturb it as little as possible and resist the urge to tidy because the most useful piles gradually settle and soften over time.",
+      },
+    ],
+    tips: [
+      "Untreated wood is best.",
+      "Keep the structure low and stable if children or pets use the area.",
+      "Top up leaves in autumn instead of rebuilding the whole habitat.",
+    ],
+  },
+  {
+    slug: "create-a-wildlife-friendly-balcony",
+    title: "Create a wildlife-friendly balcony",
+    excerpt: "Use containers, vertical planting and mini water features to turn even a small balcony into a feeding and sheltering stop for wildlife.",
+    category: "Small spaces",
+    difficulty: "Easy",
+    time: "A weekend",
+    icon: "garden",
+    colour: "leaf",
+    intro:
+      "Balconies cannot do everything a full garden can, but they can still feed pollinators, offer drinking water to birds and insects, and create a greener stepping stone through built-up areas. The key is to use every layer thoughtfully.",
+    steps: [
+      {
+        title: "Check sun, wind and practical limits",
+        text: "Notice how much light the balcony gets, whether it dries quickly and how exposed it is to wind. Make sure containers, water features and trellises suit the available weight, drainage and any building rules.",
+      },
+      {
+        title: "Plant a layered mix in containers",
+        text: "Combine longer-flowering herbs, pollinator-friendly perennials and a few structural plants in pots of different sizes. Grouping containers together creates a denser patch of habitat and helps reduce drying in hot weather.",
+      },
+      {
+        title: "Add a shallow water feature",
+        text: "A dish, tray or small watertight bowl with stones can provide drinking water and a cooling stop for insects. Keep it shallow, refresh it regularly and place it where spills will not cause problems for neighbours below.",
+      },
+      {
+        title: "Use walls and corners for extra shelter",
+        text: "Vertical planters, climbers and tucked-away corners help turn a flat balcony into a layered mini habitat. Leave a little undisturbed cover beneath taller pots or behind containers where insects can rest out of the heat and wind.",
+      },
+    ],
+    tips: [
+      "Lavender, thyme, salvia, chamomile and marjoram are excellent in sunny containers.",
+      "A single water dish can be just as valuable as an extra decorative pot.",
+      "Choose peat-free compost and mulch the surface of pots to slow drying.",
+    ],
+  },
+  {
     slug: "plant-a-wildlife-hedge",
     title: "Plant a wildlife-friendly hedge",
     excerpt: "Combine shelter, flowers, berries and connected cover in one valuable garden feature.",
