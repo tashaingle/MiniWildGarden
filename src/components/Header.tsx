@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BrandMark } from "@/components/BrandMark";
 import { Icon } from "@/components/Icon";
 
 const links = [
@@ -28,11 +28,14 @@ export function Header() {
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <div className="site-header__inner">
         <Link href="/" className="logo" aria-label="Mini Wild Garden home" onClick={() => setOpen(false)}>
-          <BrandMark compact />
-          <span>
-            <strong>Mini Wild Garden</strong>
-            <small>Make space for the wild</small>
-          </span>
+          <Image
+            src="/images/brand/mini-wild-garden-logo.png"
+            alt="Mini Wild Garden"
+            width={1200}
+            height={647}
+            priority
+            sizes="(max-width: 520px) 104px, 126px"
+          />
         </Link>
 
         <button

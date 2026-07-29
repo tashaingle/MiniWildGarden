@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BrandMark } from "@/components/BrandMark";
 
 export function Footer() {
   return (
@@ -37,7 +37,15 @@ export function Footer() {
         </div>
       </div>
       <div className="shell site-footer__bottom">
-        <Link href="/" className="footer-logo"><BrandMark compact /><span>Mini Wild Garden</span></Link>
+        <Link href="/" className="footer-logo" aria-label="Mini Wild Garden home">
+          <Image
+            src="/images/brand/mini-wild-garden-logo.png"
+            alt="Mini Wild Garden"
+            width={1200}
+            height={647}
+            sizes="180px"
+          />
+        </Link>
         <span>© {new Date().getFullYear()} Mini Wild Garden</span>
         <span>Made in Britain for the wildlife next door.</span>
       </div>

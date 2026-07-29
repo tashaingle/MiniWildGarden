@@ -23,11 +23,14 @@ export function GuideCard({ guide, basePath, priority = false }: { guide: Guide;
           style={{ objectPosition: image.focal }}
         />
         <span className="guide-card__veil" />
-        <span className="guide-card__category">{guide.category}</span>
         <span className="guide-card__arrow"><Icon name="arrow" size={18} /></span>
       </Link>
       <div className="guide-card__body">
-        <div className="guide-card__body-top"><span>{meta.readingMinutes} min read</span><SaveGuideButton slug={guide.slug} compact /></div>
+        <div className="guide-card__body-top">
+          <span className="guide-card__category-inline">{guide.category}</span>
+          <span className="guide-card__reading">{meta.readingMinutes} min read</span>
+          <SaveGuideButton slug={guide.slug} compact />
+        </div>
         <Link href={href}><h3>{guide.title}</h3></Link>
         <p>{guide.excerpt}</p>
         <div className="guide-card__meta">
