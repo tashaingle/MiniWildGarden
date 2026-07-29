@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Icon } from "@/components/Icon";
+import { SeasonChecklist } from "@/components/SeasonChecklist";
 import { getSeason, seasons } from "@/lib/content";
 import { seasonalImages } from "@/lib/images";
 
@@ -48,15 +49,7 @@ export default async function SeasonPage({ params }: { params: Promise<{ season:
             <h2>Five gentle jobs with real value.</h2>
             <p>Choose what fits your space. Doing one task thoughtfully is more useful than trying to overhaul the whole garden at once.</p>
           </div>
-          <div className="seasonal-jobs__list">
-            {season.jobs.map((job, index) => (
-              <div className="season-job" key={job} data-reveal>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <p>{job}</p>
-                <Icon name="leaf" size={22} />
-              </div>
-            ))}
-          </div>
+          <SeasonChecklist season={season.slug} jobs={season.jobs} />
         </div>
       </section>
 

@@ -3,13 +3,17 @@ import Link from "next/link";
 import type { Guide } from "@/lib/content";
 import { getGuideImage } from "@/lib/images";
 import { Icon } from "@/components/Icon";
+import { SaveGuideButton } from "@/components/SaveGuideButton";
+import { getGuideMeta } from "@/lib/guideMeta";
 
 export function GuideCard({ guide, basePath, priority = false }: { guide: Guide; basePath: string; priority?: boolean }) {
   const image = getGuideImage(guide);
+  const meta = getGuideMeta(guide.slug);
+  const href = `${basePath}/${guide.slug}`;
 
   return (
-    <Link className="guide-card" href={`${basePath}/${guide.slug}`} data-reveal>
-      <div className="guide-card__image">
+    <article className="guide-card" data-reveal>
+      <Link className="guide-card__image" href={href}>
         <Image
           src={image.src}
           alt={image.alt}
@@ -21,9 +25,10 @@ export function GuideCard({ guide, basePath, priority = false }: { guide: Guide;
         <span className="guide-card__veil" />
         <span className="guide-card__category">{guide.category}</span>
         <span className="guide-card__arrow"><Icon name="arrow" size={18} /></span>
-      </div>
+      </Link>
       <div className="guide-card__body">
-        <h3>{guide.title}</h3>
+        <div className="guide-card__body-top"><span>{meta.readingMinutes} min read</span><SaveGuideButton slug={guide.slug} compact /></div>
+        <Link href={href}><h3>{guide.title}</h3></Link>
         <p>{guide.excerpt}</p>
         <div className="guide-card__meta">
           <span>{guide.difficulty}</span>
@@ -31,6 +36,6 @@ export function GuideCard({ guide, basePath, priority = false }: { guide: Guide;
           <span>{guide.time}</span>
         </div>
       </div>
-    </Link>
+    </article>
   );
 }

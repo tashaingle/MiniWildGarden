@@ -86,6 +86,9 @@ export function Icon({ name, size = 28 }: IconProps) {
     mail: (
       <svg {...common}><rect {...stroke} x="6" y="10" width="36" height="28" rx="4"/><path {...stroke} d="m8 14 16 13 16-13"/></svg>
     ),
+    search: (
+      <svg {...common}><circle {...stroke} cx="21" cy="21" r="12"/><path {...stroke} d="m30 30 11 11"/></svg>
+    ),
   };
 
   return icons[name] ?? icons.leaf;

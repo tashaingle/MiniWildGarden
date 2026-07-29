@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
+import { GuideEndMatter } from "@/components/GuideEndMatter";
 
 const tools = [
   "The boundary owner’s permission and your neighbour’s agreement",
@@ -308,6 +309,7 @@ export function HedgehogHighwayGuide() {
           </div>
         </div>
       </section>
+      <GuideEndMatter slug="make-a-hedgehog-highway" />
     </main>
   );
 }

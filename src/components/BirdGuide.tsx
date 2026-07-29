@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
+import { GuideEndMatter } from "@/components/GuideEndMatter";
 
 const kit = [
   "An easy-to-dismantle hanging feeder with good drainage",
@@ -328,6 +329,7 @@ export function BirdGuide() {
           </div>
         </div>
       </section>
+      <GuideEndMatter slug="help-garden-birds" />
     </main>
   );
 }

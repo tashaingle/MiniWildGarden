@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
+import { GuideEndMatter } from "@/components/GuideEndMatter";
 
 const kit = [
   "A shaded or semi-shaded corner close to planting",
@@ -326,6 +327,7 @@ export function FrogGuide() {
           </div>
         </div>
       </section>
+      <GuideEndMatter slug="frog-friendly-space" />
     </main>
   );
 }

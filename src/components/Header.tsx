@@ -7,9 +7,9 @@ import { BrandMark } from "@/components/BrandMark";
 import { Icon } from "@/components/Icon";
 
 const links = [
-  { href: "/wildlife-guides", label: "Wildlife" },
-  { href: "/garden-guides", label: "Projects" },
+  { href: "/guides", label: "Guides" },
   { href: "/seasonal-advice", label: "Seasons" },
+  { href: "/planner", label: "Garden planner" },
   { href: "/about", label: "Our story" },
 ];
 
@@ -55,8 +55,8 @@ export function Header() {
               </Link>
             );
           })}
-          <Link className="nav-cta" href="/garden-guides" onClick={() => setOpen(false)}>
-            Start a project <Icon name="arrow" size={15} />
+          <Link className="nav-cta" href="/saved-guides" onClick={() => setOpen(false)}>
+            Saved guides <span aria-hidden="true">♡</span>
           </Link>
         </nav>
       </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { PondMaterialsChecklist, PondProgress } from "@/components/PondGuideTools";
+import { GuideEndMatter } from "@/components/GuideEndMatter";
 
 const steps = [
   {
@@ -396,6 +397,7 @@ export function PondGuide() {
           </div>
         </div>
       </section>
+      <GuideEndMatter slug="make-a-mini-wildlife-pond" />
     </main>
   );
 }

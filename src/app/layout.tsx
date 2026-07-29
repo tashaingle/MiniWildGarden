@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SiteMotion } from "@/components/SiteMotion";
+import { CookieNotice } from "@/components/CookieNotice";
 
 const display = Fraunces({ subsets: ["latin"], variable: "--font-display" });
 const body = Manrope({ subsets: ["latin"], variable: "--font-body" });
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
     template: "%s | Mini Wild Garden",
   },
   description: "Beautiful, practical guides for helping birds, bees, hedgehogs and other wildlife in British gardens of every size.",
+  authors: [{ name: "Natasha Card" }],
+  creator: "Mini Wild Garden",
+  publisher: "Mini Wild Garden",
+  keywords: ["wildlife gardening", "UK garden wildlife", "garden pond", "pollinator garden", "hedgehog highway"],
   openGraph: {
     title: "Mini Wild Garden",
     description: "Make space for the wild, one small corner at a time.",
@@ -38,6 +43,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         {children}
         <Footer />
+        <CookieNotice />
       </body>
     </html>
   );

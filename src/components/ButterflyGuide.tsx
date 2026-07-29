@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
+import { GuideEndMatter } from "@/components/GuideEndMatter";
 
 const kit = [
   "A sunny, sheltered border, large pot or window box",
@@ -311,6 +312,7 @@ export function ButterflyGuide() {
           </div>
         </div>
       </section>
+      <GuideEndMatter slug="butterfly-friendly-garden" />
     </main>
   );
 }

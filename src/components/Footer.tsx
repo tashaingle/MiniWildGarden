@@ -14,14 +14,24 @@ export function Footer() {
         <div className="footer-nav">
           <div>
             <strong>Explore</strong>
+            <Link href="/guides">All guides</Link>
             <Link href="/wildlife-guides">Wildlife guides</Link>
             <Link href="/garden-guides">Garden projects</Link>
             <Link href="/seasonal-advice">Seasonal advice</Link>
+            <Link href="/planner">Garden planner</Link>
           </div>
           <div>
-            <strong>Mini Wild Garden</strong>
+            <strong>Field notes</strong>
+            <Link href="/saved-guides">Saved guides</Link>
+            <Link href="/faqs">Common questions</Link>
+            <Link href="/glossary">Glossary</Link>
             <Link href="/about">Our story</Link>
             <Link href="/contact">Contact</Link>
+          </div>
+          <div>
+            <strong>Site information</strong>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/cookies">Cookies &amp; preferences</Link>
             <a href="#top">Back to the canopy ↑</a>
           </div>
         </div>
