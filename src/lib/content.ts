@@ -228,37 +228,37 @@ export const wildlifeGuides: Guide[] = [
 export const gardenGuides: Guide[] = [
   {
     slug: "make-a-mini-wildlife-pond",
-    title: "Make a mini wildlife pond",
-    excerpt: "Turn a container into a safe source of water for insects, birds and amphibians.",
+    title: "How to make a wildlife pond",
+    excerpt: "Create safe shallow margins, varied planting and a dependable escape route in a pond that fits your garden.",
     category: "Water",
     difficulty: "Weekend project",
-    time: "2 hours",
+    time: "1–2 days",
     icon: "pond",
     colour: "pond",
     intro:
-      "A container pond is one of the quickest ways to add a new habitat to a small garden. Use a watertight container, safe access and a modest number of suitable plants.",
+      "Adding water can transform a garden quickly. This expanded guide covers a preformed shell or flexible liner, safe access, rainwater, planting and gentle seasonal care.",
     steps: [
       {
-        title: "Choose a watertight container",
-        text: "Use a broad container deep enough to hold a useful volume of water. Ensure it is stable, clean and free from residues.",
+        title: "Choose a useful position",
+        text: "Aim for a mixture of sun and shade, avoid major tree roots and consider how children, visitors and pets will use the space.",
       },
       {
-        title: "Create different levels",
-        text: "Stack washed stones or bricks to form shelves. Include a sloped escape route that reaches beyond the waterline.",
+        title: "Create varied levels",
+        text: "Include broad shallow margins, stable planting shelves and a secure route that reaches above the waterline.",
       },
       {
-        title: "Add water and plants",
-        text: "Fill gradually, ideally using collected rainwater, and add a small selection of native or responsibly sourced pond plants.",
+        title: "Fill and plant carefully",
+        text: "Use rainwater where possible and add a modest mix of responsibly sourced submerged, floating and marginal plants.",
       },
       {
         title: "Let wildlife arrive",
-        text: "Do not transfer spawn or animals from other ponds. Place the container near planting and allow local wildlife to discover it naturally.",
+        text: "Do not transfer fish, spawn, animals or water from another pond. Allow the habitat to establish in its own time.",
       },
     ],
     tips: [
-      "Top up slowly during dry weather.",
-      "Remove excessive fallen leaves by hand.",
-      "Keep the pond chemical-free.",
+      "Use washed gravel rather than ordinary garden soil.",
+      "Keep at least one dependable shallow exit available at every water level.",
+      "Disturb the pond as little as possible once it begins to establish.",
     ],
   },
   {

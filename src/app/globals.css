@@ -514,3 +514,263 @@ em { font-weight: 440; }
   .motion-ready [data-reveal] { opacity: 1; transform: none; }
   .parallax-image { transform: scale(1.03); }
 }
+
+/* Flagship wildlife pond guide */
+.pond-guide { --pond-blue: #a8d8cf; --pond-deep: #0b2c25; --pond-mist: #dce8dc; background: var(--paper); }
+.pond-progress { position: fixed; z-index: 120; top: 0; left: 0; width: 100%; height: 3px; pointer-events: none; background: rgba(255,255,255,.12); }
+.pond-progress span { display: block; height: 100%; background: var(--lime); box-shadow: 0 0 18px rgba(216,243,107,.72); transition: width .08s linear; }
+.pond-guide-hero { position: relative; min-height: 940px; color: white; overflow: hidden; background: var(--pond-deep); }
+.pond-guide-hero__image { object-fit: cover; animation: pond-hero-breathe 16s ease-in-out infinite alternate; }
+.pond-guide-hero__shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,24,18,.94) 0%, rgba(4,24,18,.65) 46%, rgba(4,24,18,.14) 76%), linear-gradient(0deg, rgba(4,24,18,.75), transparent 52%); }
+.pond-guide-hero__glow { position: absolute; width: 52vw; height: 52vw; right: -13vw; top: -20vw; border-radius: 50%; background: radial-gradient(circle, rgba(216,243,107,.2), transparent 68%); filter: blur(10px); animation: pond-glow 8s ease-in-out infinite alternate; }
+.pond-guide-hero__content { position: relative; z-index: 3; min-height: 940px; padding-top: 170px; padding-bottom: 110px; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; }
+.pond-guide-hero h1 { max-width: 1040px; margin: 15px 0 28px; font-size: clamp(4.8rem, 9vw, 9.4rem); line-height: .88; }
+.pond-guide-hero h1 em { color: var(--lime); font-weight: inherit; }
+.pond-guide-hero .lead { max-width: 690px; margin-bottom: 30px; color: rgba(255,255,255,.74); font-size: clamp(1rem, 1.5vw, 1.25rem); }
+.pond-guide-hero__meta { display: flex; flex-wrap: wrap; gap: 10px; }
+.pond-guide-hero__meta span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; background: rgba(7,31,23,.4); backdrop-filter: blur(12px); font-size: .63rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.pond-guide-scroll { position: absolute; z-index: 4; right: 42px; bottom: 42px; display: grid; justify-items: center; gap: 10px; color: rgba(255,255,255,.65); font-size: .58rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; writing-mode: vertical-rl; }
+.pond-guide-scroll span { width: 1px; height: 66px; background: rgba(255,255,255,.32); overflow: hidden; }
+.pond-guide-scroll span::after { content: ""; display: block; width: 1px; height: 24px; background: var(--lime); animation: pond-scroll 2.2s ease-in-out infinite; }
+.pond-guide-ripple { position: absolute; z-index: 2; left: 70%; bottom: 16%; width: 160px; height: 52px; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; opacity: 0; animation: pond-ripple 4.6s ease-out infinite; }
+.pond-guide-ripple--two { animation-delay: 2.3s; }
+
+.pond-introduction { padding: clamp(100px, 12vw, 170px) 0; background: var(--cream); }
+.pond-introduction__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 100px; align-items: start; }
+.pond-introduction__statement h2 { max-width: 780px; margin: 0; font-size: clamp(3.5rem, 6.4vw, 6.7rem); }
+.pond-introduction__statement h2 em { color: var(--moss); font-weight: inherit; }
+.pond-introduction__copy p { color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.17rem); }
+.pond-introduction__copy p:first-child { color: var(--ink); font-family: var(--font-display); font-size: clamp(1.55rem, 2.6vw, 2.55rem); line-height: 1.36; }
+
+.pond-transformation { position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 720px; overflow: hidden; background: var(--forest); }
+.pond-transformation > div:not(.pond-transformation__line) { position: relative; overflow: hidden; }
+.pond-transformation img { object-fit: cover; transition: transform 1.3s cubic-bezier(.2,.8,.2,1); }
+.pond-transformation > div:hover img { transform: scale(1.045); }
+.pond-transformation__before::after, .pond-transformation__after::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(4,24,18,.6), transparent 45%); }
+.pond-transformation > div > span { position: absolute; z-index: 2; left: 36px; bottom: 30px; padding: 8px 13px; color: white; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(4,24,18,.4); backdrop-filter: blur(10px); font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.pond-transformation__line { position: absolute; z-index: 3; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,.52); }
+.pond-transformation__line i { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; border-radius: 50%; border: 1px solid rgba(255,255,255,.4); background: rgba(10,36,27,.58); backdrop-filter: blur(14px); transform: translate(-50%,-50%); }
+.pond-transformation__line i::before, .pond-transformation__line i::after { content: ""; position: absolute; top: 50%; width: 9px; height: 9px; border-top: 1px solid white; border-left: 1px solid white; }
+.pond-transformation__line i::before { left: 16px; transform: translateY(-50%) rotate(-45deg); }
+.pond-transformation__line i::after { right: 16px; transform: translateY(-50%) rotate(135deg); }
+
+.pond-guide-body { padding-top: 130px; background: var(--paper); }
+.pond-guide-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: clamp(70px, 9vw, 130px); align-items: start; }
+.pond-guide-nav { position: sticky; top: 120px; align-self: start; padding: 24px; background: var(--cream); border: 1px solid var(--line); border-radius: 18px; }
+.pond-guide-nav__label { display: block; margin-bottom: 18px; color: var(--moss); font-size: .62rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.pond-guide-nav nav { display: grid; border-top: 1px solid var(--line); }
+.pond-guide-nav nav a { padding: 11px 0; color: var(--muted); border-bottom: 1px solid var(--line); font-size: .72rem; transition: color .25s ease, transform .25s ease; }
+.pond-guide-nav nav a:hover { color: var(--ink); transform: translateX(4px); }
+.pond-guide-nav__note { display: grid; grid-template-columns: 26px 1fr; gap: 11px; margin-top: 20px; color: var(--moss); }
+.pond-guide-nav__note p { margin: 1px 0 0; color: var(--muted); font-size: .65rem; line-height: 1.55; }
+.pond-guide-main { min-width: 0; }
+.pond-guide-main > section { scroll-margin-top: 125px; }
+.pond-section-heading { max-width: 830px; margin-bottom: 55px; }
+.pond-section-heading h2 { margin: 0 0 22px; font-size: clamp(3.2rem, 6vw, 6rem); }
+.pond-section-heading p { max-width: 690px; color: var(--muted); }
+.pond-plan { padding-bottom: 120px; }
+.pond-plan__cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.pond-plan__cards article { min-height: 310px; padding: 28px; border-radius: 18px; background: var(--cream); transition: transform .4s ease, background .4s ease, color .4s ease; }
+.pond-plan__cards article:hover { color: white; background: var(--forest); transform: translateY(-7px); }
+.pond-plan__cards article > span { display: block; margin-bottom: 95px; color: var(--moss); font-family: var(--font-display); font-size: 1.2rem; }
+.pond-plan__cards article:hover > span { color: var(--lime); }
+.pond-plan__cards h3 { margin-bottom: 14px; }
+.pond-plan__cards p { margin: 0; color: var(--muted); font-size: .76rem; }
+.pond-plan__cards article:hover p { color: rgba(255,255,255,.62); }
+.pond-safety { display: grid; grid-template-columns: 68px 1fr; gap: 22px; margin-top: 28px; padding: 28px; color: white; background: var(--forest-3); border-radius: 18px; }
+.pond-safety__icon { display: grid; place-items: center; width: 56px; height: 56px; color: var(--forest); background: var(--lime); border-radius: 50%; font-family: var(--font-display); font-size: 2rem; }
+.pond-safety span { color: var(--lime); font-size: .6rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.pond-safety h3 { margin: 3px 0 9px; font-size: 1.75rem; }
+.pond-safety p { margin: 0; color: rgba(255,255,255,.65); font-size: .78rem; }
+
+.pond-materials-section { padding: 0 0 140px; }
+.pond-checklist { padding: clamp(28px, 5vw, 52px); color: white; background: var(--forest); border-radius: 26px; box-shadow: var(--shadow); }
+.pond-checklist__top { display: flex; justify-content: space-between; gap: 30px; align-items: flex-start; }
+.pond-checklist .eyebrow { color: var(--lime); }
+.pond-checklist h3 { margin: 8px 0 0; font-size: clamp(2.2rem, 4vw, 4.2rem); }
+.pond-checklist__count { display: grid; place-items: center; min-width: 72px; height: 72px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; color: var(--lime); font-family: var(--font-display); font-size: 1.35rem; }
+.pond-checklist__meter { height: 3px; margin: 28px 0 12px; overflow: hidden; background: rgba(255,255,255,.12); }
+.pond-checklist__meter span { display: block; height: 100%; background: var(--lime); transition: width .35s ease; }
+.pond-checklist ul { list-style: none; margin: 0; padding: 0; }
+.pond-checklist li { border-bottom: 1px solid rgba(255,255,255,.11); }
+.pond-checklist label { display: grid; grid-template-columns: 25px 1fr; gap: 13px; align-items: center; padding: 15px 0; cursor: pointer; color: rgba(255,255,255,.72); font-size: .78rem; }
+.pond-checklist input { position: absolute; opacity: 0; pointer-events: none; }
+.pond-checklist__box { display: grid; place-items: center; width: 23px; height: 23px; border: 1px solid rgba(255,255,255,.32); border-radius: 50%; color: transparent; transition: background .25s ease, color .25s ease, border-color .25s ease; }
+.pond-checklist li.is-checked label { color: rgba(255,255,255,.38); text-decoration: line-through; }
+.pond-checklist li.is-checked .pond-checklist__box { color: var(--forest); background: var(--lime); border-color: var(--lime); }
+.pond-print { display: inline-flex; align-items: center; gap: 12px; margin-top: 28px; padding: 0; color: white; background: none; border: 0; border-bottom: 1px solid rgba(255,255,255,.4); cursor: pointer; font-size: .72rem; font-weight: 800; }
+.pond-print span { color: var(--lime); }
+.pond-container-option { position: relative; min-height: 520px; margin: 30px 0 0; overflow: hidden; border-radius: 24px; }
+.pond-container-option > img { object-fit: cover; }
+.pond-container-option::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,25,18,.88), rgba(5,25,18,.15) 72%); }
+.pond-container-option figcaption { position: absolute; z-index: 2; left: 38px; bottom: 38px; max-width: 460px; color: white; }
+.pond-container-option figcaption span { display: block; margin-bottom: 8px; color: var(--lime); font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.pond-container-option figcaption strong { display: block; font-family: var(--font-display); font-size: clamp(2rem,4vw,4rem); line-height: 1.05; }
+.pond-container-option figcaption p { margin: 14px 0 0; color: rgba(255,255,255,.67); }
+
+.pond-steps { padding-bottom: 145px; }
+.pond-step { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(310px, .9fr); gap: clamp(45px, 7vw, 90px); align-items: center; min-height: 650px; padding: 70px 0; border-top: 1px solid var(--line); scroll-margin-top: 110px; }
+.pond-step--reverse { grid-template-columns: minmax(310px, .9fr) minmax(0, 1.1fr); }
+.pond-step--reverse .pond-step__image { order: 2; }
+.pond-step__image { position: relative; min-height: 560px; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow); }
+.pond-step__image img { object-fit: cover; transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+.pond-step__image:hover img { transform: scale(1.045); }
+.pond-step__number { position: absolute; left: 22px; top: 22px; display: grid; place-items: center; width: 72px; height: 72px; color: var(--forest); background: var(--lime); border-radius: 50%; font-family: var(--font-display); font-size: 1.35rem; box-shadow: 0 12px 35px rgba(9,30,21,.2); }
+.pond-step__copy h3 { margin: 9px 0 24px; font-size: clamp(2.6rem, 4.5vw, 4.8rem); line-height: 1; }
+.pond-step__copy > p { color: var(--muted); }
+.pond-step__copy > p:first-of-type { color: var(--ink); font-family: var(--font-display); font-size: 1.25rem; line-height: 1.5; }
+.pond-step__detail { position: relative; min-height: 240px; margin: 28px 0 0; overflow: hidden; border-radius: 15px; }
+.pond-step__detail img { object-fit: cover; }
+.pond-step__detail::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(4,24,18,.8), transparent 70%); }
+.pond-step__detail figcaption { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 16px; margin: 0; color: white; font-size: .67rem; }
+
+.pond-arrival { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; margin-inline: calc((100vw - min(1180px, calc(100vw - 48px))) / -2); padding: 120px max(24px, calc((100vw - 1180px) / 2)); color: white; background: var(--forest); overflow: hidden; scroll-margin-top: 110px; }
+.pond-arrival__copy { align-self: center; }
+.pond-arrival__copy h2 { margin: 8px 0 28px; font-size: clamp(3rem, 5.7vw, 6rem); }
+.pond-arrival__copy > p { color: rgba(255,255,255,.64); }
+.pond-arrival__notes { display: grid; margin-top: 34px; border-top: 1px solid rgba(255,255,255,.14); }
+.pond-arrival__notes span { display: grid; grid-template-columns: 72px 1fr; gap: 15px; padding: 16px 0; color: rgba(255,255,255,.62); border-bottom: 1px solid rgba(255,255,255,.14); font-size: .72rem; }
+.pond-arrival__notes strong { color: var(--lime); }
+.pond-arrival__gallery { position: relative; min-height: 680px; }
+.pond-arrival__gallery figure { position: absolute; margin: 0; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,.3); }
+.pond-arrival__gallery figure img { object-fit: cover; }
+.pond-arrival__gallery figure:first-child { inset: 0 120px 80px 0; border-radius: 220px 220px 24px 24px; }
+.pond-arrival__gallery figure:last-child { right: 0; bottom: 0; width: 330px; height: 430px; border: 8px solid var(--forest); border-radius: 180px 180px 20px 20px; }
+
+.pond-maintenance { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 140px 0; scroll-margin-top: 110px; }
+.pond-maintenance__image { position: relative; min-height: 720px; overflow: hidden; border-radius: 240px 240px 22px 22px; }
+.pond-maintenance__image img { object-fit: cover; }
+.pond-maintenance__copy h2 { margin: 9px 0 32px; font-size: clamp(3.2rem, 5.4vw, 5.5rem); }
+.pond-maintenance__seasons { border-top: 1px solid var(--line); }
+.pond-maintenance__seasons > div { display: grid; grid-template-columns: 90px 1fr; gap: 25px; padding: 19px 0; border-bottom: 1px solid var(--line); }
+.pond-maintenance__seasons strong { color: var(--moss); font-family: var(--font-display); }
+.pond-maintenance__seasons p { margin: 0; color: var(--muted); font-size: .76rem; }
+
+.pond-mistakes { padding: 20px 0 140px; scroll-margin-top: 110px; }
+.pond-mistakes__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.pond-mistakes article { min-height: 290px; padding: 28px; color: white; background: var(--forest-2); border-radius: 18px; transition: transform .35s ease, background .35s ease; }
+.pond-mistakes article:hover { background: var(--forest); transform: translateY(-7px); }
+.pond-mistakes article > span { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 62px; color: var(--lime); border: 1px solid rgba(216,243,107,.45); border-radius: 50%; font-family: var(--font-display); font-size: 1.6rem; }
+.pond-mistakes h3 { margin-bottom: 13px; }
+.pond-mistakes p { margin: 0; color: rgba(255,255,255,.59); font-size: .74rem; }
+
+.pond-faq { padding-bottom: 145px; scroll-margin-top: 110px; }
+.pond-faq__list { border-top: 1px solid var(--line); }
+.pond-faq details { border-bottom: 1px solid var(--line); }
+.pond-faq summary { display: grid; grid-template-columns: 48px 1fr 30px; gap: 20px; align-items: center; padding: 25px 0; cursor: pointer; list-style: none; font-family: var(--font-display); font-size: clamp(1.2rem, 2.25vw, 2rem); }
+.pond-faq summary::-webkit-details-marker { display: none; }
+.pond-faq summary > span { color: var(--moss); font-size: .9rem; }
+.pond-faq summary i { justify-self: end; color: var(--moss); font-family: var(--font-body); font-style: normal; transition: transform .25s ease; }
+.pond-faq details[open] summary i { transform: rotate(45deg); }
+.pond-faq details > p { max-width: 760px; margin: 0 0 28px 68px; color: var(--muted); }
+
+.pond-sources { margin-bottom: 140px; padding: clamp(30px, 5vw, 55px); background: var(--cream); border-radius: 24px; scroll-margin-top: 110px; }
+.pond-sources h2 { margin: 8px 0 18px; font-size: clamp(2.5rem, 4.5vw, 4.8rem); }
+.pond-sources > p { max-width: 780px; color: var(--muted); }
+.pond-sources__links { display: grid; margin-top: 32px; border-top: 1px solid var(--line); }
+.pond-sources__links a { display: grid; grid-template-columns: 150px 1fr 22px; gap: 20px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); transition: padding .25s ease; }
+.pond-sources__links a:hover { padding-left: 8px; }
+.pond-sources__links span { color: var(--moss); font-size: .66rem; font-weight: 800; }
+.pond-sources__links strong { font-family: var(--font-display); font-size: 1.2rem; }
+.pond-sources__links i { color: var(--moss); font-style: normal; }
+.pond-sources small { display: block; margin-top: 25px; color: var(--muted); font-size: .62rem; }
+
+.pond-guide-closing { position: relative; min-height: 820px; color: white; overflow: hidden; }
+.pond-guide-closing > img { object-fit: cover; object-position: 50% 55%; }
+.pond-guide-closing__shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,24,18,.9), rgba(4,24,18,.18) 72%); }
+.pond-guide-closing__content { position: relative; z-index: 2; min-height: 820px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.pond-guide-closing h2 { max-width: 900px; margin: 10px 0 35px; font-size: clamp(4rem, 7.5vw, 8rem); }
+.pond-guide-closing__content > div { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+.pond-guide-closing__link { display: inline-flex; gap: 9px; align-items: center; padding-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,.5); font-size: .76rem; font-weight: 800; }
+.pond-guide-closing__link span { color: var(--lime); }
+
+@keyframes pond-hero-breathe { from { transform: scale(1.035); } to { transform: scale(1.1); } }
+@keyframes pond-glow { from { opacity: .45; transform: scale(.9); } to { opacity: 1; transform: scale(1.1); } }
+@keyframes pond-scroll { 0% { transform: translateY(-26px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(70px); opacity: 0; } }
+@keyframes pond-ripple { 0% { transform: scale(.2); opacity: 0; } 15% { opacity: .55; } 100% { transform: scale(4); opacity: 0; } }
+
+@media (max-width: 1080px) {
+  .pond-guide-layout { grid-template-columns: 220px minmax(0,1fr); gap: 55px; }
+  .pond-plan__cards, .pond-mistakes__grid { grid-template-columns: repeat(2,1fr); }
+  .pond-step { grid-template-columns: 1fr 1fr; gap: 45px; }
+  .pond-step--reverse { grid-template-columns: 1fr 1fr; }
+  .pond-step__image { min-height: 510px; }
+  .pond-arrival { grid-template-columns: 1fr; }
+  .pond-arrival__gallery { min-height: 620px; }
+}
+
+@media (max-width: 840px) {
+  .pond-guide-hero, .pond-guide-hero__content { min-height: 850px; }
+  .pond-guide-hero__content { padding-top: 145px; padding-bottom: 90px; }
+  .pond-guide-hero__shade { background: linear-gradient(0deg, rgba(4,24,18,.94), rgba(4,24,18,.28) 76%); }
+  .pond-guide-scroll { display: none; }
+  .pond-introduction__grid, .pond-guide-layout, .pond-maintenance { grid-template-columns: 1fr; }
+  .pond-introduction__grid { gap: 42px; }
+  .pond-transformation { min-height: 560px; }
+  .pond-guide-nav { position: static; }
+  .pond-guide-nav nav { grid-template-columns: 1fr 1fr; column-gap: 20px; }
+  .pond-guide-body { padding-top: 90px; }
+  .pond-step, .pond-step--reverse { grid-template-columns: 1fr; min-height: 0; }
+  .pond-step--reverse .pond-step__image { order: 0; }
+  .pond-step__image { min-height: 580px; }
+  .pond-arrival { margin-inline: calc((100vw - min(700px, calc(100vw - 30px))) / -2); }
+  .pond-maintenance__image { min-height: 620px; }
+  .pond-mistakes__grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 620px) {
+  .pond-guide-hero, .pond-guide-hero__content { min-height: 790px; }
+  .pond-guide-hero__content { padding-top: 130px; padding-bottom: 70px; }
+  .pond-guide-hero h1 { font-size: clamp(3.65rem, 18vw, 5.6rem); }
+  .pond-guide-hero__meta span { font-size: .56rem; }
+  .pond-introduction { padding: 85px 0; }
+  .pond-transformation { grid-template-columns: 1fr; min-height: 900px; }
+  .pond-transformation__line { left: 0; right: 0; top: 50%; bottom: auto; width: auto; height: 1px; }
+  .pond-transformation__line i { transform: translate(-50%,-50%) rotate(90deg); }
+  .pond-guide-nav nav { grid-template-columns: 1fr; }
+  .pond-plan__cards, .pond-mistakes__grid { grid-template-columns: 1fr; }
+  .pond-plan__cards article, .pond-mistakes article { min-height: 250px; }
+  .pond-plan__cards article > span { margin-bottom: 60px; }
+  .pond-safety { grid-template-columns: 1fr; }
+  .pond-checklist { border-radius: 18px; }
+  .pond-checklist__count { min-width: 58px; height: 58px; }
+  .pond-container-option { min-height: 600px; }
+  .pond-container-option figcaption { left: 22px; right: 22px; bottom: 24px; }
+  .pond-step { padding: 52px 0; }
+  .pond-step__image { min-height: 480px; }
+  .pond-step__copy h3 { font-size: clamp(2.5rem, 12vw, 4rem); }
+  .pond-arrival { margin-inline: -12px; padding: 90px 24px; }
+  .pond-arrival__gallery { min-height: 540px; }
+  .pond-arrival__gallery figure:first-child { right: 55px; bottom: 70px; border-radius: 120px 120px 18px 18px; }
+  .pond-arrival__gallery figure:last-child { width: 190px; height: 280px; border-width: 6px; }
+  .pond-maintenance { gap: 48px; padding: 100px 0; }
+  .pond-maintenance__image { min-height: 520px; border-radius: 150px 150px 18px 18px; }
+  .pond-maintenance__seasons > div { grid-template-columns: 70px 1fr; gap: 14px; }
+  .pond-faq summary { grid-template-columns: 35px 1fr 20px; gap: 10px; }
+  .pond-faq details > p { margin-left: 45px; }
+  .pond-sources__links a { grid-template-columns: 1fr 22px; }
+  .pond-sources__links span { grid-column: 1 / -1; }
+  .pond-guide-closing, .pond-guide-closing__content { min-height: 760px; }
+  .pond-guide-closing__shade { background: linear-gradient(0deg, rgba(4,24,18,.92), rgba(4,24,18,.22) 82%); }
+  .pond-guide-closing h2 { font-size: clamp(3.6rem, 17vw, 5.6rem); }
+}
+
+@media print {
+  .site-header, .site-footer, .pond-progress, .pond-guide-scroll, .pond-guide-nav, .pond-guide-closing, .pond-print { display: none !important; }
+  .pond-guide-hero, .pond-guide-hero__content { min-height: auto; }
+  .pond-guide-hero { color: black; background: white; }
+  .pond-guide-hero__image, .pond-guide-hero__shade, .pond-guide-hero__glow, .pond-guide-ripple { display: none; }
+  .pond-guide-hero__content { padding: 30px 0; }
+  .pond-guide-hero h1, .pond-guide-hero h1 em { color: black; font-size: 42pt; }
+  .pond-guide-hero .lead, .pond-guide-hero__meta span { color: black; }
+  .pond-guide-hero__meta span { border-color: #777; }
+  .pond-introduction, .pond-guide-body { padding: 30px 0; background: white; }
+  .pond-transformation, .pond-arrival { break-inside: avoid; }
+  .pond-guide-layout { display: block; }
+  .pond-step { grid-template-columns: 1fr 1fr; min-height: auto; break-inside: avoid; }
+  .pond-step__image { min-height: 320px; }
+  .pond-checklist { color: black; background: #eee; box-shadow: none; }
+  .pond-checklist .eyebrow, .pond-checklist__count { color: black; }
+  .pond-checklist label { color: black; }
+  .pond-checklist__box { border-color: #555; }
+}

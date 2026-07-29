@@ -102,11 +102,11 @@ export default function Home() {
       <section className="pond-story" data-parallax-root>
         <Image
           className="pond-story__image parallax-image"
-          src="/images/pond.webp"
-          alt="A lush garden pond surrounded by plants"
+          src="/images/pond-guide/finished-low-angle.webp"
+          alt="A completed wildlife pond seen from a low angle across the water"
           fill
           sizes="100vw"
-          style={{ objectPosition: "50% 58%" }}
+          style={{ objectPosition: "50% 56%" }}
         />
         <span className="pond-story__shade" />
         <div className="shell pond-story__content">
@@ -114,8 +114,8 @@ export default function Home() {
           <div data-reveal>
             <span className="eyebrow eyebrow--light">The fastest habitat upgrade</span>
             <h2>Add water.<br /><em>Watch life arrive.</em></h2>
-            <p>A pond can be no bigger than a washing-up bowl. Give it a shallow edge, a little cover and time, then let wildlife discover it.</p>
-            <Link className="button button--lime" href="/garden-guides/make-a-mini-wildlife-pond">Build a mini pond <Icon name="arrow" size={18} /></Link>
+            <p>Build with shallow margins, a secure escape route and enough cover for wildlife to move safely between water and land.</p>
+            <Link className="button button--lime" href="/garden-guides/make-a-mini-wildlife-pond">Build a wildlife pond <Icon name="arrow" size={18} /></Link>
           </div>
           <div className="pond-story__note" data-reveal>
             <span>Why water?</span>

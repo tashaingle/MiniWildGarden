@@ -38,9 +38,9 @@ const guideImages: Record<string, GuideImage> = {
     focal: "50% 50%",
   },
   "make-a-mini-wildlife-pond": {
-    src: "/images/wildlife-closeup.webp",
-    alt: "A bird and frog visiting a small container pond",
-    focal: "53% 48%",
+    src: "/images/pond-guide/finished-low-angle.webp",
+    alt: "A finished wildlife pond viewed from a low angle across the water",
+    focal: "50% 56%",
   },
   "grow-a-wildflower-patch": {
     src: "/images/wildflowers.webp",
