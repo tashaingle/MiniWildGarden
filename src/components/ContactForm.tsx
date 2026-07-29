@@ -55,7 +55,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} data-reveal noValidate>
+    <form className="contact-form" onSubmit={handleSubmit} data-reveal>
       <label>
         <span>Your name</span>
         <input name="name" autoComplete="name" minLength={2} maxLength={100} required />

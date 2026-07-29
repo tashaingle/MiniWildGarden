@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin).replace(/\/$/, "");
   const token = createNewsletterToken(email, firstName);
   const confirmationUrl = `${siteUrl}/api/newsletter/confirm?token=${encodeURIComponent(token)}`;
-  const from = process.env.RESEND_FROM_EMAIL || "Mini Wild Garden <hello@miniwildgarden.co.uk>";
+  const from = process.env.RESEND_FROM_EMAIL || "Mini Wild Garden <support@miniwildgarden.com>";
   const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hello,";
 
   try {

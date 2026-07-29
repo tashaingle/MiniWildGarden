@@ -50,12 +50,27 @@ export async function POST(request: NextRequest) {
   const message = cleanMessage("message" in body ? body.message : "", 5000);
   const privacyAccepted = "privacyAccepted" in body && body.privacyAccepted === true;
 
-  if (name.length < 2 || !isEmail(email) || message.length < 20 || !privacyAccepted) {
-    return NextResponse.json({ error: "Please complete every required field." }, { status: 400 });
+  if (name.length < 2) {
+    return NextResponse.json({ error: "Please enter your name." }, { status: 400 });
+  }
+  if (!isEmail(email)) {
+    return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+  }
+  if (message.length < 20) {
+    return NextResponse.json(
+      { error: "Please enter a message of at least 20 characters." },
+      { status: 400 },
+    );
+  }
+  if (!privacyAccepted) {
+    return NextResponse.json(
+      { error: "Please tick the privacy agreement before sending your message." },
+      { status: 400 },
+    );
   }
 
-  const from = process.env.RESEND_FROM_EMAIL || "Mini Wild Garden <hello@miniwildgarden.co.uk>";
-  const to = process.env.CONTACT_TO_EMAIL || "hello@miniwildgarden.co.uk";
+  const from = process.env.RESEND_FROM_EMAIL || "Mini Wild Garden <support@miniwildgarden.com>";
+  const to = process.env.CONTACT_TO_EMAIL || "support@miniwildgarden.com";
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
   try {
@@ -85,7 +100,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Contact form email failed", error);
     return NextResponse.json(
-      { error: "Your message could not be sent just now. Please email hello@miniwildgarden.co.uk instead." },
+      { error: "Your message could not be sent just now. Please email support@miniwildgarden.com instead." },
       { status: 502 },
     );
   }
