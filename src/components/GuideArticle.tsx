@@ -9,9 +9,39 @@ import { Icon } from "@/components/Icon";
 export function GuideArticle({ guide, backHref, backLabel }: { guide: Guide; backHref: string; backLabel: string }) {
   const image = getGuideImage(guide);
   const meta = getGuideMeta(guide.slug);
+  const pageUrl = `https://www.miniwildgarden.co.uk${backHref}/${guide.slug}`;
+  const imageUrl = image.src.startsWith("http") ? image.src : `https://www.miniwildgarden.co.uk${image.src}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#article`,
+        headline: guide.title,
+        description: guide.excerpt,
+        image: [imageUrl],
+        dateModified: meta.updated,
+        datePublished: meta.updated,
+        inLanguage: "en-GB",
+        mainEntityOfPage: pageUrl,
+        author: { "@id": "https://www.miniwildgarden.co.uk/#author" },
+        publisher: { "@id": "https://www.miniwildgarden.co.uk/#author" },
+        articleSection: guide.category,
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.miniwildgarden.co.uk/" },
+          { "@type": "ListItem", position: 2, name: backLabel, item: `https://www.miniwildgarden.co.uk${backHref}` },
+          { "@type": "ListItem", position: 3, name: guide.title, item: pageUrl },
+        ],
+      },
+    ],
+  };
 
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <section className="article-hero" data-parallax-root>
         <Image
           className="article-hero__image parallax-image"

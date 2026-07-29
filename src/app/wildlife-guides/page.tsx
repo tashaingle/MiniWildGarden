@@ -7,6 +7,7 @@ import { wildlifeGuides } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Wildlife guides",
   description: "Practical ways to help birds, bees, hedgehogs, butterflies, frogs and other British garden wildlife.",
+  alternates: { canonical: "/wildlife-guides" },
 };
 
 export default function WildlifeGuidesPage() {

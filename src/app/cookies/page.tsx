@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 
 export const metadata: Metadata = {
-  title: "Cookies and site preferences",
-  description: "How Mini Wild Garden uses local browser storage for saved guides, checklists and planner progress.",
+  title: "Cookies and analytics",
+  description: "How Mini Wild Garden uses browser storage and optional Google Analytics.",
   alternates: { canonical: "/cookies" },
 };
 
 export default function CookiesPage() {
   return (
     <main className="legal-page"><div className="shell legal-page__inner">
-      <span className="eyebrow">Site preferences</span><h1>Cookies and local storage</h1><p className="lead">Mini Wild Garden currently uses local browser storage rather than advertising or tracking cookies.</p>
-      <section><h2>Saved guides</h2><p>When you save a guide, its identifier is kept in your browser so the Saved Guides page can rebuild your personal list.</p></section>
-      <section><h2>Checklists and planner progress</h2><p>Seasonal task progress and wildlife garden planner answers are stored on your device so they remain available when you return.</p></section>
-      <section><h2>Helpfulness feedback</h2><p>Your “Was this helpful?” choice is saved locally to avoid repeatedly asking the same question. It is not currently transmitted or used to create a profile.</p></section>
-      <section><h2>Privacy notice preference</h2><p>One small local value records that you have dismissed the site privacy notice.</p></section>
-      <section><h2>How to remove this information</h2><p>Use the reset or remove controls within the relevant feature, or clear site data for miniwildgarden.co.uk in your browser settings.</p></section>
+      <span className="eyebrow">Site preferences</span><h1>Cookies and analytics</h1><p className="lead">Essential site preferences work without analytics. Google Analytics is optional and is not loaded until you allow it.</p>
+      <section><h2>Essential local storage</h2><p>Mini Wild Garden stores saved guides, checklist progress, planner answers, helpfulness feedback and your cookie choice in your browser. These features help the site remember your choices and do not require an advertising profile.</p></section>
+      <section><h2>Optional Google Analytics</h2><p>When you allow analytics, Google Analytics may use cookies such as <code>_ga</code> and a property-specific <code>_ga_…</code> cookie. These identifiers help distinguish visits and produce aggregated reports about how the site is used.</p></section>
+      <section><h2>Events measured</h2><p>The implementation records page views and may record successful contact-form and newsletter-signup actions. Form message contents, names and email addresses are not sent to Google Analytics by this site.</p></section>
+      <section><h2>Change your choice</h2><p>Open the settings below and choose either Necessary only or Allow analytics. Clearing site data in your browser will also remove the stored choice.</p><CookieSettingsButton /></section>
     </div></main>
   );
 }

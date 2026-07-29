@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CookieSettingsButton } from "@/components/CookieSettingsButton";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-orbit" aria-hidden="true"><span /><span /><span /></div>
+      <div className="shell site-footer__newsletter">
+        <NewsletterSignup />
+      </div>
       <div className="shell site-footer__top">
         <div className="footer-statement" data-reveal>
           <span className="eyebrow eyebrow--light">A garden is never just a garden</span>
@@ -31,7 +36,8 @@ export function Footer() {
           <div>
             <strong>Site information</strong>
             <Link href="/privacy">Privacy</Link>
-            <Link href="/cookies">Cookies &amp; preferences</Link>
+            <Link href="/cookies">Cookies &amp; analytics</Link>
+            <CookieSettingsButton />
             <a href="#top">Back to the canopy ↑</a>
           </div>
         </div>

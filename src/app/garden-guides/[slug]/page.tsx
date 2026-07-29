@@ -60,7 +60,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: guide.title,
     description: guide.excerpt,
-    openGraph: { images: [{ url: image.src, alt: image.alt }] },
+    alternates: { canonical: `/garden-guides/${guide.slug}` },
+    openGraph: {
+      title: guide.title,
+      description: guide.excerpt,
+      type: "article",
+      url: `/garden-guides/${guide.slug}`,
+      images: [{ url: image.src, alt: image.alt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: guide.title,
+      description: guide.excerpt,
+      images: [image.src],
+    },
   };
 }
 

@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Ask a wildlife gardening question, share your garden story or suggest a future Mini Wild Garden guide.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
@@ -23,11 +24,15 @@ export default function ContactPage() {
           <div className="contact-copy" data-reveal>
             <span className="eyebrow">Write to Mini Wild Garden</span>
             <h2>Every wild corner has a story.</h2>
-            <p>The form opens your normal email app so you can review the message before sending it.</p>
+            <p>Your message is sent securely through the website and normally receives a reply by email.</p>
             <a className="contact-email" href="mailto:hello@miniwildgarden.co.uk">hello@miniwildgarden.co.uk <span>↗</span></a>
             <div className="contact-note">
               <strong>Useful things to include</strong>
               <p>Your rough location, the size of your space, how much sun it gets and any wildlife you have already noticed.</p>
+            </div>
+            <div className="contact-note contact-note--credential">
+              <strong>Environmental science informed</strong>
+              <p>Mini Wild Garden is written and reviewed by Natasha Card, BSc Environmental Science.</p>
             </div>
           </div>
           <ContactForm />

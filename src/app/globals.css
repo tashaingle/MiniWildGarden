@@ -1649,3 +1649,104 @@ em { font-weight: 440; }
   .step__media img { transition: none; }
   .step:hover .step__media img { transform: none; }
 }
+
+/* Launch forms, consent, analytics and field-guide readability fixes */
+.field-intro__grid > * { min-width: 0; }
+.field-intro__rhythm { grid-template-columns: minmax(0,1fr) auto minmax(0,1fr); min-width: 0; }
+.field-intro__rhythm div { min-width: 0; padding: 20px; }
+.field-intro__rhythm strong { max-width: 100%; font-size: clamp(1.65rem,2.1vw,2.45rem); line-height: .98; overflow-wrap: anywhere; }
+.field-intro__rhythm span { line-height: 1.45; overflow-wrap: anywhere; }
+.field-intro__stat { min-width: 0; min-height: 410px; padding: 38px; }
+.field-intro__stat strong { display: block; margin: 0 0 25px; font-size: clamp(7rem,10vw,9.5rem); line-height: .78; }
+.field-intro__stat > span { display: block; margin-top: 0; line-height: 1.4; }
+.field-intro__stat p { max-width: 100%; }
+.field-step__image { isolation: isolate; }
+.field-step__image > span {
+  z-index: 5;
+  width: 64px;
+  height: 64px;
+  color: white;
+  background: rgba(5,29,22,.92);
+  border: 2px solid rgba(255,255,255,.92);
+  box-shadow: 0 12px 34px rgba(0,0,0,.34), 0 0 0 5px color-mix(in srgb, var(--field-accent) 78%, transparent);
+  text-shadow: 0 1px 3px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
+.field-guide--birds .field-step__image > span { background: rgba(4,34,46,.94); }
+.field-guide--butterfly .field-step__image > span { background: rgba(76,34,22,.94); }
+.field-guide--frog .field-step__image > span { background: rgba(11,55,40,.94); }
+
+.contact-note + .contact-note { margin-top: 14px; }
+.contact-note--credential { background: #d5e6df; }
+.contact-form { position: relative; }
+.contact-form > label:nth-of-type(3),
+.contact-form > label:nth-of-type(4),
+.contact-form .form-consent,
+.contact-form .form-honeypot,
+.contact-form .form-status { grid-column: 1 / -1; }
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+.contact-form .form-consent,
+.newsletter-consent { display: flex; grid-template-columns: none; gap: 11px; align-items: flex-start; }
+.contact-form .form-consent input,
+.newsletter-consent input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; accent-color: var(--moss); }
+.contact-form .form-consent > span,
+.newsletter-consent > span { font-size: .64rem; font-weight: 600; letter-spacing: 0; line-height: 1.6; text-transform: none; }
+.contact-form .form-consent a,
+.newsletter-consent a { text-decoration: underline; text-underline-offset: 3px; }
+.contact-form button:disabled,
+.newsletter-signup button:disabled { cursor: wait; opacity: .68; }
+.form-status { grid-column: 1 / -1; min-height: 1.4em; }
+.form-status--success,
+.newsletter-status--success { color: #2f7651; }
+.form-status--error,
+.newsletter-status--error { color: #a74235; }
+
+.site-footer__newsletter { position: relative; z-index: 2; padding-bottom: 105px; }
+.newsletter-signup { display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr); gap: clamp(42px,7vw,100px); align-items: end; padding: clamp(30px,5vw,58px); border: 1px solid rgba(255,255,255,.14); border-radius: 28px; background: linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.025)); box-shadow: 0 30px 90px rgba(0,0,0,.22); backdrop-filter: blur(16px); }
+.newsletter-signup__heading h3 { max-width: 580px; margin: 8px 0 16px; font-size: clamp(2.5rem,4.4vw,4.7rem); line-height: .94; }
+.newsletter-signup__heading p { max-width: 520px; margin: 0; color: rgba(255,255,255,.58); font-size: .8rem; line-height: 1.75; }
+.newsletter-signup__fields { position: relative; display: grid; grid-template-columns: .75fr 1.25fr; gap: 14px; }
+.newsletter-signup__fields > label:not(.newsletter-consent):not(.form-honeypot) { display: grid; gap: 8px; }
+.newsletter-signup__fields label > span { color: rgba(255,255,255,.74); font-size: .61rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.newsletter-signup__fields label small { color: rgba(255,255,255,.42); font-size: .53rem; }
+.newsletter-signup input:not([type="checkbox"]) { width: 100%; min-height: 50px; padding: 0 15px; color: white; border: 1px solid rgba(255,255,255,.18); border-radius: 11px; outline: 0; background: rgba(1,12,8,.34); }
+.newsletter-signup input:not([type="checkbox"]):focus { border-color: var(--lime); box-shadow: 0 0 0 4px rgba(216,243,107,.1); }
+.newsletter-consent { grid-column: 1 / -1; }
+.newsletter-consent > span { color: rgba(255,255,255,.58) !important; }
+.newsletter-signup button { grid-column: 1 / -1; justify-self: start; min-height: 48px; padding: 0 20px; color: var(--forest); border: 0; border-radius: 999px; background: var(--lime); cursor: pointer; font-size: .68rem; font-weight: 850; }
+.newsletter-status { grid-column: 1 / -1; min-height: 1.4em; margin: 0; color: rgba(255,255,255,.58); font-size: .64rem; }
+.newsletter-status--success { color: var(--lime); }
+.newsletter-status--error { color: #ffb4a7; }
+.footer-cookie-button { padding: 0; color: rgba(255,255,255,.58); border: 0; background: transparent; cursor: pointer; font: inherit; font-size: .73rem; text-align: left; transition: color .25s ease, transform .25s ease; }
+.footer-cookie-button:hover { color: white; transform: translateX(4px); }
+.legal-page .footer-cookie-button { display: inline-flex; min-height: 42px; align-items: center; margin-top: 8px; padding: 0 16px; color: white; border-radius: 999px; background: var(--forest); font-weight: 800; }
+
+.privacy-notice { max-width: 940px; }
+.privacy-notice__actions { display: flex; gap: 9px; align-items: center; }
+.privacy-notice__actions button { white-space: nowrap; }
+.privacy-notice .privacy-notice__secondary { color: white; border: 1px solid rgba(255,255,255,.3); background: transparent; }
+
+.confirmation-page { min-height: 75svh; display: grid; place-items: center; padding: 170px 0 100px; background: var(--cream); }
+.confirmation-page__inner { max-width: 820px; text-align: center; }
+.confirmation-page h1 { margin: 12px 0 24px; font-size: clamp(3.5rem,7vw,7rem); line-height: .9; }
+.confirmation-page p { max-width: 650px; margin: 0 auto 32px; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+
+@media (max-width: 1120px) {
+  .field-intro__rhythm { grid-template-columns: 1fr; }
+  .field-intro__rhythm > i { justify-self: center; line-height: 1; }
+  .field-intro__rhythm div { min-height: 145px; }
+  .newsletter-signup { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .field-intro__stat { min-height: 330px; padding: 30px; }
+  .field-intro__stat strong { margin-bottom: 20px; font-size: 6.6rem; line-height: .8; }
+  .field-step__image > span { top: 16px; left: 16px; width: 56px; height: 56px; font-size: 1.25rem; }
+  .newsletter-signup { padding: 28px 22px; border-radius: 20px; }
+  .newsletter-signup__fields { grid-template-columns: 1fr; }
+  .newsletter-consent,
+  .newsletter-signup button,
+  .newsletter-status { grid-column: 1; }
+  .privacy-notice__actions { display: grid; grid-template-columns: 1fr; }
+  .privacy-notice__actions button { width: 100%; }
+}

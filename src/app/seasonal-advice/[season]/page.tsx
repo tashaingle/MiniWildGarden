@@ -19,7 +19,20 @@ export async function generateMetadata({ params }: { params: Promise<{ season: s
   return {
     title: `${season.name} wildlife gardening`,
     description: season.intro,
-    openGraph: { images: [{ url: image.src, alt: image.alt }] },
+    alternates: { canonical: `/seasonal-advice/${season.slug}` },
+    openGraph: {
+      title: `${season.name} wildlife gardening`,
+      description: season.intro,
+      type: "article",
+      url: `/seasonal-advice/${season.slug}`,
+      images: [{ url: image.src, alt: image.alt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${season.name} wildlife gardening`,
+      description: season.intro,
+      images: [image.src],
+    },
   };
 }
 

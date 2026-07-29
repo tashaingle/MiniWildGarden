@@ -7,6 +7,7 @@ import { Icon } from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Our story",
   description: "Why Mini Wild Garden exists and the practical, evidence-informed approach behind every wildlife gardening guide.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

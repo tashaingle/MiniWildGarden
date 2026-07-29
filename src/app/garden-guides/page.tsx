@@ -7,6 +7,7 @@ import { gardenGuides } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Garden projects",
   description: "Beautiful, achievable wildlife garden projects for ponds, pollinator planting, dead-wood habitats, balconies, hedges and connected habitats.",
+  alternates: { canonical: "/garden-guides" },
 };
 
 export default function GardenGuidesPage() {
