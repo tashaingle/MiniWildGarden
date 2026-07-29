@@ -29,7 +29,7 @@ export default function AboutPage() {
           </div>
           <div className="about-editorial__copy" data-reveal>
             <p>It moves through fences, rooftops, pots, lawns, drains, hedges and forgotten corners. Our gardens can become stepping stones between larger habitats, even when they are small.</p>
-            <p>Created by Tash Card, an Environmental Science graduate and lifelong animal lover, Mini Wild Garden turns ecological principles into calm, practical actions that fit ordinary British homes.</p>
+            <p>Created by Tash Card, who holds a BSc in Environmental Science, Mini Wild Garden turns ecological principles and trusted UK conservation guidance into calm, practical actions that fit ordinary British homes.</p>
           </div>
         </div>
       </section>
