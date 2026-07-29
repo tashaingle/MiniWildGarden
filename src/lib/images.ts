@@ -63,9 +63,44 @@ const guideImages: Record<string, GuideImage> = {
     focal: "50% 52%",
   },
   "create-a-wildlife-friendly-balcony": {
-    src: "/images/balcony-guide/finished-balcony.webp",
-    alt: "A planted wildlife-friendly balcony with pots and a shallow water dish",
+    src: "/images/balcony-transform-guide/before-after.webp",
+    alt: "A bare balcony shown beside its transformation into a planted wildlife space",
+    focal: "50% 50%",
+  },
+  "leave-seed-heads-over-winter": {
+    src: "/images/winter-seedheads-guide/seed-heads.webp",
+    alt: "Tall dried seed heads left standing in a winter garden border",
+    focal: "50% 48%",
+  },
+  "create-a-leaf-litter-corner": {
+    src: "/images/leaf-litter-guide/leaf-corridor.webp",
+    alt: "Fallen autumn leaves retained beneath a dense garden hedge",
     focal: "50% 52%",
+  },
+  "make-an-insect-drinking-station": {
+    src: "/images/insect-water-guide/bees-on-stones.webp",
+    alt: "Bees landing safely on stones in a shallow water dish",
+    focal: "50% 48%",
+  },
+  "start-a-no-mow-lawn": {
+    src: "/images/no-mow-guide/mown-edge.webp",
+    alt: "A neat short lawn edge beside a retained area of longer grass",
+    focal: "50% 52%",
+  },
+  "collect-and-use-rainwater": {
+    src: "/images/rainwater-guide/water-butt.webp",
+    alt: "A covered water butt connected securely to a house downpipe",
+    focal: "50% 50%",
+  },
+  "mulch-to-reduce-watering": {
+    src: "/images/mulch-guide/mulched-plant.webp",
+    alt: "Organic wood-chip mulch spread around the base of a young garden plant",
+    focal: "50% 52%",
+  },
+  "create-a-wildlife-corridor": {
+    src: "/images/wildlife-corridor-guide/layered-planting.webp",
+    alt: "Dense layered planting forming a sheltered route through a garden",
+    focal: "50% 50%",
   },
   "plant-a-wildlife-hedge": {
     src: "/images/garden-bed.webp",

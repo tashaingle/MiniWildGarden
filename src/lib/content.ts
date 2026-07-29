@@ -10,6 +10,11 @@ export type Guide = {
   intro: string;
   steps: { title: string; text: string }[];
   tips: string[];
+  images?: {
+    src: string;
+    alt: string;
+    focal?: string;
+  }[];
 };
 
 export const wildlifeGuides: Guide[] = [
@@ -403,37 +408,329 @@ export const gardenGuides: Guide[] = [
   },
   {
     slug: "create-a-wildlife-friendly-balcony",
-    title: "Create a wildlife-friendly balcony",
-    excerpt: "Use containers, vertical planting and mini water features to turn even a small balcony into a feeding and sheltering stop for wildlife.",
+    title: "Transform a balcony for wildlife",
+    excerpt: "Turn a bare balcony into a layered mini habitat with flowers, shelter, safe water and useful vertical planting.",
     category: "Small spaces",
-    difficulty: "Easy",
+    difficulty: "Weekend project",
     time: "A weekend",
     icon: "garden",
     colour: "leaf",
     intro:
-      "Balconies cannot do everything a full garden can, but they can still feed pollinators, offer drinking water to birds and insects, and create a greener stepping stone through built-up areas. The key is to use every layer thoughtfully.",
+      "A balcony cannot replace a full garden, but it can become a valuable stepping stone through a built-up area. The strongest designs combine nectar-rich planting, shallow water, shelter and a few different heights without making the space difficult to use or maintain.",
     steps: [
       {
-        title: "Check sun, wind and practical limits",
-        text: "Notice how much light the balcony gets, whether it dries quickly and how exposed it is to wind. Make sure containers, water features and trellises suit the available weight, drainage and any building rules.",
+        title: "Start with the practical limits",
+        text: "Check how much sun and wind the balcony receives, where water can drain and whether your tenancy or building has rules about fixings, screening or heavy containers. Keep doors, drains and escape routes clear, and use stable pots that cannot fall in strong weather.",
       },
       {
-        title: "Plant a layered mix in containers",
-        text: "Combine longer-flowering herbs, pollinator-friendly perennials and a few structural plants in pots of different sizes. Grouping containers together creates a denser patch of habitat and helps reduce drying in hot weather.",
+        title: "Build layers with containers",
+        text: "Group larger pots at the back, flowering herbs and perennials through the middle, and trailing or low plants around the edges. Repeating a few reliable species creates a stronger feeding patch than scattering many single plants, while climbers and hanging baskets add height without using more floor space.",
       },
       {
-        title: "Add a shallow water feature",
-        text: "A dish, tray or small watertight bowl with stones can provide drinking water and a cooling stop for insects. Keep it shallow, refresh it regularly and place it where spills will not cause problems for neighbours below.",
+        title: "Add shallow water and shelter",
+        text: "Use a shallow dish or small container pond with stones, stable planting and an easy way out. A compact insect shelter can add extra structure, but natural materials, hollow stems and dense pots are useful too. Keep water clean and avoid placing a deep open container where children or pets could reach it.",
       },
       {
-        title: "Use walls and corners for extra shelter",
-        text: "Vertical planters, climbers and tucked-away corners help turn a flat balcony into a layered mini habitat. Leave a little undisturbed cover beneath taller pots or behind containers where insects can rest out of the heat and wind.",
+        title: "Make the finished space easy to sustain",
+        text: "Mulch pots, collect rainwater where practical and choose plants that suit the real conditions. Leave a few stems and seed heads through winter, replace failed plants gradually and keep enough open space to sit, water and inspect everything safely.",
       },
     ],
     tips: [
-      "Lavender, thyme, salvia, chamomile and marjoram are excellent in sunny containers.",
-      "A single water dish can be just as valuable as an extra decorative pot.",
-      "Choose peat-free compost and mulch the surface of pots to slow drying.",
+      "Use peat-free compost and saucers only where they will not remain permanently waterlogged.",
+      "Lavender, thyme, marjoram, salvia and compact grasses work well in many sunny containers.",
+      "Secure tall planters, trellis and hanging containers against strong wind.",
+      "A small, well-maintained water dish is more useful than a large neglected feature.",
+    ],
+    images: [
+      { src: "/images/balcony-transform-guide/finished-balcony.webp", alt: "A compact balcony transformed with wildlife-friendly pots, flowers and a water feature", focal: "50% 52%" },
+      { src: "/images/balcony-transform-guide/container-garden.webp", alt: "A dense collection of planted containers creating several layers of balcony habitat", focal: "50% 50%" },
+      { src: "/images/balcony-transform-guide/water-feature.webp", alt: "A small balcony water feature surrounded by pots and ferns", focal: "48% 50%" },
+      { src: "/images/balcony-transform-guide/vertical-planting.webp", alt: "Vertical and hanging planters using the walls and overhead space of a narrow balcony", focal: "50% 50%" },
+    ],
+  },
+
+  {
+    slug: "leave-seed-heads-over-winter",
+    title: "Leave seed heads standing over winter",
+    excerpt: "Keep useful stems and seed heads for birds, insects and winter structure, then cut them back at the right time.",
+    category: "Seasonal care",
+    difficulty: "Easy",
+    time: "20 minutes now",
+    icon: "flower",
+    colour: "meadow",
+    intro:
+      "Cutting every border to the ground in autumn removes food and shelter just when wildlife needs them most. Healthy seed heads can feed birds, hollow stems can shelter overwintering insects and the remaining structure makes a winter garden feel deliberate rather than empty.",
+    steps: [
+      {
+        title: "Choose healthy plants to keep",
+        text: "Leave strong, upright stems and seed heads that are dry, stable and free from obvious disease. Sunflowers, teasels, grasses and many herbaceous perennials can remain useful after flowering. Remove collapsed, diseased or unsafe growth rather than treating every plant in the same way.",
+      },
+      {
+        title: "Make the untidiness look intentional",
+        text: "Keep clear paths and visible edges while allowing grouped stems to stand inside the border. A simple frame of evergreen planting, a low mown edge or a neat mulch line helps the retained seed heads read as a purposeful winter habitat.",
+      },
+      {
+        title: "Protect the stems through winter",
+        text: "Avoid repeatedly moving, tying or stripping the remaining growth. Let birds take seeds and allow insects to use hollow stems and sheltered joints. Check only for stems that have fallen across paths or become unstable in severe weather.",
+      },
+      {
+        title: "Cut back gradually in spring",
+        text: "Wait until late winter or early spring, then remove growth in stages as fresh shoots appear and temperatures begin to rise. Place sound hollow stems in a dry, sheltered corner for a while instead of shredding everything immediately, and compost healthy softer material.",
+      },
+    ],
+    tips: [
+      "Keep seed heads away from narrow paths where wet stems could become a trip hazard.",
+      "Remove material affected by serious fungal disease rather than composting it in a small home system.",
+      "Leave some lower stems at different heights to create more varied shelter.",
+      "Photograph the border in winter so next year's planting can improve the structure.",
+    ],
+  },
+  {
+    slug: "create-a-leaf-litter-corner",
+    title: "Create a wildlife-friendly leaf-litter corner",
+    excerpt: "Turn fallen leaves into a sheltered feeding layer beneath shrubs instead of removing every trace of autumn.",
+    category: "Shelter",
+    difficulty: "Easy",
+    time: "30 minutes",
+    icon: "leaf",
+    colour: "earth",
+    intro:
+      "Leaf litter is not waste. Beneath hedges and shrubs it holds moisture, feeds decomposers and creates cover for beetles, woodlice, worms, amphibians and the animals that forage for them. The safest approach is to keep leaves where they help while clearing places that need to stay open.",
+    steps: [
+      {
+        title: "Choose a quiet, shaded position",
+        text: "Use the back of a border, the base of a hedge or an undisturbed corner away from drains, doors and frequently used paths. A spot already connected to shrubs, logs or ground cover will be easier for wildlife to reach without crossing exposed ground.",
+      },
+      {
+        title: "Gather the right material",
+        text: "Rake healthy fallen leaves into a loose layer and mix in a few small twigs so it does not form one dense, airless mat. Avoid adding litter, treated wood, diseased plant material or large quantities of evergreen needles unless you are deliberately making a separate acidic leaf-mould pile.",
+      },
+      {
+        title: "Keep the habitat loose and connected",
+        text: "Tuck leaves beneath shrubs and around logs rather than building a steep heap that can blow across the garden. Let nearby ground-cover plants and low branches form a sheltered route into the corner, while keeping the front edge clear enough to inspect.",
+      },
+      {
+        title: "Top up instead of rebuilding",
+        text: "Add more leaves each autumn and let the lower layers decompose naturally. Disturb the area as little as possible, especially during cold weather. If you need to move it, work slowly by hand and check for sheltering wildlife first.",
+      },
+    ],
+    tips: [
+      "Do not block air bricks, drainage channels or access points.",
+      "Remove thick leaf layers from fine lawn grass and move them to the habitat corner instead.",
+      "Keep a few logs or stones partly embedded at the edge for extra moisture and cover.",
+      "Never set fire to a leaf or brush pile without dismantling and checking it first.",
+    ],
+    images: [
+      { src: "/images/leaf-litter-guide/leaf-habitat.webp", alt: "A sheltered leaf and twig habitat beneath shrubs and a low stone edge", focal: "50% 50%" },
+      { src: "/images/leaf-litter-guide/hedge-floor.webp", alt: "Leaves and dense growth forming protected cover at the base of a hedge", focal: "50% 52%" },
+      { src: "/images/leaf-litter-guide/shady-ground.webp", alt: "Low ground cover and leaf litter in a cool shaded garden corner", focal: "50% 52%" },
+    ],
+  },
+  {
+    slug: "make-an-insect-drinking-station",
+    title: "Make a safe drinking station for insects",
+    excerpt: "Create a shallow, clean water source with secure landing places for bees and other small visitors.",
+    category: "Water",
+    difficulty: "Easy",
+    time: "15 minutes",
+    icon: "bee",
+    colour: "pond",
+    intro:
+      "Pollinators sometimes need water, particularly during warm, dry weather. A drinking station should be shallow, easy to grip and simple to clean. It is a small feature, but regular maintenance matters more than decorative complexity.",
+    steps: [
+      {
+        title: "Choose a wide, shallow dish",
+        text: "Use a plant saucer, glazed dish or other stable container with low sides. Avoid smooth, deep vessels that offer no escape. Set it on a level surface in light shade or morning sun, close to flowers but away from pesticide use and busy foot traffic.",
+      },
+      {
+        title: "Add safe landing points",
+        text: "Place washed pebbles or marbles so several surfaces remain above the waterline. The stones should be stable and close enough for small insects to step between them without entering deep water.",
+      },
+      {
+        title: "Fill it lightly and keep it fresh",
+        text: "Add clean water only to the lower part of the stones. Top it up in dry weather, empty and rinse the dish regularly, and remove algae, soil and dead insects before refilling. A clean shallow source is safer than a permanently stagnant one.",
+      },
+      {
+        title: "Make it part of a wider habitat",
+        text: "Place nectar-rich flowers nearby and keep another water source for birds if space allows. The drinking station works best as one part of a garden that also provides food, nesting opportunities and shelter from wind and heat.",
+      },
+    ],
+    tips: [
+      "Keep the water below the tops of the stones.",
+      "Use plain water without sugar, honey or additives.",
+      "Move the dish into partial shade during very hot weather so it does not heat rapidly.",
+      "Clean more frequently when many insects or birds are using the area.",
+    ],
+    images: [
+      { src: "/images/insect-water-guide/shallow-dish.webp", alt: "A shallow ceramic water dish raised on smooth stones in a shaded garden", focal: "50% 54%" },
+      { src: "/images/insect-water-guide/clean-water.webp", alt: "Fresh clean water rippling in a shallow garden dish", focal: "50% 50%" },
+      { src: "/images/insect-water-guide/refill-water.webp", alt: "A shallow garden water feature being refilled with a watering can", focal: "50% 48%" },
+    ],
+  },
+  {
+    slug: "start-a-no-mow-lawn",
+    title: "Start a no-mow lawn",
+    excerpt: "Create longer grass, flowering lawn plants and clear paths without making the whole garden difficult to use.",
+    category: "Lawns",
+    difficulty: "Ongoing",
+    time: "One growing season",
+    icon: "flower",
+    colour: "meadow",
+    intro:
+      "A no-mow lawn does not have to mean abandoning every blade of grass. Different heights create different conditions, so a useful design often combines longer areas with short paths, access strips and carefully timed cuts. Starting with one patch makes the change easier to observe and manage.",
+    steps: [
+      {
+        title: "Choose the area and draw the edges",
+        text: "Select a sunny or lightly shaded patch that does not block a main route, play space or access point. Mark a curved edge, island or wide strip and continue mowing the surrounding path so the change looks deliberate from the beginning.",
+      },
+      {
+        title: "Let the existing lawn reveal itself",
+        text: "Reduce mowing and watch what appears before adding seed. Daisies, clover, selfheal, dandelions and other low flowers may already be present. Avoid fertiliser and weedkiller, which favour vigorous grass and reduce the diversity you are trying to encourage.",
+      },
+      {
+        title: "Use more than one grass height",
+        text: "Keep some short flowering lawn, a longer summer patch and an uncut edge or tussock where practical. This varied structure gives wildlife more choices and keeps the garden usable. Mown paths also make the area easier to explore and maintain.",
+      },
+      {
+        title: "Cut carefully and remove the clippings",
+        text: "Before cutting, walk through the area slowly and check for wildlife. Work from the centre outwards or from one side to the other so animals are not driven into a shrinking island. Remove most cut material after seed has had time to fall so the soil does not become increasingly fertile.",
+      },
+    ],
+    tips: [
+      "Start with a manageable patch and expand only after seeing how it behaves.",
+      "Do not cut every long area on the same day.",
+      "Keep sightlines clear beside roads, steps and children's play areas.",
+      "Use locally appropriate seed or plug plants only if the existing lawn remains species-poor.",
+    ],
+    images: [
+      { src: "/images/no-mow-guide/short-lawn.webp", alt: "A conventional short garden lawn before a no-mow area is established", focal: "50% 52%" },
+      { src: "/images/no-mow-guide/long-grass.webp", alt: "A garden lawn developing varied patches of longer grass", focal: "50% 54%" },
+      { src: "/images/no-mow-guide/meadow-path.webp", alt: "A mown path running through broad areas of longer meadow grass", focal: "50% 50%" },
+      { src: "/images/no-mow-guide/mown-path.webp", alt: "A neat short-grass path beside a retained strip of taller grass", focal: "50% 50%" },
+    ],
+  },
+  {
+    slug: "collect-and-use-rainwater",
+    title: "Collect and use rainwater",
+    excerpt: "Set up a secure water butt and use stored rain where it makes the greatest difference in your garden.",
+    category: "Water saving",
+    difficulty: "Weekend project",
+    time: "1–2 hours",
+    icon: "pond",
+    colour: "pond",
+    intro:
+      "Stored rainwater reduces reliance on treated mains water and gives you a useful reserve for dry periods. A good system needs a stable base, a covered container, a sound connection to the downpipe and an overflow route that will not create damp or flooding problems.",
+    steps: [
+      {
+        title: "Choose a safe position and container",
+        text: "Place the water butt beside a suitable downpipe on a solid, level base that can carry its full weight. Use a purpose-made container with a close-fitting lid and child-safe access. Check that the tap is high enough for a watering can and that the location will not obstruct a path.",
+      },
+      {
+        title: "Fit the diverter and overflow",
+        text: "Follow the manufacturer's instructions for the rainwater diverter and keep connections watertight. Make sure excess water can return to the drain or reach a safe permeable area rather than collecting beside the house, a neighbour's boundary or a foundation.",
+      },
+      {
+        title: "Keep the stored water protected",
+        text: "Keep the lid closed, use screens where needed and clear gutters so leaves and debris do not enter the system. Inspect the butt, stand and fittings periodically for leaks, movement, algae and blocked overflows, especially after storms or freezing weather.",
+      },
+      {
+        title: "Use rainwater where it helps most",
+        text: "Prioritise containers, young plants and recently planted borders during dry periods, watering the soil around roots rather than spraying foliage. Stored rainwater is for garden use, not drinking. Empty, clean or isolate the system when maintenance or severe winter conditions require it.",
+      },
+    ],
+    tips: [
+      "A full water butt is extremely heavy, so never rely on loose blocks or an unstable stand.",
+      "Keep the outlet and overflow away from walls that already have damp problems.",
+      "Water early or late in the day so less is lost to evaporation.",
+      "Use a watering can for targeted watering rather than applying small amounts everywhere.",
+    ],
+    images: [
+      { src: "/images/rainwater-guide/water-butt-tap.webp", alt: "Stored rainwater flowing from a water-butt tap into a watering can", focal: "50% 52%" },
+      { src: "/images/rainwater-guide/watering-can.webp", alt: "A galvanised watering can ready to carry collected rainwater into the garden", focal: "50% 50%" },
+      { src: "/images/rainwater-guide/refill-bird-bath.webp", alt: "A garden bird bath being topped up carefully with a watering can", focal: "48% 50%" },
+      { src: "/images/rainwater-guide/water-young-plants.webp", alt: "Young garden plants being watered directly at soil level", focal: "50% 50%" },
+    ],
+  },
+  {
+    slug: "mulch-to-reduce-watering",
+    title: "Mulch to reduce watering",
+    excerpt: "Cover bare soil with the right material to slow moisture loss, protect soil life and reduce repeated watering.",
+    category: "Soil care",
+    difficulty: "Easy",
+    time: "1 hour",
+    icon: "leaf",
+    colour: "earth",
+    intro:
+      "Bare soil loses water quickly and is vulnerable to weeds, surface crusting and temperature swings. A suitable mulch helps rain soak in and slows evaporation afterwards. The best result comes from applying it to moist, weed-free soil without burying stems or plant crowns.",
+    steps: [
+      {
+        title: "Choose a mulch that suits the planting",
+        text: "Use well-rotted garden compost, leaf mould, composted bark or wood chip where appropriate. Fine annual beds may need a softer material, while established shrubs and hedges can take coarser mulch. Avoid fresh contaminated waste, treated wood and materials that are unsafe around pets.",
+      },
+      {
+        title: "Prepare and water the soil first",
+        text: "Remove persistent weeds and water thoroughly if the ground is dry. Mulch conserves moisture already in the soil, but a thick dry layer placed over parched ground can make it harder for light rain or a quick watering to reach the roots.",
+      },
+      {
+        title: "Apply an even, useful layer",
+        text: "Spread roughly 5 cm of organic material across the soil, adjusting for the material and planting. Keep a clear ring around stems, trunks and the crowns of perennials so they remain ventilated and are not held constantly wet.",
+      },
+      {
+        title: "Check beneath it before watering again",
+        text: "Push a finger through the mulch and test the soil below rather than judging by the dry surface. Water deeply and less often when plants need it. Top up thin areas as the material breaks down, but avoid continually piling new mulch against woody stems.",
+      },
+    ],
+    tips: [
+      "Keep mulch away from air bricks, drains and timber structures.",
+      "Water at soil level so the moisture passes through the mulch to the roots.",
+      "Home-made leaf mould and garden compost can reduce both waste and watering.",
+      "Do not use cocoa-shell mulch where dogs may access it.",
+    ],
+    images: [
+      { src: "/images/mulch-guide/wood-chip-bed.webp", alt: "A planted garden bed protected by a loose layer of wood-chip mulch", focal: "50% 52%" },
+      { src: "/images/mulch-guide/dry-soil.webp", alt: "Dry exposed garden soil showing why moisture protection is useful", focal: "50% 50%" },
+    ],
+  },
+  {
+    slug: "create-a-wildlife-corridor",
+    title: "Create a wildlife corridor through your garden",
+    excerpt: "Link water, planting, shelter and boundary access so wildlife can move without crossing large exposed gaps.",
+    category: "Connectivity",
+    difficulty: "Weekend project",
+    time: "Half a day",
+    icon: "hedge",
+    colour: "leaf",
+    intro:
+      "Individual habitat features become more useful when they connect. A pond beside dense planting, a hedge linked to ground cover and a log pile near a boundary gap can form a continuous route for insects, amphibians, birds and small mammals. The aim is not a single tunnel, but a chain of safe stopping places.",
+    steps: [
+      {
+        title: "Map the useful features and exposed gaps",
+        text: "Walk through the garden at ground level as well as at human height. Mark existing shrubs, hedges, climbers, water, long grass, logs and boundary access. Then notice where wildlife would have to cross bright paving, short open lawn or a bare fence line to reach the next feature.",
+      },
+      {
+        title: "Join habitats with layered planting",
+        text: "Use low ground cover beneath shrubs, climbers on fences and a sequence of pots or planting pockets through narrow spaces. Combine evergreen shelter with deciduous plants, flowers and seed-bearing growth so the route offers cover and food across more of the year.",
+      },
+      {
+        title: "Add stepping stones of shelter",
+        text: "Place a small log pile, leaf-litter corner, stone group or shallow water dish between larger habitat areas. Keep these features stable and partly shaded. Even a short distance between protected stops can make a route less exposed for small animals.",
+      },
+      {
+        title: "Connect the boundary and reduce disturbance",
+        text: "Where permission and pet safety allow, link neighbouring gardens with a ground-level gap or living hedge. Keep bright lighting away from the route, avoid blocking it with stored items and trim in stages so the entire corridor is never removed at once.",
+      },
+    ],
+    tips: [
+      "Do not create a boundary gap without the owner's permission.",
+      "Check that routes do not lead wildlife towards an uncovered drain, road or other hazard.",
+      "Retain some leaf litter and low branches beneath hedges.",
+      "Photograph the route from above and at ground level to spot missing links.",
+    ],
+    images: [
+      { src: "/images/wildlife-corridor-guide/ground-cover.webp", alt: "Low ground-cover plants linking shaded areas beneath taller vegetation", focal: "50% 52%" },
+      { src: "/images/wildlife-corridor-guide/shrub-route.webp", alt: "A sheltered path passing through dense shrubs and evergreen cover", focal: "50% 50%" },
+      { src: "/images/wildlife-corridor-guide/log-edge.webp", alt: "A stacked log edge beside dense planting creating shelter and a connected route", focal: "50% 50%" },
+      { src: "/images/wildlife-corridor-guide/leaf-route.webp", alt: "A leaf-covered route beneath a hedge offering protected ground-level movement", focal: "50% 50%" },
     ],
   },
   {

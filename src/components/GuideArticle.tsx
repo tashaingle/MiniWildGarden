@@ -63,12 +63,30 @@ export function GuideArticle({ guide, backHref, backLabel }: { guide: Guide; bac
               <h2>Make it happen.</h2>
             </div>
             <div className="steps">
-              {guide.steps.map((step, index) => (
-                <section className="step" key={step.title} data-reveal>
-                  <span className="step__number">{String(index + 1).padStart(2, "0")}</span>
-                  <div><h3>{step.title}</h3><p>{step.text}</p></div>
-                </section>
-              ))}
+              {guide.steps.map((step, index) => {
+                const stepImage = guide.images?.[index];
+
+                return (
+                  <section className={`step${stepImage ? " step--with-image" : ""}`} key={step.title} data-reveal>
+                    <span className="step__number">{String(index + 1).padStart(2, "0")}</span>
+                    <div className="step__body">
+                      <h3>{step.title}</h3>
+                      <p>{step.text}</p>
+                      {stepImage && (
+                        <figure className="step__media">
+                          <Image
+                            src={stepImage.src}
+                            alt={stepImage.alt}
+                            fill
+                            sizes="(max-width: 760px) 100vw, 760px"
+                            style={{ objectPosition: stepImage.focal ?? "50% 50%" }}
+                          />
+                        </figure>
+                      )}
+                    </div>
+                  </section>
+                );
+              })}
             </div>
           </article>
 
