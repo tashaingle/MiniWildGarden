@@ -25,7 +25,7 @@ export default function ContactPage() {
             <span className="eyebrow">Write to Mini Wild Garden</span>
             <h2>Every wild corner has a story.</h2>
             <p>Your message is sent securely through the website and normally receives a reply by email.</p>
-            <a className="contact-email" href="mailto:hello@miniwildgarden.co.uk">hello@miniwildgarden.co.uk <span>↗</span></a>
+            <a className="contact-email" href="mailto:support@miniwildgarden.com">support@miniwildgarden.com <span>↗</span></a>
             <div className="contact-note">
               <strong>Useful things to include</strong>
               <p>Your rough location, the size of your space, how much sun it gets and any wildlife you have already noticed.</p>

@@ -16,15 +16,15 @@ Extract the ZIP directly into the root of the existing `mini-wild-garden` projec
 ## 2. Configure Resend
 
 1. Create or open the Mini Wild Garden account in Resend.
-2. Add and verify `miniwildgarden.co.uk` as a sending domain.
+2. Add and verify `miniwildgarden.com` as a sending domain.
 3. Create a **Full access** API key. A send-only key cannot create newsletter contacts.
 4. In Contacts, create a Segment called `Mini Wild Garden newsletter` and copy its ID.
 5. Add the following variables in Vercel under Project → Settings → Environment Variables:
 
 ```text
 RESEND_API_KEY=re_...
-RESEND_FROM_EMAIL=Mini Wild Garden <hello@miniwildgarden.co.uk>
-CONTACT_TO_EMAIL=hello@miniwildgarden.co.uk
+RESEND_FROM_EMAIL=Mini Wild Garden <support@miniwildgarden.com>
+CONTACT_TO_EMAIL=support@miniwildgarden.com
 RESEND_NEWSLETTER_SEGMENT_ID=your-segment-id
 ```
 
@@ -81,7 +81,7 @@ After adding environment variables, redeploy the latest commit in Vercel. Test t
 
 1. Choose Necessary only and confirm no GA requests appear.
 2. Reopen Cookie settings from the footer, allow analytics and confirm GA4 Realtime records the visit.
-3. Send a contact message and verify it arrives at `hello@miniwildgarden.co.uk` with the visitor’s address set as Reply-To.
+3. Send a contact message and verify it arrives at `support@miniwildgarden.com` with the visitor’s address set as Reply-To.
 4. Subscribe to the newsletter, click the confirmation email and confirm the address appears in the Resend Segment.
 5. Open `https://www.miniwildgarden.co.uk/sitemap.xml` and resubmit that exact URL in Search Console.
 
