@@ -8,9 +8,9 @@ export type GuideImage = {
 
 const guideImages: Record<string, GuideImage> = {
   "help-garden-birds": {
-    src: "/images/bird.webp",
-    alt: "A small garden bird perched beside a seed feeder",
-    focal: "55% 45%",
+    src: "/images/bird-guide/garden-feeder.webp",
+    alt: "Small garden birds visiting a hanging wooden feeder",
+    focal: "55% 50%",
   },
   "garden-for-bees": {
     src: "/images/bee.webp",
@@ -63,8 +63,8 @@ const guideImages: Record<string, GuideImage> = {
     focal: "48% 48%",
   },
   "make-a-hedgehog-highway": {
-    src: "/images/hedgehog.webp",
-    alt: "A hedgehog emerging through a ground-level fence opening",
+    src: "/images/hedgehog-guide/hedgehog-through-fence.webp",
+    alt: "A hedgehog emerging through a ground-level opening in a wooden fence",
     focal: "50% 54%",
   },
 };

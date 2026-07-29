@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GuideArticle } from "@/components/GuideArticle";
+import { HedgehogHighwayGuide } from "@/components/HedgehogHighwayGuide";
 import { PondGuide } from "@/components/PondGuide";
 import { gardenGuides, getGardenGuide } from "@/lib/content";
 import { getGuideImage } from "@/lib/images";
 
 const pondSlug = "make-a-mini-wildlife-pond";
+const hedgehogSlug = "make-a-hedgehog-highway";
 
 export function generateStaticParams() {
   return gardenGuides.map((guide) => ({ slug: guide.slug }));
@@ -33,6 +35,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  if (slug === hedgehogSlug) {
+    return {
+      title: "How to make a hedgehog highway",
+      description: "A detailed UK guide to creating a safe 13 cm by 13 cm access point through a wooden garden fence and connecting neighbouring habitat.",
+      alternates: { canonical: `/garden-guides/${hedgehogSlug}` },
+      openGraph: {
+        title: "How to make a hedgehog highway",
+        description: "Open a safe route through your garden boundary and help reconnect neighbourhood hedgehog habitat.",
+        type: "article",
+        images: [{
+          url: "/images/hedgehog-guide/hedgehog-through-fence.webp",
+          width: 784,
+          height: 1168,
+          alt: "A hedgehog using a ground-level opening in a wooden fence",
+        }],
+      },
+    };
+  }
+
   const guide = getGardenGuide(slug);
   if (!guide) return {};
   const image = getGuideImage(guide);
@@ -49,6 +70,7 @@ export default async function GardenGuidePage({ params }: { params: Promise<{ sl
   if (!guide) notFound();
 
   if (slug === pondSlug) return <PondGuide />;
+  if (slug === hedgehogSlug) return <HedgehogHighwayGuide />;
 
   return <GuideArticle guide={guide} backHref="/garden-guides" backLabel="All garden projects" />;
 }

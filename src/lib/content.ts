@@ -15,15 +15,15 @@ export type Guide = {
 export const wildlifeGuides: Guide[] = [
   {
     slug: "help-garden-birds",
-    title: "Help garden birds all year round",
-    excerpt: "Food, water, nesting spaces and safer planting for the birds that visit your garden.",
+    title: "Help garden birds safely",
+    excerpt: "Cleaner feeders, fresh water, seasonal food and better shelter for the birds sharing your garden.",
     category: "Birds",
     difficulty: "Easy",
-    time: "20 minutes",
+    time: "15 minutes weekly",
     icon: "bird",
     colour: "sky",
     intro:
-      "A wildlife-friendly garden does not need to be large or perfectly tidy. A reliable water source, natural food and a few sheltered spaces can make a meaningful difference to local birds.",
+      "Food and water can draw many birds into one place, which makes hygiene as important as generosity. A clean, seasonal feeding routine works best alongside natural food, shelter and nesting habitat.",
     steps: [
       {
         title: "Add clean water",
@@ -404,14 +404,14 @@ export const gardenGuides: Guide[] = [
   {
     slug: "make-a-hedgehog-highway",
     title: "Make a hedgehog highway",
-    excerpt: "Link neighbouring gardens with a small, safe ground-level route.",
+    excerpt: "Create a safe 13 cm opening and reconnect neighbouring gardens for hedgehogs moving after dark.",
     category: "Access",
-    difficulty: "Weekend project",
-    time: "1 hour",
+    difficulty: "Easy",
+    time: "About 1 hour",
     icon: "gate",
     colour: "earth",
     intro:
-      "One garden rarely provides everything a hedgehog needs. Connected routes allow animals to move between feeding, nesting and resting places without relying on roads.",
+      "One enclosed garden cannot provide an entire night-time range. A carefully finished 13 cm by 13 cm opening can reconnect feeding, nesting and resting habitat across several neighbouring spaces.",
     steps: [
       {
         title: "Speak to neighbours",
