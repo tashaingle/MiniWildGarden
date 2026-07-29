@@ -13,15 +13,20 @@ export function CookieNotice() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    try {
-      setVisible(!window.localStorage.getItem(STORAGE_KEY));
-    } catch {
-      setVisible(true);
-    }
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        setVisible(!window.localStorage.getItem(STORAGE_KEY));
+      } catch {
+        setVisible(true);
+      }
+    });
 
     const open = () => setVisible(true);
     window.addEventListener(OPEN_EVENT, open);
-    return () => window.removeEventListener(OPEN_EVENT, open);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener(OPEN_EVENT, open);
+    };
   }, []);
 
   function choose(choice: ConsentChoice) {

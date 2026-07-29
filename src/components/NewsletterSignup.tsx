@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 import { trackEvent } from "@/lib/analytics";
 
@@ -10,7 +10,11 @@ type FormState = "idle" | "sending" | "success" | "error";
 export function NewsletterSignup() {
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
-  const startedAt = useRef(Date.now());
+  const startedAt = useRef(0);
+
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();

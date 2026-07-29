@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "This request could not be verified." }, { status: 403 });
   }
 
-  if (isRateLimited(`newsletter:${requestIp(request)}`)) {
+  if (await isRateLimited(`newsletter:${requestIp(request)}`)) {
     return NextResponse.json({ error: "Please wait before trying again." }, { status: 429 });
   }
 

@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "This request could not be verified." }, { status: 403 });
   }
 
-  if (isRateLimited(`contact:${requestIp(request)}`)) {
+  if (await isRateLimited(`contact:${requestIp(request)}`)) {
     return NextResponse.json({ error: "Too many messages were sent. Please try again shortly." }, { status: 429 });
   }
 

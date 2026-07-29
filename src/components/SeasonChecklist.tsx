@@ -8,15 +8,18 @@ export function SeasonChecklist({ season, jobs }: { season: string; jobs: readon
   const [checked, setChecked] = useState<boolean[]>(jobs.map(() => false));
 
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(storageKey);
-      if (stored) {
-        const parsed = JSON.parse(stored) as boolean[];
-        setChecked(jobs.map((_, index) => Boolean(parsed[index])));
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        const stored = window.localStorage.getItem(storageKey);
+        if (stored) {
+          const parsed = JSON.parse(stored) as boolean[];
+          setChecked(jobs.map((_, index) => Boolean(parsed[index])));
+        }
+      } catch {
+        // Start with an empty checklist if browser storage is unavailable.
       }
-    } catch {
-      // Start with an empty checklist if browser storage is unavailable.
-    }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [jobs, storageKey]);
 
   const complete = useMemo(() => checked.filter(Boolean).length, [checked]);

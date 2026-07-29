@@ -8,12 +8,15 @@ export function GuideActions({ slug, title, href }: { slug: string; title: strin
   const [helpful, setHelpful] = useState<"yes" | "no" | null>(null);
 
   useEffect(() => {
-    try {
-      const value = window.localStorage.getItem(`mwg-helpful:${slug}`);
-      if (value === "yes" || value === "no") setHelpful(value);
-    } catch {
-      // Keep the control usable even if storage is unavailable.
-    }
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        const value = window.localStorage.getItem(`mwg-helpful:${slug}`);
+        if (value === "yes" || value === "no") setHelpful(value);
+      } catch {
+        // Keep the control usable even if storage is unavailable.
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [slug]);
 
   async function share() {

@@ -2,11 +2,11 @@ import type { NextRequest } from "next/server";
 
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_REQUESTS = 4;
+const RATE_LIMIT_PREFIX = "mini-wild-garden:rate-limit";
 
 type RateRecord = { count: number; resetAt: number };
 
 declare global {
-  // eslint-disable-next-line no-var
   var miniWildGardenRateLimit: Map<string, RateRecord> | undefined;
 }
 
@@ -15,13 +15,15 @@ globalThis.miniWildGardenRateLimit = rateStore;
 
 export function requestIp(request: NextRequest): string {
   return (
+    request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
+    request.headers.get("cf-connecting-ip")?.trim() ||
+    request.headers.get("x-real-ip")?.trim() ||
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
     "unknown"
   );
 }
 
-export function isRateLimited(key: string): boolean {
+function isLocallyRateLimited(key: string): boolean {
   const now = Date.now();
   const current = rateStore.get(key);
 
@@ -33,6 +35,44 @@ export function isRateLimited(key: string): boolean {
   current.count += 1;
   rateStore.set(key, current);
   return current.count > MAX_REQUESTS;
+}
+
+async function sharedRateLimit(key: string): Promise<boolean | null> {
+  const url = process.env.UPSTASH_REDIS_REST_URL?.replace(/\/$/, "");
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+
+  const redisKey = `${RATE_LIMIT_PREFIX}:${key}`;
+  const script = [
+    "local count = redis.call('INCR', KEYS[1])",
+    "if count == 1 then redis.call('PEXPIRE', KEYS[1], ARGV[1]) end",
+    "return count",
+  ].join("\n");
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(["EVAL", script, "1", redisKey, String(WINDOW_MS)]),
+      cache: "no-store",
+      signal: AbortSignal.timeout(2_000),
+    });
+
+    if (!response.ok) return null;
+    const payload = await response.json() as { result?: unknown };
+    const count = Number(payload.result);
+    return Number.isFinite(count) ? count > MAX_REQUESTS : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function isRateLimited(key: string): Promise<boolean> {
+  const sharedResult = await sharedRateLimit(key);
+  return sharedResult ?? isLocallyRateLimited(key);
 }
 
 export function hasValidOrigin(request: NextRequest): boolean {

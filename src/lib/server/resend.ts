@@ -1,5 +1,6 @@
 const RESEND_API = "https://api.resend.com";
 const MAX_ATTEMPTS = 3;
+const REQUEST_TIMEOUT_MS = 10_000;
 
 export class ResendRequestError extends Error {
   status: number;
@@ -29,6 +30,7 @@ export async function resendRequest<T>(path: string, init: RequestInit): Promise
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     const response = await fetch(`${RESEND_API}${path}`, {
       ...init,
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",

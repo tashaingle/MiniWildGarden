@@ -22,12 +22,15 @@ export function GardenPlanner() {
   const [answers, setAnswers] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (stored) setAnswers(JSON.parse(stored));
-    } catch {
-      // Start fresh if storage is unavailable.
-    }
+    const frame = window.requestAnimationFrame(() => {
+      try {
+        const stored = window.localStorage.getItem(STORAGE_KEY);
+        if (stored) setAnswers(JSON.parse(stored));
+      } catch {
+        // Start fresh if storage is unavailable.
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const completed = questions.filter((question) => answers[question.id]).length;
