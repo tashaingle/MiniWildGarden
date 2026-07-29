@@ -23,14 +23,14 @@ const guideImages: Record<string, GuideImage> = {
     focal: "50% 52%",
   },
   "butterfly-friendly-garden": {
-    src: "/images/butterfly.webp",
-    alt: "A butterfly feeding on a garden flower",
-    focal: "46% 45%",
+    src: "/images/butterfly-guide/butterfly-hero.webp",
+    alt: "An orange butterfly feeding on a garden flower",
+    focal: "50% 50%",
   },
   "frog-friendly-space": {
-    src: "/images/frog.webp",
-    alt: "A frog resting among pond plants",
-    focal: "43% 54%",
+    src: "/images/frog-guide/frog-hero.webp",
+    alt: "A common frog resting in shallow water among leaves",
+    focal: "50% 52%",
   },
   "wildlife-small-garden": {
     src: "/images/balcony.webp",
