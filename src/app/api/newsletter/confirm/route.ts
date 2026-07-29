@@ -4,10 +4,11 @@ import { ResendRequestError, resendRequest } from "@/lib/server/resend";
 
 export const runtime = "nodejs";
 
-async function addContact(email: string, firstName: string) {
-  const segmentId = process.env.RESEND_NEWSLETTER_SEGMENT_ID;
-  const segments = segmentId ? [{ id: segmentId }] : undefined;
+function isUuid(value: string) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
+}
 
+async function createOrRestoreContact(email: string, firstName: string) {
   try {
     await resendRequest<{ id: string }>("/contacts", {
       method: "POST",
@@ -15,25 +16,62 @@ async function addContact(email: string, firstName: string) {
         email,
         first_name: firstName || undefined,
         unsubscribed: false,
-        segments,
       }),
     });
   } catch (error) {
     if (!(error instanceof ResendRequestError) || error.status !== 409) throw error;
 
-    // The address already exists. Re-enable it and make sure it belongs to the newsletter segment.
+    // Existing contacts can be addressed by email in the Resend Contacts API.
     await resendRequest(`/contacts/${encodeURIComponent(email)}`, {
       method: "PATCH",
-      body: JSON.stringify({ unsubscribed: false }),
+      body: JSON.stringify({
+        first_name: firstName || undefined,
+        unsubscribed: false,
+      }),
     });
-
-    if (segmentId) {
-      await resendRequest(`/contacts/${encodeURIComponent(email)}/segments/${segmentId}`, {
-        method: "POST",
-        body: JSON.stringify({}),
-      });
-    }
   }
+}
+
+async function addContactToSegment(email: string) {
+  const segmentId = process.env.RESEND_NEWSLETTER_SEGMENT_ID?.trim();
+  if (!segmentId) return;
+
+  if (!isUuid(segmentId)) {
+    throw new Error("RESEND_NEWSLETTER_SEGMENT_ID is not a valid Resend segment UUID.");
+  }
+
+  try {
+    await resendRequest(`/contacts/${encodeURIComponent(email)}/segments/${segmentId}`, {
+      method: "POST",
+      body: JSON.stringify({}),
+    });
+  } catch (error) {
+    // Treat an already-present relationship as a successful confirmation.
+    if (error instanceof ResendRequestError && error.status === 409) return;
+    throw error;
+  }
+}
+
+async function addContact(email: string, firstName: string) {
+  // Keep contact creation and segment assignment separate. This avoids a Resend
+  // server-side 500 seen when both operations are sent in one create request.
+  await createOrRestoreContact(email, firstName);
+  await addContactToSegment(email);
+}
+
+function logNewsletterError(error: unknown) {
+  if (error instanceof ResendRequestError) {
+    console.error("Newsletter contact creation failed", {
+      name: error.name,
+      message: error.message,
+      status: error.status,
+      path: error.path,
+      details: error.details,
+    });
+    return;
+  }
+
+  console.error("Newsletter contact creation failed", error);
 }
 
 export async function GET(request: NextRequest) {
@@ -51,7 +89,7 @@ export async function GET(request: NextRequest) {
     destination.searchParams.set("status", "success");
     return NextResponse.redirect(destination);
   } catch (error) {
-    console.error("Newsletter contact creation failed", error);
+    logNewsletterError(error);
     destination.searchParams.set("status", "error");
     return NextResponse.redirect(destination);
   }
