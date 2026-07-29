@@ -27,13 +27,16 @@ export function GuideLibrary({ items, initialKind = "all" }: { items: LibraryIte
   const [category, setCategory] = useState("all");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setQuery(params.get("q") ?? "");
-    setKind((params.get("type") as KindFilter) || initialKind);
-    setDifficulty(params.get("difficulty") ?? "all");
-    setEffort((params.get("time") as EffortFilter) || "all");
-    setCategory(params.get("category") ?? "all");
-    setReady(true);
+    const frame = window.requestAnimationFrame(() => {
+      const params = new URLSearchParams(window.location.search);
+      setQuery(params.get("q") ?? "");
+      setKind((params.get("type") as KindFilter) || initialKind);
+      setDifficulty(params.get("difficulty") ?? "all");
+      setEffort((params.get("time") as EffortFilter) || "all");
+      setCategory(params.get("category") ?? "all");
+      setReady(true);
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [initialKind]);
 
   useEffect(() => {
