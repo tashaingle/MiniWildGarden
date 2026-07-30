@@ -38,8 +38,8 @@ export default function Home() {
             <h1>Make space<br />for the <em>wild.</em></h1>
             <p>Transform any garden, balcony or tiny outdoor corner into somewhere life can feed, drink, shelter and thrive.</p>
             <div className="hero-actions">
-              <Link className="button button--lime" href="/wildlife-guides">Meet your visitors <Icon name="arrow" size={18} /></Link>
-              <Link className="hero-text-link" href="/garden-guides">Start with a weekend project <span>↗</span></Link>
+              <Link className="button button--lime" href="/planner">Score my garden <Icon name="arrow" size={18} /></Link>
+              <Link className="hero-text-link" href="/guides">Browse every guide <span>↗</span></Link>
             </div>
           </div>
 
@@ -65,7 +65,49 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section ecosystem" id="discover">
+      <section className="section start-paths" id="discover" aria-labelledby="start-paths-title">
+        <div className="shell">
+          <div className="section-heading" data-reveal>
+            <div>
+              <span className="eyebrow">Start here</span>
+              <h2 id="start-paths-title">What fits your garden today?</h2>
+            </div>
+            <p>Skip the scroll. Pick a starting point based on the time and space you have, or score the habitat layers you already offer.</p>
+          </div>
+          <div className="start-paths__grid">
+            <Link className="start-path" href="/guides?time=quick" data-reveal>
+              <span className="start-path__number">01</span>
+              <Icon name="clock" size={28} />
+              <strong>I have 15 minutes</strong>
+              <p>Quick wins for water, food and shelter without a full redesign.</p>
+              <span className="start-path__cta">Browse quick projects <Icon name="arrow" size={16} /></span>
+            </Link>
+            <Link className="start-path" href="/garden-guides/create-a-wildlife-friendly-balcony" data-reveal>
+              <span className="start-path__number">02</span>
+              <Icon name="sprout" size={28} />
+              <strong>I only have a balcony</strong>
+              <p>Containers, vertical planting and tiny water features that still help wildlife.</p>
+              <span className="start-path__cta">Open balcony guide <Icon name="arrow" size={16} /></span>
+            </Link>
+            <Link className="start-path" href="/guides?time=weekend" data-reveal>
+              <span className="start-path__number">03</span>
+              <Icon name="garden" size={28} />
+              <strong>I have a weekend</strong>
+              <p>Bigger habitat builds: ponds, log piles, highways and layered planting.</p>
+              <span className="start-path__cta">See weekend projects <Icon name="arrow" size={16} /></span>
+            </Link>
+            <Link className="start-path start-path--accent" href="/planner" data-reveal>
+              <span className="start-path__number">04</span>
+              <Icon name="leaf" size={28} />
+              <strong>Score my garden</strong>
+              <p>Check food, water, shelter and access, then get three practical next steps.</p>
+              <span className="start-path__cta">Open garden planner <Icon name="arrow" size={16} /></span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section ecosystem">
         <div className="shell ecosystem__grid">
           <div className="ecosystem__copy" data-reveal>
             <span className="eyebrow">Look closer</span>
@@ -76,10 +118,10 @@ export default function Home() {
 
           <div className="ecosystem__mosaic" data-reveal>
             <figure className="mosaic-image mosaic-image--large">
-              <Image src="/images/uk-garden.webp" alt="A flower-filled British garden with a pond" fill sizes="(max-width: 800px) 100vw, 45vw" />
+              <Image src="/images/uk-garden.webp" alt="A flower-filled British garden with a pond" fill sizes="(max-width: 800px) 100vw, 45vw" loading="lazy" />
             </figure>
             <figure className="mosaic-image mosaic-image--small">
-              <Image src="/images/frog.webp" alt="A frog among pond plants" fill sizes="220px" />
+              <Image src="/images/frog.webp" alt="A frog among pond plants" fill sizes="220px" loading="lazy" />
             </figure>
             <div className="mosaic-stat"><strong>4</strong><span>essentials</span><small>Food · water · shelter · access</small></div>
           </div>
@@ -97,7 +139,13 @@ export default function Home() {
           </div>
           <div className="guide-grid">
             {wildlifeGuides.map((guide, index) => (
-              <GuideCard key={guide.slug} guide={guide} basePath="/wildlife-guides" priority={index < 2} />
+              <GuideCard
+                key={guide.slug}
+                guide={guide}
+                basePath="/wildlife-guides"
+                // Only the first card competes with the hero for LCP budget.
+                priority={index === 0}
+              />
             ))}
           </div>
           <div className="centred-action" data-reveal>
@@ -113,6 +161,7 @@ export default function Home() {
           alt="A completed wildlife pond seen from a low angle across the water"
           fill
           sizes="100vw"
+          loading="lazy"
           style={{ objectPosition: "50% 56%" }}
         />
         <span className="pond-story__shade" />
@@ -143,22 +192,22 @@ export default function Home() {
 
           <div className="worlds-grid">
             <Link className="world-card world-card--wide" href="/garden-guides/best-flowers-for-bees-and-pollinators" data-reveal>
-              <Image src="/images/bee-guide/pollinator-border.webp" alt="A vibrant mixed border full of pollinator-friendly flowers" fill sizes="(max-width: 800px) 100vw, 66vw" />
+              <Image src="/images/bee-guide/pollinator-border.webp" alt="A vibrant mixed border full of pollinator-friendly flowers" fill sizes="(max-width: 800px) 100vw, 66vw" loading="lazy" />
               <span className="world-card__shade" />
               <div><span>01 · Nectar</span><h3>Plant for bees from spring to autumn.</h3></div>
             </Link>
             <Link className="world-card world-card--tall" href="/garden-guides/build-a-log-and-leaf-habitat" data-reveal>
-              <Image src="/images/log-guide/finished-habitat.webp" alt="A finished log and leaf habitat in a garden corner" fill sizes="(max-width: 800px) 100vw, 34vw" />
+              <Image src="/images/log-guide/finished-habitat.webp" alt="A finished log and leaf habitat in a garden corner" fill sizes="(max-width: 800px) 100vw, 34vw" loading="lazy" />
               <span className="world-card__shade" />
               <div><span>02 · Shelter</span><h3>Make decay part of the design.</h3></div>
             </Link>
             <Link className="world-card" href="/garden-guides/chemical-free-garden" data-reveal>
-              <Image src="/images/hands-gardening.webp" alt="Hands planting in a wildlife garden" fill sizes="(max-width: 800px) 100vw, 33vw" />
+              <Image src="/images/hands-gardening.webp" alt="Hands planting in a wildlife garden" fill sizes="(max-width: 800px) 100vw, 33vw" loading="lazy" />
               <span className="world-card__shade" />
               <div><span>03 · Care</span><h3>Garden gently.</h3></div>
             </Link>
             <Link className="world-card" href="/garden-guides/create-a-wildlife-friendly-balcony" data-reveal>
-              <Image src="/images/balcony-guide/finished-balcony.webp" alt="A small planted balcony with containers and a shallow water dish" fill sizes="(max-width: 800px) 100vw, 33vw" />
+              <Image src="/images/balcony-guide/finished-balcony.webp" alt="A small planted balcony with containers and a shallow water dish" fill sizes="(max-width: 800px) 100vw, 33vw" loading="lazy" />
               <span className="world-card__shade" />
               <div><span>04 · Small spaces</span><h3>Build a tiny refuge above the street.</h3></div>
             </Link>
@@ -205,7 +254,7 @@ export default function Home() {
               const image = seasonalImages[season.slug];
               return (
                 <Link className={`season-card season-card--${season.slug}`} href={`/seasonal-advice/${season.slug}`} key={season.slug} data-reveal>
-                  <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 25vw" style={{ objectPosition: image.focal }} />
+                  <Image src={image.src} alt={image.alt} fill sizes="(max-width: 760px) 100vw, 25vw" loading="lazy" style={{ objectPosition: image.focal }} />
                   <span className="season-card__shade" />
                   <span className="season-card__number">{season.label}</span>
                   <div><span>{season.name}</span><h3>{season.intro}</h3><i>Explore the season →</i></div>
@@ -217,7 +266,7 @@ export default function Home() {
       </section>
 
       <section className="closing-cta">
-        <Image src="/images/wildflowers.webp" alt="Wildflowers glowing in sunlight" fill sizes="100vw" />
+        <Image src="/images/wildflowers.webp" alt="Wildflowers glowing in sunlight" fill sizes="100vw" loading="lazy" />
         <span className="closing-cta__shade" />
         <div className="shell closing-cta__content" data-reveal>
           <span className="eyebrow eyebrow--light">Begin where you are</span>

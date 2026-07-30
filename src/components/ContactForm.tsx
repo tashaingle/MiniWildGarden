@@ -46,7 +46,7 @@ export function ContactForm() {
       formElement.reset();
       startedAt.current = Date.now();
       setState("success");
-      setMessage("Thank you — your message has been sent.");
+      setMessage("Thank you. Your message has been sent.");
       trackEvent("generate_lead", { lead_source: "contact_form" });
     } catch (error) {
       setState("error");

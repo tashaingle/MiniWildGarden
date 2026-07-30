@@ -19,20 +19,34 @@ export function GuideActions({ slug, title, href }: { slug: string; title: strin
     return () => window.cancelAnimationFrame(frame);
   }, [slug]);
 
+  function showMessage(text: string) {
+    setMessage(text);
+    window.setTimeout(() => setMessage(""), 2400);
+  }
+
   async function share() {
     const url = new URL(href, window.location.origin).toString();
     try {
       if (navigator.share) {
         await navigator.share({ title, text: `A Mini Wild Garden guide: ${title}`, url });
-        setMessage("Shared");
+        showMessage("Shared");
       } else {
         await navigator.clipboard.writeText(url);
-        setMessage("Link copied");
+        showMessage("Link copied");
       }
     } catch (error) {
-      if ((error as Error).name !== "AbortError") setMessage("Copy the page address from your browser");
+      if ((error as Error).name !== "AbortError") showMessage("Copy the page address from your browser");
     }
-    window.setTimeout(() => setMessage(""), 2400);
+  }
+
+  async function copyLink() {
+    const url = new URL(href, window.location.origin).toString();
+    try {
+      await navigator.clipboard.writeText(url);
+      showMessage("Link copied");
+    } catch {
+      showMessage("Copy the page address from your browser");
+    }
   }
 
   function rate(value: "yes" | "no") {
@@ -49,6 +63,7 @@ export function GuideActions({ slug, title, href }: { slug: string; title: strin
       <div className="guide-actions__primary">
         <SaveGuideButton slug={slug} />
         <button type="button" onClick={share}><span aria-hidden="true">↗</span> Share</button>
+        <button type="button" onClick={copyLink}><span aria-hidden="true">⌘</span> Copy link</button>
         <button type="button" onClick={() => window.print()}><span aria-hidden="true">⎙</span> Print</button>
         <span className="guide-actions__message" aria-live="polite">{message}</span>
       </div>
@@ -56,7 +71,7 @@ export function GuideActions({ slug, title, href }: { slug: string; title: strin
         <span>Was this guide helpful?</span>
         <button className={helpful === "yes" ? "is-selected" : ""} type="button" onClick={() => rate("yes")} aria-pressed={helpful === "yes"}>Yes</button>
         <button className={helpful === "no" ? "is-selected" : ""} type="button" onClick={() => rate("no")} aria-pressed={helpful === "no"}>Not quite</button>
-        {helpful && <small>Thank you — your answer is saved on this device.</small>}
+        {helpful && <small>Thank you. Your answer is saved on this device.</small>}
       </div>
     </div>
   );

@@ -33,29 +33,34 @@ export function SiteMotion() {
       revealItems.forEach((item) => observer?.observe(item));
     }
 
-    const parallaxRoots = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax-root]"));
-    const cleanups = parallaxRoots.map((element) => {
-      const onPointerMove = (event: PointerEvent) => {
-        const rect = element.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-        element.style.setProperty("--pointer-x", x.toFixed(3));
-        element.style.setProperty("--pointer-y", y.toFixed(3));
-      };
+    const cleanups: Array<() => void> = [];
 
-      const onPointerLeave = () => {
-        element.style.setProperty("--pointer-x", "0");
-        element.style.setProperty("--pointer-y", "0");
-      };
+    // Pointer parallax is decorative only; skip entirely when reduced motion is preferred.
+    if (!reducedMotion) {
+      const parallaxRoots = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax-root]"));
+      parallaxRoots.forEach((element) => {
+        const onPointerMove = (event: PointerEvent) => {
+          const rect = element.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          element.style.setProperty("--pointer-x", x.toFixed(3));
+          element.style.setProperty("--pointer-y", y.toFixed(3));
+        };
 
-      element.addEventListener("pointermove", onPointerMove);
-      element.addEventListener("pointerleave", onPointerLeave);
+        const onPointerLeave = () => {
+          element.style.setProperty("--pointer-x", "0");
+          element.style.setProperty("--pointer-y", "0");
+        };
 
-      return () => {
-        element.removeEventListener("pointermove", onPointerMove);
-        element.removeEventListener("pointerleave", onPointerLeave);
-      };
-    });
+        element.addEventListener("pointermove", onPointerMove);
+        element.addEventListener("pointerleave", onPointerLeave);
+
+        cleanups.push(() => {
+          element.removeEventListener("pointermove", onPointerMove);
+          element.removeEventListener("pointerleave", onPointerLeave);
+        });
+      });
+    }
 
     return () => {
       observer?.disconnect();

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import type { CSSProperties } from "react";
@@ -133,7 +133,7 @@ export function GardenPlanner() {
 
   async function sharePlan() {
     const steps = activePlan.map((item, index) => `${index + 1}. ${item.title} (${item.time}, ${item.cost})`).join("\n");
-    const text = `My Mini Wild Garden plan for a ${profileSummary(state.profile)}:\n${steps}\nHabitat score: ${beforeScore} → ${score}`;
+    const text = `My Mini Wild Garden plan for a ${profileSummary(state.profile)}:\n${steps}\nHabitat score: ${beforeScore} ÔåÆ ${score}`;
     try {
       if (navigator.share) {
         await navigator.share({ title: "My Mini Wild Garden plan", text, url: window.location.href });
@@ -152,14 +152,14 @@ export function GardenPlanner() {
     <div className="planner planner--journey">
       <section className="planner-setup" aria-labelledby="planner-profile-title">
         <div className="planner-setup__intro">
-          <span className="eyebrow">Step 1 · Your space</span>
+          <span className="eyebrow">Step 1 ┬À Your space</span>
           <h2 id="planner-profile-title">Make the advice fit your life.</h2>
           <p>Tell us what you are working with. Your answers stay on this device and can be changed at any time.</p>
         </div>
 
         <div className="planner-profile-grid">
           <label><span>Outdoor space</span><select value={state.profile.spaceType} onChange={(event) => updateProfile("spaceType", event.target.value as PlannerProfile["spaceType"])}><option value="garden">Garden</option><option value="courtyard">Courtyard</option><option value="balcony">Balcony</option><option value="window-boxes">Window boxes</option></select></label>
-          <label><span>Approximate size</span><select value={state.profile.size} onChange={(event) => updateProfile("size", event.target.value as PlannerProfile["size"])}><option value="tiny">Tiny · under 5m²</option><option value="small">Small · 5–25m²</option><option value="medium">Medium · 25–100m²</option><option value="large">Large · over 100m²</option></select></label>
+          <label><span>Approximate size</span><select value={state.profile.size} onChange={(event) => updateProfile("size", event.target.value as PlannerProfile["size"])}><option value="tiny">Tiny ┬À under 5m┬▓</option><option value="small">Small ┬À 5ÔÇô25m┬▓</option><option value="medium">Medium ┬À 25ÔÇô100m┬▓</option><option value="large">Large ┬À over 100m┬▓</option></select></label>
           <label><span>Light</span><select value={state.profile.light} onChange={(event) => updateProfile("light", event.target.value as PlannerProfile["light"])}><option value="sun">Mostly sunny</option><option value="partial-shade">Partial shade</option><option value="shade">Mostly shade</option></select></label>
           <label><span>Your home</span><select value={state.profile.tenure} onChange={(event) => updateProfile("tenure", event.target.value as PlannerProfile["tenure"])}><option value="owning">I own it</option><option value="renting">I rent it</option></select></label>
           <label><span>Time each week</span><select value={state.profile.weeklyTime} onChange={(event) => updateProfile("weeklyTime", event.target.value as PlannerProfile["weeklyTime"])}><option value="15-minutes">About 15 minutes</option><option value="one-hour">About one hour</option><option value="two-hours">About two hours</option><option value="half-day">Half a day or more</option></select></label>
@@ -180,8 +180,8 @@ export function GardenPlanner() {
 
       <section aria-labelledby="habitat-check-title">
         <div className="planner-section-heading">
-          <div><span className="eyebrow">Step 2 · What is here now?</span><h2 id="habitat-check-title">Check your habitat layers.</h2></div>
-          <p>Be honest rather than generous—the gaps are what make your plan useful.</p>
+          <div><span className="eyebrow">Step 2 ┬À What is here now?</span><h2 id="habitat-check-title">Check your habitat layers.</h2></div>
+          <p>Be honest rather than generous. The gaps are what make your plan useful.</p>
         </div>
         <div className="planner-grid" aria-label="Wildlife garden assessment">
           {habitatLayers.map((question, index) => (
@@ -265,6 +265,34 @@ export function GardenPlanner() {
               <button className="button button--outline" type="button" onClick={sharePlan}>Share my plan</button>
               <button type="button" onClick={reset}>Start again</button>
               <span role="status" aria-live="polite">{shareMessage}</span>
+            </div>
+          </section>
+
+          <section className="planner-follow-on" aria-label="What to do next">
+            <div>
+              <span className="eyebrow">Keep going</span>
+              <h2>Turn this plan into a habit.</h2>
+              <p>Track progress, match the season, and save guides you want to return to.</p>
+            </div>
+            <div className="planner-follow-on__grid">
+              <Link href="/my-garden" className="planner-follow-card">
+                <Icon name="check" size={24} />
+                <strong>My Garden</strong>
+                <p>See your score, plan and wildlife notes in one place on this device.</p>
+                <span>Open My Garden <Icon name="arrow" size={16} /></span>
+              </Link>
+              <Link href={`/seasonal-advice/${profileSeason}`} className="planner-follow-card">
+                <Icon name="sun" size={24} />
+                <strong>This season&apos;s jobs</strong>
+                <p>Match your next steps to what wildlife needs right now.</p>
+                <span>Seasonal advice <Icon name="arrow" size={16} /></span>
+              </Link>
+              <Link href="/guides?time=quick" className="planner-follow-card">
+                <Icon name="clock" size={24} />
+                <strong>Quick wins</strong>
+                <p>If time is short, start with changes you can finish in under half an hour.</p>
+                <span>Browse quick projects <Icon name="arrow" size={16} /></span>
+              </Link>
             </div>
           </section>
         </>

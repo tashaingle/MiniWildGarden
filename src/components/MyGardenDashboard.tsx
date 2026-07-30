@@ -259,7 +259,7 @@ export function MyGardenDashboard({ items }: { items: LibraryItem[] }) {
                 {sighting.notes && <p>{sighting.notes}</p>}
                 <button type="button" onClick={() => removeSighting(sighting.id)}>Remove</button>
               </article>
-            )) : <div className="my-garden-sightings__empty"><span aria-hidden="true">◎</span><h3>Your first visitor goes here.</h3><p>Add anything you notice—even a common bird or bee is useful evidence.</p></div>}
+            )) : <div className="my-garden-sightings__empty"><span aria-hidden="true">◎</span><h3>Your first visitor goes here.</h3><p>Add anything you notice, even a common bird or bee is useful evidence.</p></div>}
           </div>
         </div>
       </section>

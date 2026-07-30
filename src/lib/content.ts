@@ -7,7 +7,10 @@ export type Guide = {
   time: string;
   icon: string;
   colour: string;
+  /** Short display lead shown large in the opening */
   intro: string;
+  /** Optional body copy under the lead; keeps long explanations off the display type */
+  introDetail?: string;
   steps: { title: string; text: string }[];
   tips: string[];
   images?: {
@@ -15,6 +18,14 @@ export type Guide = {
     alt: string;
     focal?: string;
   }[];
+  /** Optional richer fields used by the shared guide template */
+  cost?: string;
+  bestSeason?: string;
+  materials?: string[];
+  mistakes?: string[];
+  plants?: { name: string; note: string }[];
+  faqs?: { question: string; answer: string }[];
+  nextStep?: { label: string; href: string; text: string };
 };
 
 export const wildlifeGuides: Guide[] = [
@@ -62,31 +73,80 @@ export const wildlifeGuides: Guide[] = [
     time: "An afternoon",
     icon: "bee",
     colour: "gold",
-    intro:
-      "The best bee gardens offer flowers across as much of the year as possible. Even a few pots, a window box or a small sunny border can become a valuable feeding stop.",
+    intro: "The best bee gardens offer flowers across as much of the year as possible.",
+    introDetail:
+      "Even a few pots, a window box or a small sunny border can become a valuable feeding stop. Think in seasons, not single plants: early spring nectar matters as much as a colourful summer border, and a little bare soil or hollow stem can be more useful than a decorative insect hotel.",
+    cost: "Low, starts with a few pots",
+    bestSeason: "Plant in spring or autumn",
+    materials: [
+      "3–6 nectar-rich plants suited to your light and soil",
+      "Peat-free compost and containers or a prepared border pocket",
+      "A shallow dish or plant saucer and a few stones",
+      "Optional: mulch for beds, or a sunny strip of bare ground for solitary bees",
+    ],
+    mistakes: [
+      "Buying only double flowers that hide nectar and pollen",
+      "Planting one of everything instead of useful clumps",
+      "Clearing every stem and bare patch in autumn",
+      "Using pesticides that remove bees and their food chain together",
+    ],
     steps: [
       {
         title: "Plan flowers by season",
-        text: "Choose a mixture of early, mid-season and late-flowering plants so nectar and pollen are available for longer.",
+        text: "Choose a mixture of early, mid-season and late-flowering plants so nectar and pollen are available for longer. Aim for something useful from March through October rather than a single midsummer peak.",
       },
       {
         title: "Plant in generous groups",
-        text: "Clusters of the same flower are easier for pollinators to find and allow them to feed efficiently without travelling far between blooms.",
+        text: "Clusters of the same flower are easier for pollinators to find and allow them to feed efficiently without travelling far between blooms. Three to five of one plant is usually stronger than five different singles.",
       },
       {
         title: "Keep some bare ground",
-        text: "Many solitary bees nest in soil. A small sunny patch of undisturbed, well-drained ground can be more useful than a decorative insect hotel.",
+        text: "Many solitary bees nest in soil. A small sunny patch of undisturbed, well-drained ground can be more useful than a decorative insect hotel. Leave a few hollow stems standing over winter too.",
       },
       {
         title: "Avoid pesticides",
-        text: "Let natural predators manage many garden pests and use physical controls where necessary. A wildlife garden works best when its food chain is left intact.",
+        text: "Let natural predators manage many garden pests and use physical controls where necessary. A wildlife garden works best when its food chain is left intact, including the insects people sometimes call pests.",
       },
     ],
     tips: [
       "Single, open flowers are often easier to access than highly doubled varieties.",
       "Herbs such as thyme, chives and marjoram can be excellent when allowed to flower.",
       "A shallow water dish with stones gives insects safe landing points.",
+      "Place pots where you will actually water them. Drought-stressed plants feed bees less well.",
     ],
+    plants: [
+      { name: "Lavender", note: "Long summer nectar for many bees; ideal in sunny, free-draining pots or borders." },
+      { name: "Marjoram / oregano", note: "Compact, wildlife-rich herb that thrives in containers and dry edges." },
+      { name: "Catmint (Nepeta)", note: "Soft blue spikes for months; easy in borders and larger pots." },
+      { name: "Pulmonaria", note: "Early spring nectar when little else is open; good in light shade." },
+      { name: "Sedum / Hylotelephium", note: "Late-season landing pads for bees and butterflies in autumn." },
+      { name: "Chives", note: "Edible, container-friendly and excellent when allowed to flower." },
+    ],
+    faqs: [
+      {
+        question: "Do I need a large garden to help bees?",
+        answer: "No. Window boxes, hanging baskets and a sunny cluster of pots can all provide nectar and pollen. Consistency and a long flowering season matter more than size.",
+      },
+      {
+        question: "Are insect hotels always useful?",
+        answer: "Some are, but many sold ready-made are poorly designed. Bare sunny soil, hollow stems and undisturbed corners often help solitary bees more. If you use a hotel, keep it clean, dry and appropriately sized.",
+      },
+      {
+        question: "Should I plant only natives?",
+        answer: "Native plants are valuable, especially for some specialist insects, but many non-invasive garden plants also feed bees well. Focus on open flowers, a long season and chemical-free care.",
+      },
+    ],
+    images: [
+      { src: "/images/bee-guide/seasonal-flowers.webp", alt: "A mixed border of seasonal flowers providing nectar for bees", focal: "50% 50%" },
+      { src: "/images/bee-guide/pollinator-border.webp", alt: "A dense pollinator border planted in generous groups", focal: "50% 52%" },
+      { src: "/images/bee-guide/container-planting.webp", alt: "Bee-friendly plants growing in containers on a sunny patio", focal: "50% 50%" },
+      { src: "/images/bee-guide/bee-water-dish.webp", alt: "A shallow water dish with stones for insects to drink safely", focal: "50% 48%" },
+    ],
+    nextStep: {
+      label: "Choose the best flowers next",
+      href: "/garden-guides/best-flowers-for-bees-and-pollinators",
+      text: "Build a simple plant shortlist for borders, pots and window boxes that keeps nectar coming from spring into autumn.",
+    },
   },
   {
     slug: "welcome-hedgehogs",
@@ -155,7 +215,7 @@ export const wildlifeGuides: Guide[] = [
     tips: [
       "Avoid cutting every area of grass at the same time.",
       "Place flat stones in sunny spots for basking.",
-      "Do not worry about a few chewed leaves—they show the habitat is being used.",
+      "Do not worry about a few chewed leaves. They show the habitat is being used.",
     ],
   },
   {
@@ -345,8 +405,23 @@ export const gardenGuides: Guide[] = [
     time: "An afternoon",
     icon: "flower",
     colour: "gold",
-    intro:
-      "The most useful bee planting offers a long season of open flowers rather than a single short burst. Repeating a few reliable plants across borders and containers helps pollinators feed more efficiently and makes even a small space feel generous.",
+    intro: "The most useful bee planting offers a long season of open flowers rather than a single short burst.",
+    introDetail:
+      "Repeating a few reliable plants across borders and containers helps pollinators feed more efficiently and makes even a small space feel generous. You do not need rare plants. You need the right shapes, staggered flowering and gentle care.",
+    cost: "Low to moderate",
+    bestSeason: "Plant spring or autumn; enjoy all year",
+    materials: [
+      "A shortlist of early, mid and late flowering plants",
+      "Peat-free compost and mulch for beds or containers",
+      "Trowel, watering can and plant labels if helpful",
+      "Shallow water dish with stones",
+    ],
+    mistakes: [
+      "Filling the whole space with one short summer flush",
+      "Choosing only highly double ornamental flowers",
+      "Scattering single plants so bees waste energy between blooms",
+      "Deadheading every stem so nothing remains for late visitors or seed-eating birds",
+    ],
     steps: [
       {
         title: "Plan a long flowering season",
@@ -369,7 +444,37 @@ export const gardenGuides: Guide[] = [
       "Lavender, marjoram, catmint, salvia, thyme and chives are strong container choices.",
       "Deadhead some plants for longer flowering but leave a few seed heads standing later in the year.",
       "Try to keep something in flower from March to October.",
+      "Buy peat-free and check labels for pollinator-friendly cultivars where available.",
     ],
+    plants: [
+      { name: "Early: crocus & pulmonaria", note: "Help emerging bees when little else is open." },
+      { name: "Spring–summer: alliums & catmint", note: "Bold landing pads and long flowering in sunny ground." },
+      { name: "Summer: lavender & salvia", note: "Reliable nectar plants for borders and pots." },
+      { name: "Herbs: thyme, marjoram, chives", note: "Edible, compact and excellent for small spaces." },
+      { name: "Mid–late: echinacea & cosmos", note: "Open centres that many bees and butterflies can use." },
+      { name: "Autumn: sedum & Michaelmas daisy", note: "Extend the season when summer borders fade." },
+    ],
+    faqs: [
+      {
+        question: "What if my garden is shady?",
+        answer: "Choose plants that suit shade rather than forcing sun lovers. Foxgloves, pulmonaria, geraniums suited to shade and flowering shrubs can still help, and a single sunny pot cluster may become your main nectar patch.",
+      },
+      {
+        question: "Can I use bedding plants?",
+        answer: "Some single-flowered bedding helps, but many highly bred varieties offer little nectar. Mix a few reliable perennials and herbs with seasonal colour so the garden is not empty once bedding is removed.",
+      },
+    ],
+    images: [
+      { src: "/images/bee-guide/flower-border-hero.webp", alt: "A flower-filled border of lavender, cosmos and echinacea for bees", focal: "50% 50%" },
+      { src: "/images/bee-guide/pollinator-border.webp", alt: "Pollinator-friendly flowers planted in generous drifts", focal: "50% 52%" },
+      { src: "/images/bee-guide/container-planting.webp", alt: "Repeated bee-friendly plants in patio containers", focal: "50% 50%" },
+      { src: "/images/bee-guide/bee-water-dish.webp", alt: "Insects using a shallow water dish with landing stones", focal: "50% 48%" },
+    ],
+    nextStep: {
+      label: "Garden more gently",
+      href: "/garden-guides/chemical-free-garden",
+      text: "Protect the food web that makes pollinator planting work, without blanket sprays or panic treatments.",
+    },
   },
   {
     slug: "build-a-log-and-leaf-habitat",
@@ -415,8 +520,24 @@ export const gardenGuides: Guide[] = [
     time: "A weekend",
     icon: "garden",
     colour: "leaf",
-    intro:
-      "A balcony cannot replace a full garden, but it can become a valuable stepping stone through a built-up area. The strongest designs combine nectar-rich planting, shallow water, shelter and a few different heights without making the space difficult to use or maintain.",
+    intro: "A balcony cannot replace a full garden, but it can become a valuable stepping stone through a built-up area.",
+    introDetail:
+      "The strongest designs combine nectar-rich planting, shallow water, shelter and a few different heights without making the space difficult to use or maintain. Start with safety and weight limits, then add layers you can actually water and keep alive.",
+    cost: "Moderate (pots and compost add up)",
+    bestSeason: "Spring planting is easiest",
+    materials: [
+      "Stable pots or troughs suited to your balcony weight limit",
+      "Peat-free compost and a light mulch for container surfaces",
+      "Nectar plants, one or two denser foliage plants, optional climber",
+      "Shallow water dish with stones; optional self-watering inserts",
+      "Secure fixings for hanging baskets or trellis if allowed",
+    ],
+    mistakes: [
+      "Overloading the balcony with heavy wet pots",
+      "Using deep open water features without an escape route or child safety plan",
+      "Buying too many different plants and under-watering them all",
+      "Blocking doors, drains or fire escape routes with containers",
+    ],
     steps: [
       {
         title: "Start with the practical limits",
@@ -441,12 +562,39 @@ export const gardenGuides: Guide[] = [
       "Secure tall planters, trellis and hanging containers against strong wind.",
       "A small, well-maintained water dish is more useful than a large neglected feature.",
     ],
+    plants: [
+      { name: "Thyme & marjoram", note: "Tough, sunny herbs that flower well in shallow troughs." },
+      { name: "Compact lavender", note: "Strong summer nectar if the balcony is warm and free-draining." },
+      { name: "Trailing nasturtium", note: "Easy colour for edges; often used by insects in urban spaces." },
+      { name: "Ferns or ivy in shade", note: "Add cool cover on cooler, windier aspects without needing full sun." },
+      { name: "Compact grasses", note: "Structure, movement and overwintering cover in larger pots." },
+      { name: "Climbing honeysuckle or jasmine", note: "Only if securely supported and suitable for the aspect." },
+    ],
+    faqs: [
+      {
+        question: "Will wildlife really use a balcony?",
+        answer: "Bees, butterflies, hoverflies and some birds regularly visit upper-floor plantings in towns. You are creating a stop along a wider urban route rather than a complete nature reserve.",
+      },
+      {
+        question: "What about neighbours and water runoff?",
+        answer: "Use trays carefully, water early or late, and avoid soaking shared floors or walls. Choose stable pots and never create drip hazards over someone else's space.",
+      },
+      {
+        question: "How many plants do I need?",
+        answer: "Start with five to eight well-chosen plants you can water reliably. A smaller, thriving collection is more useful than a crowded balcony of stressed plants.",
+      },
+    ],
     images: [
       { src: "/images/balcony-transform-guide/finished-balcony.webp", alt: "A compact balcony transformed with wildlife-friendly pots, flowers and a water feature", focal: "50% 52%" },
       { src: "/images/balcony-transform-guide/container-garden.webp", alt: "A dense collection of planted containers creating several layers of balcony habitat", focal: "50% 50%" },
       { src: "/images/balcony-transform-guide/water-feature.webp", alt: "A small balcony water feature surrounded by pots and ferns", focal: "48% 50%" },
       { src: "/images/balcony-transform-guide/vertical-planting.webp", alt: "Vertical and hanging planters using the walls and overhead space of a narrow balcony", focal: "50% 50%" },
     ],
+    nextStep: {
+      label: "Plant for bees next",
+      href: "/wildlife-guides/garden-for-bees",
+      text: "Use your balcony layers for a longer flowering season, safer water and chemical-free care that keeps pollinators coming back.",
+    },
   },
 
   {
@@ -576,8 +724,24 @@ export const gardenGuides: Guide[] = [
     time: "One growing season",
     icon: "flower",
     colour: "meadow",
-    intro:
-      "A no-mow lawn does not have to mean abandoning every blade of grass. Different heights create different conditions, so a useful design often combines longer areas with short paths, access strips and carefully timed cuts. Starting with one patch makes the change easier to observe and manage.",
+    intro: "A no-mow lawn does not have to mean abandoning every blade of grass.",
+    introDetail:
+      "Different heights create different conditions, so a useful design often combines longer areas with short paths, access strips and carefully timed cuts. Starting with one patch makes the change easier to observe, explain to neighbours and manage through the year.",
+    cost: "Free to low",
+    bestSeason: "Begin in spring; review each year",
+    materials: [
+      "Existing lawn (no special kit required to start)",
+      "Optional: string, hose or pegs to mark a clear edge",
+      "Mower or strimmer for paths and once-a-year cuts",
+      "Rake or fork for removing clippings after a main cut",
+      "Optional: local wildflower plugs only if the lawn stays species-poor",
+    ],
+    mistakes: [
+      "Leaving the entire lawn long with no paths or edges",
+      "Adding fertiliser or weedkiller while hoping for wildflowers",
+      "Cutting every long patch on the same day",
+      "Assuming nothing will grow. Many lawns already hold clover, daisy and selfheal",
+    ],
     steps: [
       {
         title: "Choose the area and draw the edges",
@@ -602,12 +766,39 @@ export const gardenGuides: Guide[] = [
       "Keep sightlines clear beside roads, steps and children's play areas.",
       "Use locally appropriate seed or plug plants only if the existing lawn remains species-poor.",
     ],
+    plants: [
+      { name: "White clover", note: "Often already present; excellent for bees in short or medium lawn." },
+      { name: "Daisy & selfheal", note: "Common lawn flowers that appear once mowing is reduced." },
+      { name: "Bird's-foot trefoil", note: "Low nectar plant for bees and some butterfly larvae in poorer soils." },
+      { name: "Yarrow", note: "Tough perennial that can appear in less fertile lawns and edges." },
+      { name: "Native grasses left long", note: "Shelter for invertebrates and hunting ground for birds." },
+      { name: "Optional plug: cowslip or primrose", note: "Only if conditions suit and the area will not be cut hard in spring." },
+    ],
+    faqs: [
+      {
+        question: "Will my garden look messy?",
+        answer: "A mown path, clear edge and short strip beside seating usually make a no-mow area look intentional. Photograph the before and after so you can see the structure, not only the longer grass.",
+      },
+      {
+        question: "What about ticks or allergies?",
+        answer: "Keep high-use areas short, maintain paths, and check children and pets after time in longer grass. No-mow does not mean the whole garden must stay long.",
+      },
+      {
+        question: "When should I cut?",
+        answer: "Many gardeners take a main cut in late summer or early autumn after plants have set seed, then remove clippings. Local conditions vary, so observe flowering and avoid cutting during busy nesting or fledging periods if birds are using the area.",
+      },
+    ],
     images: [
       { src: "/images/no-mow-guide/short-lawn.webp", alt: "A conventional short garden lawn before a no-mow area is established", focal: "50% 52%" },
       { src: "/images/no-mow-guide/long-grass.webp", alt: "A garden lawn developing varied patches of longer grass", focal: "50% 54%" },
       { src: "/images/no-mow-guide/meadow-path.webp", alt: "A mown path running through broad areas of longer meadow grass", focal: "50% 50%" },
       { src: "/images/no-mow-guide/mown-path.webp", alt: "A neat short-grass path beside a retained strip of taller grass", focal: "50% 50%" },
     ],
+    nextStep: {
+      label: "Leave more structure over winter",
+      href: "/garden-guides/leave-seed-heads-over-winter",
+      text: "Pair longer grass with standing stems and seed heads so food and shelter continue after the growing season.",
+    },
   },
   {
     slug: "collect-and-use-rainwater",
@@ -777,31 +968,81 @@ export const gardenGuides: Guide[] = [
     time: "Gradual change",
     icon: "leaf",
     colour: "sage",
-    intro:
-      "A wildlife garden contains creatures that gardeners sometimes call pests. The aim is not to remove every problem, but to protect important plants while allowing a balanced food web to develop.",
+    intro: "A wildlife garden contains creatures that gardeners sometimes call pests.",
+    introDetail:
+      "The aim is not to remove every problem, but to protect important plants while allowing a balanced food web to develop. Chemical-free care is less about perfection and more about healthier soil, better plant choices and waiting before you reach for a spray.",
+    cost: "Often saves money over time",
+    bestSeason: "Any time; start with the next problem you face",
+    materials: [
+      "Mulch and compost to improve soil structure",
+      "Fine mesh, cloches or collars for vulnerable crops",
+      "Hand tools for weeding and inspecting plants",
+      "Optional: sticky traps only as monitoring aids, not a full solution",
+      "A notebook or phone photos to track what works",
+    ],
+    mistakes: [
+      "Spraying at the first chewed leaf before identifying the cause",
+      "Using products that kill predators along with the target insect",
+      "Growing plants in the wrong place and then fighting them all season",
+      "Expecting a perfect, damage-free garden if you also want wildlife",
+    ],
     steps: [
       {
         title: "Build healthier plants",
-        text: "Match plants to their conditions, improve soil structure and water well during establishment. Strong plants cope better with minor damage.",
+        text: "Match plants to their conditions, improve soil structure and water well during establishment. Strong plants cope better with minor damage and need fewer emergency interventions.",
       },
       {
         title: "Use physical barriers",
-        text: "Fine mesh, collars, hand removal and protected propagation can prevent damage without introducing persistent chemicals.",
+        text: "Fine mesh, collars, hand removal and protected propagation can prevent damage without introducing persistent chemicals. Check barriers regularly so they do not trap wildlife or become a hazard.",
       },
       {
         title: "Welcome predators",
-        text: "Ponds, dense planting, log piles and bird-friendly habitats encourage animals that naturally feed on many garden pests.",
+        text: "Ponds, dense planting, log piles and bird-friendly habitats encourage animals that naturally feed on many garden pests. A sterile, sprayed garden removes the very helpers you need.",
       },
       {
         title: "Accept a little damage",
-        text: "Chewed leaves are often evidence that your garden is supporting life. Intervene only where damage is likely to cause a genuine problem.",
+        text: "Chewed leaves are often evidence that your garden is supporting life. Intervene only where damage is likely to cause a genuine problem, such as a young tree being ring-barked or a crop completely lost.",
       },
     ],
     tips: [
       "Identify the cause before treating a plant.",
       "Avoid blanket treatments.",
       "Rotate edible crops and maintain good airflow.",
+      "Night-time torch checks often reveal slugs and snails more effectively than pellets.",
     ],
+    plants: [
+      { name: "Right plant, right place", note: "A plant suited to your soil and light needs fewer rescues." },
+      { name: "Companion herbs", note: "Dill, fennel and flowering herbs support beneficial insects near crops." },
+      { name: "Nettle corner (managed)", note: "Supports many insects; keep it contained and away from play areas." },
+      { name: "Dense ground cover", note: "Helps suppress weeds once established and cools soil." },
+      { name: "Berrying shrubs", note: "Feed birds that also take many invertebrates." },
+      { name: "Cover crops / green manures", note: "Protect bare soil between edible crops and feed soil life." },
+    ],
+    faqs: [
+      {
+        question: "What about serious infestations?",
+        answer: "Start with identification, physical removal and barriers. If you must use a product, choose the least harmful option, treat only the affected plant, and avoid spraying open flowers where bees are active.",
+      },
+      {
+        question: "Are organic sprays always fine?",
+        answer: "Not always. Some organic products can still harm beneficial insects. Prefer prevention and targeted action over routine spraying of any kind.",
+      },
+      {
+        question: "How long until predators appear?",
+        answer: "It can take a season or more for a garden to rebalance after heavy chemical use. Keep habitat features in place and resist the urge to spray during the awkward middle period.",
+      },
+    ],
+    images: [
+      { src: "/images/hands-gardening.webp", alt: "Hands planting seedlings in a wildlife-friendly garden bed", focal: "48% 48%" },
+      { src: "/images/mulch-guide/mulched-plant.webp", alt: "Mulch protecting soil around a young plant", focal: "50% 52%" },
+      { src: "/images/log-guide/finished-habitat.webp", alt: "A log and leaf habitat that supports predators and decomposers", focal: "50% 50%" },
+      { src: "/images/bee-guide/pollinator-border.webp", alt: "A flower border supporting the wider garden food web", focal: "50% 50%" },
+    ],
+    nextStep: {
+      label: "Add predator habitat",
+      href: "/garden-guides/build-a-log-and-leaf-habitat",
+      text: "Give beetles, amphibians and other helpers a quiet corner so natural pest control has somewhere to live.",
+    },
   },
   {
     slug: "make-a-hedgehog-highway",
