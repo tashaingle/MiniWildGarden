@@ -27,6 +27,7 @@ export function Footer() {
           </div>
           <div>
             <strong>Field notes</strong>
+            <Link href="/my-garden">My Garden</Link>
             <Link href="/saved-guides">Saved guides</Link>
             <Link href="/faqs">Common questions</Link>
             <Link href="/glossary">Glossary</Link>

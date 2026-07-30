@@ -6,18 +6,21 @@ import { useEffect, useMemo, useState } from "react";
 import { Icon } from "@/components/Icon";
 import {
   buildPersonalPlan,
-  defaultProfile,
+  createInitialPlannerState,
   habitatLayers,
   habitatScore,
+  PLANNER_EVENT,
+  PLANNER_STORAGE_KEY,
   profileSummary,
+  restorePlannerState,
   safetyWarnings,
   seasonForMonth,
   type HabitatId,
+  type PlannerJourneyState,
   type PlannerProfile,
   type WildlifeInterest,
 } from "@/lib/planner";
 
-const STORAGE_KEY = "mwg-garden-planner";
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const interestOptions: { value: WildlifeInterest; label: string }[] = [
   { value: "birds", label: "Birds" },
@@ -28,48 +31,15 @@ const interestOptions: { value: WildlifeInterest; label: string }[] = [
   { value: "insects", label: "Insects" },
 ];
 
-type ScoreRecord = { date: string; score: number; label: string };
-type PlannerState = {
-  version: 2;
-  profile: PlannerProfile;
-  profileReady: boolean;
-  answers: Partial<Record<HabitatId, boolean>>;
-  activePlanIds: HabitatId[];
-  completedTasks: HabitatId[];
-  initialScore: number | null;
-  history: ScoreRecord[];
-};
-
-function initialState(): PlannerState {
-  return {
-    version: 2,
-    profile: defaultProfile(),
-    profileReady: false,
-    answers: {},
-    activePlanIds: [],
-    completedTasks: [],
-    initialScore: null,
-    history: [],
-  };
-}
-
-function restoreState(value: string): PlannerState {
-  const parsed = JSON.parse(value) as Partial<PlannerState> & { version?: number };
-  if (parsed.version === 2 && parsed.profile) return { ...initialState(), ...parsed, version: 2 };
-
-  const answers = parsed as Partial<Record<HabitatId, boolean>>;
-  return { ...initialState(), answers };
-}
-
 export function GardenPlanner() {
-  const [state, setState] = useState<PlannerState>(initialState);
+  const [state, setState] = useState<PlannerJourneyState>(createInitialPlannerState);
   const [shareMessage, setShareMessage] = useState("");
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
       try {
-        const stored = window.localStorage.getItem(STORAGE_KEY);
-        if (stored) setState(restoreState(stored));
+        const stored = window.localStorage.getItem(PLANNER_STORAGE_KEY);
+        if (stored) setState(restorePlannerState(stored));
       } catch {
         // Start fresh if storage is unavailable or invalid.
       }
@@ -97,10 +67,11 @@ export function GardenPlanner() {
   const beforeScore = state.initialScore ?? score;
   const profileSeason = seasonForMonth(state.profile.month);
 
-  function save(next: PlannerState) {
+  function save(next: PlannerJourneyState) {
     setState(next);
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      window.localStorage.setItem(PLANNER_STORAGE_KEY, JSON.stringify(next));
+      window.dispatchEvent(new Event(PLANNER_EVENT));
     } catch {
       // The planner still works during this visit.
     }
@@ -150,10 +121,11 @@ export function GardenPlanner() {
   }
 
   function reset() {
-    const next = initialState();
+    const next = createInitialPlannerState();
     setState(next);
     try {
-      window.localStorage.removeItem(STORAGE_KEY);
+      window.localStorage.removeItem(PLANNER_STORAGE_KEY);
+      window.dispatchEvent(new Event(PLANNER_EVENT));
     } catch {
       // Nothing else is needed.
     }

@@ -58,8 +58,8 @@ export function Header() {
               </Link>
             );
           })}
-          <Link className="nav-cta" href="/saved-guides" onClick={() => setOpen(false)}>
-            Saved guides <span aria-hidden="true">♡</span>
+          <Link className="nav-cta" href="/my-garden" onClick={() => setOpen(false)}>
+            My Garden <span aria-hidden="true">◎</span>
           </Link>
         </nav>
       </div>

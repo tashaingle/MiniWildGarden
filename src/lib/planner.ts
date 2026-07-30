@@ -36,6 +36,22 @@ export type PlannedAction = {
   priority: number;
 };
 
+export type ScoreRecord = { date: string; score: number; label: string };
+
+export type PlannerJourneyState = {
+  version: 2;
+  profile: PlannerProfile;
+  profileReady: boolean;
+  answers: Partial<Record<HabitatId, boolean>>;
+  activePlanIds: HabitatId[];
+  completedTasks: HabitatId[];
+  initialScore: number | null;
+  history: ScoreRecord[];
+};
+
+export const PLANNER_STORAGE_KEY = "mwg-garden-planner";
+export const PLANNER_EVENT = "mwg:planner-changed";
+
 export const habitatLayers: HabitatLayer[] = [
   { id: "water", title: "Reliable water", copy: "A pond, bird bath or shallow drinking dish is available and kept safe." },
   { id: "flowers", title: "Flowers through the seasons", copy: "Something useful is flowering in spring, summer and autumn." },
@@ -58,6 +74,29 @@ export const defaultProfile = (month = new Date().getMonth() + 1): PlannerProfil
   interests: ["birds", "bees"],
   month,
 });
+
+export function createInitialPlannerState(): PlannerJourneyState {
+  return {
+    version: 2,
+    profile: defaultProfile(),
+    profileReady: false,
+    answers: {},
+    activePlanIds: [],
+    completedTasks: [],
+    initialScore: null,
+    history: [],
+  };
+}
+
+export function restorePlannerState(value: string): PlannerJourneyState {
+  const parsed = JSON.parse(value) as Partial<PlannerJourneyState> & { version?: number };
+  if (parsed.version === 2 && parsed.profile) {
+    return { ...createInitialPlannerState(), ...parsed, version: 2 };
+  }
+
+  const answers = parsed as Partial<Record<HabitatId, boolean>>;
+  return { ...createInitialPlannerState(), answers };
+}
 
 const interestLayers: Record<WildlifeInterest, HabitatId[]> = {
   birds: ["water", "shelter", "structure", "safe"],
