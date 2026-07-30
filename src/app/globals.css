@@ -388,6 +388,11 @@ em { font-weight: 440; }
   object-fit: cover;
   object-position: top center;
 }
+/* Centre phone: show the full screenshot without cropping */
+.phone-frame--centre .phone-frame__screen img {
+  object-fit: contain;
+  object-position: center top;
+}
 .phone-frame__bar {
   position: absolute;
   z-index: 3;
