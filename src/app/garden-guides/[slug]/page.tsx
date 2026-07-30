@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         type: "article",
         images: [{
           url: "/images/pond-guide/finished-low-angle.webp",
-          width: 1168,
-          height: 784,
+          width: 1920,
+          height: 1080,
           alt: "A completed wildlife pond seen across the water from a low angle",
         }],
       },
