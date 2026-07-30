@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/saved-guides", "/newsletter-confirmed", "/api/"],
+      disallow: ["/my-garden", "/saved-guides", "/newsletter-confirmed", "/api/"],
     },
     sitemap: "https://www.miniwildgarden.co.uk/sitemap.xml",
     host: "https://www.miniwildgarden.co.uk",

@@ -3,6 +3,7 @@ import {
   buildPersonalPlan,
   defaultProfile,
   habitatScore,
+  restorePlannerState,
   safetyWarnings,
   seasonForMonth,
 } from "./planner";
@@ -68,5 +69,12 @@ describe("personal garden planning", () => {
     const plan = buildPersonalPlan(defaultProfile(), { water: true, safe: true });
     expect(plan.some((item) => item.id === "water")).toBe(false);
     expect(plan.some((item) => item.id === "safe")).toBe(false);
+  });
+
+  it("keeps existing habitat answers when migrating older saved plans", () => {
+    const restored = restorePlannerState(JSON.stringify({ water: true, flowers: false }));
+    expect(restored.version).toBe(2);
+    expect(restored.answers).toEqual({ water: true, flowers: false });
+    expect(restored.profileReady).toBe(false);
   });
 });
