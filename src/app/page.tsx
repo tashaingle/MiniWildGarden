@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GuideCard } from "@/components/GuideCard";
 import { HeroImage } from "@/components/HeroImage";
 import { Icon } from "@/components/Icon";
+import { PlotlyAppPromo } from "@/components/PlotlyAppPromo";
 import { gardenGuides, seasons, wildlifeGuides } from "@/lib/content";
 import { seasonalImages } from "@/lib/images";
 
@@ -262,6 +263,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PlotlyAppPromo />
 
       <section className="closing-cta">
         <Image src="/images/wildflowers.webp" alt="Wildflowers glowing in sunlight" fill sizes="100vw" loading="lazy" />

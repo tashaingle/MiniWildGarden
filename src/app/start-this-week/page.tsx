@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { PageHero } from "@/components/PageHero";
+import { PlotlyAppPromo } from "@/components/PlotlyAppPromo";
 
 export const metadata: Metadata = {
   title: "Start this week: five wildlife garden actions",
@@ -190,6 +191,12 @@ export default function StartThisWeekPage() {
               Build a wildlife pond
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="section plotly-promo-section">
+        <div className="shell">
+          <PlotlyAppPromo compact />
         </div>
       </section>
     </main>

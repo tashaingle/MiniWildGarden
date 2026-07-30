@@ -102,7 +102,7 @@ export function Header() {
             width={1200}
             height={647}
             priority
-            sizes="(max-width: 520px) 104px, 126px"
+            sizes="(max-width: 520px) 100px, 118px"
           />
         </Link>
 
@@ -133,7 +133,7 @@ export function Header() {
             );
           })}
           <Link className="nav-cta" href="/my-garden" onClick={closeMenu}>
-            My Garden <span aria-hidden="true">◎</span>
+            My Garden
           </Link>
         </nav>
       </div>

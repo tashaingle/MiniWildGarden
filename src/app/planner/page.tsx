@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GardenPlanner } from "@/components/GardenPlanner";
 import { PageHero } from "@/components/PageHero";
+import { PlotlyAppPromo } from "@/components/PlotlyAppPromo";
 
 export const metadata: Metadata = {
   title: "Personal wildlife garden planner",
@@ -20,6 +21,11 @@ export default function PlannerPage() {
         focal="50% 48%"
       />
       <section className="section planner-section"><div className="shell"><GardenPlanner /></div></section>
+      <section className="section plotly-promo-section plotly-promo-section--planner">
+        <div className="shell">
+          <PlotlyAppPromo compact />
+        </div>
+      </section>
     </main>
   );
 }

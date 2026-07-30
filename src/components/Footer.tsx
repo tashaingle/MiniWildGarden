@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/CookieSettingsButton";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { PLOTLY_APP_STORE_URL } from "@/components/PlotlyAppPromo";
 
 export function Footer() {
   return (
@@ -39,6 +40,9 @@ export function Footer() {
             <strong>Site information</strong>
             <Link href="/privacy">Privacy</Link>
             <Link href="/cookies">Cookies &amp; analytics</Link>
+            <a href={PLOTLY_APP_STORE_URL} target="_blank" rel="noopener noreferrer">
+              Plotly app (free on iPhone)
+            </a>
             <CookieSettingsButton />
             <a href="#top">Back to the canopy ↑</a>
           </div>
