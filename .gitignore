@@ -26,6 +26,7 @@
 
 # Local source photography / AI exports (production assets live in public/images)
 /extra images/
+/App images/
 
 # debug
 npm-debug.log*
