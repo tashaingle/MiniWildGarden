@@ -19,6 +19,7 @@ export function Footer() {
         <div className="footer-nav">
           <div>
             <strong>Explore</strong>
+            <Link href="/start-this-week">Start this week</Link>
             <Link href="/guides">All guides</Link>
             <Link href="/wildlife-guides">Wildlife guides</Link>
             <Link href="/garden-guides">Garden projects</Link>

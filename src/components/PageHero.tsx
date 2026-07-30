@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { HeroImage } from "@/components/HeroImage";
 
 export function PageHero({
   eyebrow,
@@ -17,13 +17,10 @@ export function PageHero({
 }) {
   return (
     <section className="page-hero" data-parallax-root>
-      <Image
+      <HeroImage
         className="page-hero__image parallax-image"
         src={image}
         alt={imageAlt}
-        fill
-        priority
-        sizes="100vw"
         style={{ objectPosition: focal }}
       />
       <span className="page-hero__shade" />

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroImage } from "@/components/HeroImage";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
@@ -161,13 +162,10 @@ export function FrogGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <section className="field-hero" data-parallax-root>
-        <Image
+        <HeroImage
           className="field-hero__image parallax-image"
           src="/images/frog-guide/frog-hero.webp"
           alt="A common frog resting in shallow water among autumn leaves"
-          fill
-          priority
-          sizes="100vw"
           style={{ objectPosition: "50% 52%" }}
         />
         <span className="field-hero__shade" />

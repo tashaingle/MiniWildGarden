@@ -54,8 +54,8 @@ const guideMeta: Record<string, GuideMeta> = {
   },
   "welcome-hedgehogs": {
     published: "2026-07-28",
-    updated: "2026-07-29",
-    readingMinutes: 7,
+    updated: "2026-07-30",
+    readingMinutes: 11,
     effort: "afternoon",
     benefits: ["Hedgehogs", "Safe access", "Shelter"],
     relatedSlugs: ["make-a-hedgehog-highway", "build-a-log-and-leaf-habitat", "make-a-mini-wildlife-pond"],
@@ -144,8 +144,8 @@ const guideMeta: Record<string, GuideMeta> = {
   },
   "build-a-log-and-leaf-habitat": {
     published: "2026-07-29",
-    updated: "2026-07-29",
-    readingMinutes: 7,
+    updated: "2026-07-30",
+    readingMinutes: 10,
     effort: "quick",
     benefits: ["Dead wood", "Leaf litter", "Overwintering"],
     relatedSlugs: ["frog-friendly-space", "chemical-free-garden", "welcome-hedgehogs"],
@@ -190,8 +190,8 @@ const guideMeta: Record<string, GuideMeta> = {
   },
   "make-an-insect-drinking-station": {
     published: "2026-07-29",
-    updated: "2026-07-29",
-    readingMinutes: 6,
+    updated: "2026-07-30",
+    readingMinutes: 8,
     effort: "quick",
     benefits: ["Bees", "Clean water", "Pollinators"],
     relatedSlugs: ["garden-for-bees", "best-flowers-for-bees-and-pollinators", "create-a-wildlife-friendly-balcony"],
@@ -214,8 +214,8 @@ const guideMeta: Record<string, GuideMeta> = {
   },
   "collect-and-use-rainwater": {
     published: "2026-07-29",
-    updated: "2026-07-29",
-    readingMinutes: 8,
+    updated: "2026-07-30",
+    readingMinutes: 11,
     effort: "afternoon",
     benefits: ["Rainwater", "Water saving", "Resilience"],
     relatedSlugs: ["make-a-mini-wildlife-pond", "mulch-to-reduce-watering", "create-a-wildlife-friendly-balcony"],

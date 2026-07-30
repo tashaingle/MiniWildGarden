@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { GuideCard } from "@/components/GuideCard";
+import { HeroImage } from "@/components/HeroImage";
 import { Icon } from "@/components/Icon";
 import { gardenGuides, seasons, wildlifeGuides } from "@/lib/content";
 import { seasonalImages } from "@/lib/images";
@@ -16,13 +17,10 @@ export default function Home() {
   return (
     <main>
       <section className="cinematic-hero" data-parallax-root>
-        <Image
+        <HeroImage
           className="cinematic-hero__image parallax-image"
           src="/images/hero-garden.webp"
           alt="A thriving wildlife garden with a pond, wildflowers and a nesting box"
-          fill
-          priority
-          sizes="100vw"
           style={{ objectPosition: "52% 53%" }}
         />
         <span className="cinematic-hero__shade" />
@@ -38,8 +36,8 @@ export default function Home() {
             <h1>Make space<br />for the <em>wild.</em></h1>
             <p>Transform any garden, balcony or tiny outdoor corner into somewhere life can feed, drink, shelter and thrive.</p>
             <div className="hero-actions">
-              <Link className="button button--lime" href="/planner">Score my garden <Icon name="arrow" size={18} /></Link>
-              <Link className="hero-text-link" href="/guides">Browse every guide <span>↗</span></Link>
+              <Link className="button button--lime" href="/start-this-week">Start this week <Icon name="arrow" size={18} /></Link>
+              <Link className="hero-text-link" href="/planner">Score my garden <span>↗</span></Link>
             </div>
           </div>
 
@@ -75,28 +73,28 @@ export default function Home() {
             <p>Skip the scroll. Pick a starting point based on the time and space you have, or score the habitat layers you already offer.</p>
           </div>
           <div className="start-paths__grid">
-            <Link className="start-path" href="/guides?time=quick" data-reveal>
+            <Link className="start-path start-path--accent" href="/start-this-week" data-reveal>
               <span className="start-path__number">01</span>
+              <Icon name="sprout" size={28} />
+              <strong>I am new here</strong>
+              <p>Five small actions for your first week of wildlife gardening.</p>
+              <span className="start-path__cta">Start this week <Icon name="arrow" size={16} /></span>
+            </Link>
+            <Link className="start-path" href="/guides?time=quick" data-reveal>
+              <span className="start-path__number">02</span>
               <Icon name="clock" size={28} />
               <strong>I have 15 minutes</strong>
               <p>Quick wins for water, food and shelter without a full redesign.</p>
               <span className="start-path__cta">Browse quick projects <Icon name="arrow" size={16} /></span>
             </Link>
             <Link className="start-path" href="/garden-guides/create-a-wildlife-friendly-balcony" data-reveal>
-              <span className="start-path__number">02</span>
-              <Icon name="sprout" size={28} />
+              <span className="start-path__number">03</span>
+              <Icon name="garden" size={28} />
               <strong>I only have a balcony</strong>
               <p>Containers, vertical planting and tiny water features that still help wildlife.</p>
               <span className="start-path__cta">Open balcony guide <Icon name="arrow" size={16} /></span>
             </Link>
-            <Link className="start-path" href="/guides?time=weekend" data-reveal>
-              <span className="start-path__number">03</span>
-              <Icon name="garden" size={28} />
-              <strong>I have a weekend</strong>
-              <p>Bigger habitat builds: ponds, log piles, highways and layered planting.</p>
-              <span className="start-path__cta">See weekend projects <Icon name="arrow" size={16} /></span>
-            </Link>
-            <Link className="start-path start-path--accent" href="/planner" data-reveal>
+            <Link className="start-path" href="/planner" data-reveal>
               <span className="start-path__number">04</span>
               <Icon name="leaf" size={28} />
               <strong>Score my garden</strong>

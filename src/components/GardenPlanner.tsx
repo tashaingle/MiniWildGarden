@@ -272,7 +272,7 @@ export function GardenPlanner() {
             <div>
               <span className="eyebrow">Keep going</span>
               <h2>Turn this plan into a habit.</h2>
-              <p>Track progress, match the season, and save guides you want to return to.</p>
+              <p>Track progress, match the season, and follow a simple first-week path if you want a guided start.</p>
             </div>
             <div className="planner-follow-on__grid">
               <Link href="/my-garden" className="planner-follow-card">
@@ -281,17 +281,17 @@ export function GardenPlanner() {
                 <p>See your score, plan and wildlife notes in one place on this device.</p>
                 <span>Open My Garden <Icon name="arrow" size={16} /></span>
               </Link>
+              <Link href="/start-this-week" className="planner-follow-card">
+                <Icon name="sprout" size={24} />
+                <strong>Start this week</strong>
+                <p>Five small actions that build water, flowers, shelter and safer edges.</p>
+                <span>Open beginner path <Icon name="arrow" size={16} /></span>
+              </Link>
               <Link href={`/seasonal-advice/${profileSeason}`} className="planner-follow-card">
                 <Icon name="sun" size={24} />
                 <strong>This season&apos;s jobs</strong>
                 <p>Match your next steps to what wildlife needs right now.</p>
                 <span>Seasonal advice <Icon name="arrow" size={16} /></span>
-              </Link>
-              <Link href="/guides?time=quick" className="planner-follow-card">
-                <Icon name="clock" size={24} />
-                <strong>Quick wins</strong>
-                <p>If time is short, start with changes you can finish in under half an hour.</p>
-                <span>Browse quick projects <Icon name="arrow" size={16} /></span>
               </Link>
             </div>
           </section>

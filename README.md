@@ -1,39 +1,57 @@
 # Mini Wild Garden
 
-A practical wildlife-gardening guide built with Next.js.
+Practical wildlife gardening guides for British gardens, balconies and small outdoor spaces.
 
-## Getting Started
+Site: [www.miniwildgarden.co.uk](https://www.miniwildgarden.co.uk)
 
-Install dependencies, copy `.env.example` to `.env.local`, fill in the required
-Resend values, and run the development server:
+## Stack
+
+- Next.js App Router
+- React 19
+- Tailwind CSS 4 (utility + custom CSS in `src/app/globals.css`)
+- Resend for contact + newsletter
+- Optional GA4 behind cookie consent
+
+## Local development
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Quality checks
+## Useful routes
 
-Run the same checks used by GitHub Actions:
+| Route | Purpose |
+|-------|---------|
+| `/start-this-week` | Beginner first-week path |
+| `/guides` | Searchable guide library |
+| `/planner` | Habitat score + personalised plan |
+| `/my-garden` | Local-only garden notebook (noindex) |
+| `/wildlife-guides`, `/garden-guides` | Guide collections |
+
+## Environment
+
+Copy `.env.example` to `.env` and fill values as needed:
+
+- `RESEND_API_KEY`, contact/newsletter from addresses
+- `GOOGLE_SITE_VERIFICATION` for Search Console
+- GA measurement ID used by the consent-aware analytics component
+
+See `README-CONTACT-NEWSLETTER-ANALYTICS.md` for form and analytics detail.
+
+## SEO and deploy checks
+
+See `SEO-AUDIT.md` for sitemap/host/Search Console and PageSpeed checklist.
+
+`vercel.json` redirects bare domain traffic to `www.miniwildgarden.co.uk`.
+
+## Scripts
 
 ```bash
-npm run lint
-npm test
+npm run dev
 npm run build
+npm run start
+npm run lint
 ```
-
-## Production configuration
-
-The contact and newsletter endpoints use Resend. Newsletter confirmation also
-requires a strong `NEWSLETTER_SIGNING_SECRET`.
-
-For shared rate limiting across serverless instances, create an Upstash Redis
-database and configure:
-
-- `UPSTASH_REDIS_REST_URL`
-- `UPSTASH_REDIS_REST_TOKEN`
-
-Without those variables, development and preview environments use a per-process
-in-memory fallback.

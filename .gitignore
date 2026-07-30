@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# Local source photography / AI exports (production assets live in public/images)
+/extra images/
+
 # debug
 npm-debug.log*
 .npm-cache/

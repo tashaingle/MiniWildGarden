@@ -4,6 +4,7 @@ import type { Guide } from "@/lib/content";
 import { getGuideImage } from "@/lib/images";
 import { getGuideMeta, formatGuideDate } from "@/lib/guideMeta";
 import { GuideEndMatter } from "@/components/GuideEndMatter";
+import { HeroImage } from "@/components/HeroImage";
 import { Icon } from "@/components/Icon";
 
 export function GuideArticle({ guide, backHref, backLabel }: { guide: Guide; backHref: string; backLabel: string }) {
@@ -64,13 +65,10 @@ export function GuideArticle({ guide, backHref, backLabel }: { guide: Guide; bac
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <section className="article-hero" data-parallax-root>
-        <Image
+        <HeroImage
           className="article-hero__image parallax-image"
           src={image.src}
           alt={image.alt}
-          fill
-          priority
-          sizes="100vw"
           style={{ objectPosition: image.focal }}
         />
         <span className="article-hero__shade" />

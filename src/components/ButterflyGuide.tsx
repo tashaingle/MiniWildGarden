@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroImage } from "@/components/HeroImage";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
@@ -148,13 +149,10 @@ export function ButterflyGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <section className="field-hero" data-parallax-root>
-        <Image
+        <HeroImage
           className="field-hero__image parallax-image"
           src="/images/butterfly-guide/butterfly-hero.webp"
           alt="An orange butterfly feeding on a bright garden flower"
-          fill
-          priority
-          sizes="100vw"
           style={{ objectPosition: "50% 50%" }}
         />
         <span className="field-hero__shade" />

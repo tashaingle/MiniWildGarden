@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HeroImage } from "@/components/HeroImage";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { PondMaterialsChecklist, PondProgress } from "@/components/PondGuideTools";
@@ -183,13 +184,10 @@ export function PondGuide() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <section className="pond-guide-hero" data-parallax-root>
-        <Image
+        <HeroImage
           className="pond-guide-hero__image parallax-image"
           src="/images/pond-guide/finished-low-angle.webp"
           alt="A finished wildlife pond seen from a low angle across the water"
-          fill
-          priority
-          sizes="100vw"
           style={{ objectPosition: "50% 56%" }}
         />
         <span className="pond-guide-hero__shade" />

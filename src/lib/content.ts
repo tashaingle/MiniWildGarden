@@ -157,31 +157,79 @@ export const wildlifeGuides: Guide[] = [
     time: "1–2 hours",
     icon: "hedgehog",
     colour: "earth",
-    intro:
-      "Hedgehogs need connected gardens. The most helpful change is often a small ground-level route between neighbouring outdoor spaces, followed by safe shelter and fewer hazards.",
+    intro: "Hedgehogs need connected gardens more than perfect features.",
+    introDetail:
+      "The most helpful change is often a small ground-level route between neighbouring outdoor spaces, followed by safe shelter and fewer hazards. Food can help, but only after access and safety are sorted.",
+    cost: "Low to moderate",
+    bestSeason: "Any time; highways help year-round",
+    materials: [
+      "Permission from neighbours for any shared boundary change",
+      "Saw or tool suitable for a 13 cm by 13 cm fence opening if needed",
+      "Logs, leaves or a purpose-built hedgehog house for shelter",
+      "Meat-based cat or dog food and a shallow water dish if feeding",
+      "Optional: hedgehog highway sign so the gap is not blocked later",
+    ],
+    mistakes: [
+      "Offering milk, bread or large quantities of food",
+      "Creating a gap that leads into a road, uncovered drain or busy pet run",
+      "Cutting a shared fence without agreement",
+      "Tidying every leaf pile and compost heap before checking for wildlife",
+    ],
     steps: [
       {
         title: "Create garden access",
-        text: "A small gap at ground level can connect feeding and nesting areas across several gardens. Speak to neighbours before altering shared boundaries.",
+        text: "A small gap at ground level can connect feeding and nesting areas across several gardens. Speak to neighbours before altering shared boundaries. A finished opening about 13 cm by 13 cm is widely recommended for hedgehogs.",
       },
       {
         title: "Make hazards safer",
-        text: "Cover deep drains, add escape routes to ponds and check long grass, compost piles and bonfire material carefully before disturbing them.",
+        text: "Cover deep drains, add escape routes to ponds and check long grass, compost piles and bonfire material carefully before disturbing them. Raise netting and store slug pellets, if any are still present, well out of reach.",
       },
       {
         title: "Build a quiet shelter",
-        text: "A purpose-built house or a secluded pile of logs and leaves can provide a protected resting place. Position it away from frequent foot traffic.",
+        text: "A purpose-built house or a secluded pile of logs and leaves can provide a protected resting place. Position it away from frequent foot traffic, in a shady, quiet corner with nearby cover.",
       },
       {
-        title: "Offer supplementary food",
-        text: "A small amount of suitable meat-based cat or dog food and fresh water can help visitors, particularly when natural food is less abundant.",
+        title: "Offer supplementary food carefully",
+        text: "A small amount of suitable meat-based cat or dog food and fresh water can help visitors, particularly when natural food is less abundant. Put food out in the evening, remove leftovers in the morning and never offer milk.",
       },
     ],
     tips: [
       "Never offer milk.",
       "Check netting is raised above ground level when not in use.",
       "Keep part of the garden naturally messy and undisturbed.",
+      "If you find a poorly or injured hedgehog, contact a local rescue rather than trying to treat it yourself.",
     ],
+    plants: [
+      { name: "Dense shrubs and hedges", note: "Provide cover for night-time routes along boundaries." },
+      { name: "Long grass edge", note: "Hunting ground for beetles and other invertebrate prey." },
+      { name: "Log and leaf piles", note: "Daytime refuge and overwintering structure." },
+      { name: "Berrying native shrubs", note: "Support the wider food web that hedgehogs rely on." },
+    ],
+    faqs: [
+      {
+        question: "Will a hedgehog house guarantee visitors?",
+        answer: "No. Access between gardens and a reduction in hazards usually matter more. A house helps once hedgehogs can reach your space safely.",
+      },
+      {
+        question: "Is it safe if I have dogs?",
+        answer: "Some dogs will investigate hedgehogs. Keep feeding and shelter areas quiet, supervise pets at dusk and avoid creating access into a space where wildlife cannot escape disturbance.",
+      },
+      {
+        question: "What size should a highway opening be?",
+        answer: "About 13 cm by 13 cm is the standard guidance. Finish edges smoothly so nothing can snag or trap an animal.",
+      },
+    ],
+    images: [
+      { src: "/images/hedgehog-guide/fence-before.webp", alt: "A closed wooden garden fence before a hedgehog access gap is made", focal: "50% 50%" },
+      { src: "/images/hedgehog-guide/measure-opening.webp", alt: "Measuring a ground-level opening in a garden fence", focal: "50% 52%" },
+      { src: "/images/hedgehog-guide/cut-opening.webp", alt: "A finished ground-level opening cut into a wooden fence", focal: "50% 50%" },
+      { src: "/images/hedgehog-guide/hedgehog-through-fence.webp", alt: "A hedgehog using a finished highway opening under a fence", focal: "50% 54%" },
+    ],
+    nextStep: {
+      label: "Make the highway properly",
+      href: "/garden-guides/make-a-hedgehog-highway",
+      text: "Follow the detailed cut, finish and neighbour steps so the route is safe and lasting.",
+    },
   },
   {
     slug: "butterfly-friendly-garden",
@@ -485,8 +533,24 @@ export const gardenGuides: Guide[] = [
     time: "45 minutes",
     icon: "logs",
     colour: "earth",
-    intro:
-      "A good habitat pile is more than garden leftovers. Different timber sizes, pockets of leaf litter and direct contact with the ground create moisture, darkness and slow decay, which many invertebrates and small animals need.",
+    intro: "A good habitat pile is more than garden leftovers.",
+    introDetail:
+      "Different timber sizes, pockets of leaf litter and direct contact with the ground create moisture, darkness and slow decay. Many invertebrates, amphibians and overwintering insects depend on exactly that quiet mess.",
+    cost: "Free if you already have prunings",
+    bestSeason: "Any time; top up in autumn",
+    materials: [
+      "A few thicker untreated logs or branch lengths",
+      "Smaller sticks, twigs and bark pieces",
+      "Dry leaves or leaf mould",
+      "Optional: a little soil or compost to settle the base",
+      "A shaded corner that can stay undisturbed",
+    ],
+    mistakes: [
+      "Using treated timber, painted wood or glossy bark chips only",
+      "Building a tall, unstable stack near paths or play areas",
+      "Turning the pile every week to keep it tidy",
+      "Placing it in full sun where it dries out completely",
+    ],
     steps: [
       {
         title: "Choose a shaded or semi-shaded corner",
@@ -509,7 +573,34 @@ export const gardenGuides: Guide[] = [
       "Untreated wood is best.",
       "Keep the structure low and stable if children or pets use the area.",
       "Top up leaves in autumn instead of rebuilding the whole habitat.",
+      "A pile connected to planting is more useful than an isolated stack on open paving.",
     ],
+    plants: [
+      { name: "Ferns and ivy nearby", note: "Hold shade and humidity around the pile." },
+      { name: "Low ground cover", note: "Creates a safer approach route for amphibians and invertebrates." },
+      { name: "Shrubs or a fence line", note: "Shelters the habitat from drying wind." },
+    ],
+    faqs: [
+      {
+        question: "Will it attract pests?",
+        answer: "It will attract invertebrates, which is the point. Place it away from house walls if you are worried about damp, and keep a clear path edge so the pile does not look abandoned.",
+      },
+      {
+        question: "Can I use a bag of decorative bark instead?",
+        answer: "A mulch layer helps soil, but a habitat pile needs mixed sizes of wood and leaf litter with gaps. Fine bark alone is not a substitute.",
+      },
+    ],
+    images: [
+      { src: "/images/log-guide/shady-corner.webp", alt: "A shaded garden corner chosen for a wildlife habitat pile", focal: "50% 50%" },
+      { src: "/images/log-guide/logs-materials.webp", alt: "Logs, sticks and bark ready to build a habitat pile", focal: "50% 52%" },
+      { src: "/images/log-guide/building-habitat.webp", alt: "Layering branches and leaves into a wildlife habitat structure", focal: "50% 50%" },
+      { src: "/images/log-guide/finished-habitat.webp", alt: "A finished log and leaf habitat settled into a garden border", focal: "50% 52%" },
+    ],
+    nextStep: {
+      label: "Connect it to water or leaves",
+      href: "/garden-guides/create-a-leaf-litter-corner",
+      text: "Extend shelter across the garden with a leaf-litter corner or damp route toward any water you add later.",
+    },
   },
   {
     slug: "create-a-wildlife-friendly-balcony",
@@ -683,8 +774,23 @@ export const gardenGuides: Guide[] = [
     time: "15 minutes",
     icon: "bee",
     colour: "pond",
-    intro:
-      "Pollinators sometimes need water, particularly during warm, dry weather. A drinking station should be shallow, easy to grip and simple to clean. It is a small feature, but regular maintenance matters more than decorative complexity.",
+    intro: "Pollinators sometimes need water, particularly during warm, dry weather.",
+    introDetail:
+      "A drinking station should be shallow, easy to grip and simple to clean. Regular maintenance matters more than decorative complexity, and plain water is always enough.",
+    cost: "Very low",
+    bestSeason: "Spring through autumn; useful in heatwaves",
+    materials: [
+      "A wide plant saucer or shallow dish",
+      "Washed pebbles, stones or glass marbles",
+      "Clean water",
+      "A level spot near flowers, ideally with some shade in high summer",
+    ],
+    mistakes: [
+      "Using a deep, smooth bowl with no landing points",
+      "Adding sugar, honey or jam to the water",
+      "Letting the dish go stagnant or scummy",
+      "Placing it in full afternoon sun where water overheats",
+    ],
     steps: [
       {
         title: "Choose a wide, shallow dish",
@@ -709,11 +815,31 @@ export const gardenGuides: Guide[] = [
       "Move the dish into partial shade during very hot weather so it does not heat rapidly.",
       "Clean more frequently when many insects or birds are using the area.",
     ],
+    plants: [
+      { name: "Lavender, thyme or marjoram nearby", note: "Give bees a reason to stop close to the water." },
+      { name: "Any open single flower", note: "Pairs drinking water with an easy nectar source." },
+    ],
+    faqs: [
+      {
+        question: "Will this replace a pond?",
+        answer: "No. It is a quick drinking stop, not breeding habitat. A pond or mini pond supports more wildlife if you can add one later.",
+      },
+      {
+        question: "Do I need special bee water?",
+        answer: "No. Clean plain water is best. Sugar water can harm insects and encourages the wrong kinds of feeding behaviour.",
+      },
+    ],
     images: [
       { src: "/images/insect-water-guide/shallow-dish.webp", alt: "A shallow ceramic water dish raised on smooth stones in a shaded garden", focal: "50% 54%" },
       { src: "/images/insect-water-guide/clean-water.webp", alt: "Fresh clean water rippling in a shallow garden dish", focal: "50% 50%" },
       { src: "/images/insect-water-guide/refill-water.webp", alt: "A shallow garden water feature being refilled with a watering can", focal: "50% 48%" },
+      { src: "/images/insect-water-guide/bees-on-stones.webp", alt: "Bees using stones as landing points in a shallow water dish", focal: "50% 48%" },
     ],
+    nextStep: {
+      label: "Collect rainwater next",
+      href: "/garden-guides/collect-and-use-rainwater",
+      text: "Keep bird baths, pots and insect dishes filled more easily with stored rain from a water butt.",
+    },
   },
   {
     slug: "start-a-no-mow-lawn",
@@ -809,8 +935,24 @@ export const gardenGuides: Guide[] = [
     time: "1–2 hours",
     icon: "pond",
     colour: "pond",
-    intro:
-      "Stored rainwater reduces reliance on treated mains water and gives you a useful reserve for dry periods. A good system needs a stable base, a covered container, a sound connection to the downpipe and an overflow route that will not create damp or flooding problems.",
+    intro: "Stored rainwater reduces reliance on treated mains water and gives you a useful reserve for dry periods.",
+    introDetail:
+      "A good system needs a stable base, a covered container, a sound connection to the downpipe and an overflow route that will not create damp or flooding problems. Use the water on plants and wildlife features, not for drinking.",
+    cost: "Moderate for a water butt kit",
+    bestSeason: "Install any time; most useful before dry spells",
+    materials: [
+      "Water butt with secure lid and tap",
+      "Solid, level stand rated for a full container",
+      "Downpipe diverter kit suited to your pipe size",
+      "Overflow hose or return to the drain",
+      "Watering can for targeted use",
+    ],
+    mistakes: [
+      "Standing a full butt on loose bricks or soft ground",
+      "Leaving the lid open so debris and animals can fall in",
+      "Ignoring overflow so water pools against the house wall",
+      "Using stored rainwater as drinking water",
+    ],
     steps: [
       {
         title: "Choose a safe position and container",
@@ -835,12 +977,31 @@ export const gardenGuides: Guide[] = [
       "Water early or late in the day so less is lost to evaporation.",
       "Use a watering can for targeted watering rather than applying small amounts everywhere.",
     ],
+    plants: [
+      { name: "Container herbs and flowers", note: "Often need the most frequent watering in dry weather." },
+      { name: "Newly planted shrubs", note: "Benefit from deep, less frequent watering while roots establish." },
+    ],
+    faqs: [
+      {
+        question: "Is rainwater better for wildlife ponds?",
+        answer: "Yes, when available. It avoids the additives in mains water. Top up carefully and keep pond edges safe for animals leaving the water.",
+      },
+      {
+        question: "What if I rent?",
+        answer: "Choose a freestanding kit that can be removed later, get landlord permission for any downpipe alteration, and avoid drilling into shared structure without approval.",
+      },
+    ],
     images: [
+      { src: "/images/rainwater-guide/water-butt.webp", alt: "A covered water butt connected securely beside a house wall", focal: "50% 50%" },
       { src: "/images/rainwater-guide/water-butt-tap.webp", alt: "Stored rainwater flowing from a water-butt tap into a watering can", focal: "50% 52%" },
       { src: "/images/rainwater-guide/watering-can.webp", alt: "A galvanised watering can ready to carry collected rainwater into the garden", focal: "50% 50%" },
       { src: "/images/rainwater-guide/refill-bird-bath.webp", alt: "A garden bird bath being topped up carefully with a watering can", focal: "48% 50%" },
-      { src: "/images/rainwater-guide/water-young-plants.webp", alt: "Young garden plants being watered directly at soil level", focal: "50% 50%" },
     ],
+    nextStep: {
+      label: "Mulch to hold the moisture",
+      href: "/garden-guides/mulch-to-reduce-watering",
+      text: "After watering, protect soil with mulch so less moisture is lost and you refill less often.",
+    },
   },
   {
     slug: "mulch-to-reduce-watering",

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { HeroImage } from "@/components/HeroImage";
 import { Icon } from "@/components/Icon";
 import { SeasonChecklist } from "@/components/SeasonChecklist";
 import { getSeason, seasons } from "@/lib/content";
@@ -45,7 +45,7 @@ export default async function SeasonPage({ params }: { params: Promise<{ season:
   return (
     <main>
       <section className="season-detail-hero" data-parallax-root>
-        <Image className="season-detail-hero__image parallax-image" src={image.src} alt={image.alt} fill priority sizes="100vw" style={{ objectPosition: image.focal }} />
+        <HeroImage className="season-detail-hero__image parallax-image" src={image.src} alt={image.alt} style={{ objectPosition: image.focal }} />
         <span className="season-detail-hero__shade" />
         <div className="shell season-detail-hero__content">
           <Link className="back-link" href="/seasonal-advice">← The garden year</Link>

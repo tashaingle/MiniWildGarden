@@ -7,9 +7,10 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Icon } from "@/components/Icon";
 
 const links = [
+  { href: "/start-this-week", label: "Start here" },
   { href: "/guides", label: "Guides" },
   { href: "/seasonal-advice", label: "Seasons" },
-  { href: "/planner", label: "Garden planner" },
+  { href: "/planner", label: "Planner" },
   { href: "/about", label: "Our story" },
 ];
 
