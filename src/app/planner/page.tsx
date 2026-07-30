@@ -3,8 +3,8 @@ import { GardenPlanner } from "@/components/GardenPlanner";
 import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Wildlife garden planner",
-  description: "Score the core habitat layers in your outdoor space and get a practical next-step plan for water, food, shelter and safe access.",
+  title: "Personal wildlife garden planner",
+  description: "Create a personalised 30, 60 and 90-day wildlife garden plan shaped by your space, light, time, wildlife interests and household.",
   alternates: { canonical: "/planner" },
 };
 
@@ -13,8 +13,8 @@ export default function PlannerPage() {
     <main>
       <PageHero
         eyebrow="Interactive garden planner"
-        title="What should your garden add next?"
-        intro="Check the habitat layers you already have, see a simple score and get three practical next steps tailored to the gaps."
+        title="Your next season starts here."
+        intro="Describe your space, check the habitat you already have and build a practical three-step wildlife plan shaped around your time, budget and household."
         image="/images/garden-bed.webp"
         imageAlt="A layered wildlife garden with flowers, a pond and places to shelter"
         focal="50% 48%"
