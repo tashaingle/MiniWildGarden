@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Mini Wild Garden",
     type: "website",
     locale: "en_GB",
-    images: [{ url: "/images/hero-garden.webp", width: 1152, height: 768, alt: "A thriving wildlife garden with a pond and wildflowers" }],
+    images: [{ url: "/images/hero-garden.webp", width: 1920, height: 1080, alt: "A thriving wildlife garden with a pond and wildflowers" }],
   },
   twitter: {
     card: "summary_large_image",
