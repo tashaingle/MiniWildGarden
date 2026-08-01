@@ -5,7 +5,13 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/my-garden", "/saved-guides", "/newsletter-confirmed", "/api/"],
+      disallow: [
+        "/my-garden",
+        "/saved-guides",
+        "/newsletter-confirmed",
+        "/plotly-auth-callback",
+        "/api/",
+      ],
     },
     sitemap: "https://www.miniwildgarden.co.uk/sitemap.xml",
     host: "https://www.miniwildgarden.co.uk",
