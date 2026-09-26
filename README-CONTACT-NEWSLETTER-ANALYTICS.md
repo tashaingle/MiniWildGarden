@@ -52,11 +52,7 @@ The newsletter form adds confirmed addresses to Resend. Send future newsletters 
 
 1. Create a GA4 property and a Web data stream for `https://www.miniwildgarden.co.uk`.
 2. Copy the Measurement ID beginning with `G-`.
-3. Add it to Vercel:
-
-```text
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-```
+3. Set it as `GA_MEASUREMENT_ID` in `src/components/GoogleAnalytics.tsx`. The ID is public, so it lives in code rather than in Vercel environment variables.
 
 Analytics is not loaded until a visitor chooses **Allow analytics**. The implementation records:
 

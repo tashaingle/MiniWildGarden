@@ -37,7 +37,6 @@ Copy `.env.example` to `.env` and fill values as needed:
 
 - `RESEND_API_KEY`, contact/newsletter from addresses
 - `GOOGLE_SITE_VERIFICATION` for Search Console
-- GA measurement ID used by the consent-aware analytics component
 
 See `README-CONTACT-NEWSLETTER-ANALYTICS.md` for form and analytics detail.
 

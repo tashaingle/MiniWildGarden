@@ -4,6 +4,9 @@ import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+// GA4 measurement IDs are public (they ship in every page's tag), so the ID
+// lives in code rather than in environment configuration.
+const GA_MEASUREMENT_ID = "G-N58CV5GFM9";
 const CONSENT_KEY = "mwg-cookie-consent";
 const CONSENT_EVENT = "mwg-consent-changed";
 
@@ -37,7 +40,7 @@ function RoutePageViews({ measurementId }: { measurementId: string }) {
 }
 
 export function GoogleAnalytics() {
-  const measurementId = process.env.NEXT_PUBLIC_GA_ID;
+  const measurementId = GA_MEASUREMENT_ID;
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
