@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "Mini Wild Garden",
     type: "website",
     locale: "en_GB",
-    images: [{ url: "/images/hero-garden.webp", width: 1920, height: 1080, alt: "A thriving wildlife garden with a pond and wildflowers" }],
+    images: [{ url: "/images/peacock-buddleia.webp", width: 1920, height: 1080, alt: "A peacock butterfly feeding on purple buddleia" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mini Wild Garden",
     description: "Make space for the wild, one small corner at a time.",
-    images: ["/images/hero-garden.webp"],
+    images: ["/images/peacock-buddleia.webp"],
   },
 };
 

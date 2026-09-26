@@ -20,9 +20,9 @@ export default function Home() {
       <section className="cinematic-hero" data-parallax-root>
         <HeroImage
           className="cinematic-hero__image parallax-image"
-          src="/images/hero-garden.webp"
-          alt="A thriving wildlife garden with a pond, wildflowers and a nesting box"
-          style={{ objectPosition: "52% 53%" }}
+          src="/images/peacock-buddleia.webp"
+          alt="A peacock butterfly feeding on purple buddleia"
+          style={{ objectPosition: "62% 45%" }}
         />
         <span className="cinematic-hero__shade" />
         <span className="cinematic-hero__grain" />

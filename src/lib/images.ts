@@ -145,8 +145,8 @@ export const seasonalImages: Record<string, GuideImage> = {
 export function getGuideImage(guide: Pick<Guide, "slug">): GuideImage {
   return (
     guideImages[guide.slug] ?? {
-      src: "/images/hero-garden.webp",
-      alt: "A wildlife-friendly garden",
+      src: "/images/peacock-buddleia.webp",
+      alt: "A peacock butterfly feeding on purple buddleia",
       focal: "50% 50%",
     }
   );
