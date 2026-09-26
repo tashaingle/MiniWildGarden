@@ -41,19 +41,8 @@ export default function Home() {
               <Link className="hero-text-link" href="/planner">Score my garden <span>↗</span></Link>
             </div>
           </div>
-
-          <aside className="hero-field-note" aria-label="Mini Wild Garden philosophy">
-            <span className="hero-field-note__number">01</span>
-            <p><strong>No garden is too small.</strong> One water dish, one flowering pot or one untidy corner can become part of something much bigger.</p>
-          </aside>
         </div>
 
-        <div className="hero-species" aria-hidden="true">
-          <span>Birds</span><i />
-          <span>Bees</span><i />
-          <span>Hedgehogs</span><i />
-          <span>Frogs</span>
-        </div>
         <a className="scroll-cue" href="#discover"><span /> Scroll to explore</a>
       </section>
 
