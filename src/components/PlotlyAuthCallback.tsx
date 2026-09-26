@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { PLOTLY_APP_STORE_URL } from "@/components/PlotlyAppPromo";
 
 const APP_DEEP_LINK_BASE = "gardenplanner://auth/callback";
@@ -31,30 +31,33 @@ function readAuthError(): string | null {
   }
 }
 
+function subscribeToLocation(onChange: () => void) {
+  window.addEventListener("hashchange", onChange);
+  return () => window.removeEventListener("hashchange", onChange);
+}
+
 export function PlotlyAuthCallback() {
-  const [deepLink, setDeepLink] = useState(APP_DEEP_LINK_BASE);
-  const [error, setError] = useState<string | null>(null);
+  // Read the URL as an external store so the prerendered HTML (no URL) and the
+  // client render stay consistent during hydration.
+  const href = useSyncExternalStore(
+    subscribeToLocation,
+    () => window.location.href,
+    () => null,
+  );
+  const deepLink = href ? buildDeepLink() : APP_DEEP_LINK_BASE;
+  const error = href ? readAuthError() : null;
 
   useEffect(() => {
-    const link = buildDeepLink();
-    const authError = readAuthError();
-    setDeepLink(link);
-    setError(authError);
+    if (!href || error) return;
+    // Attempt automatic open after HTTPS landing (works more reliably than
+    // Safari navigating straight to a custom scheme from Supabase)
+    const timer = window.setTimeout(() => {
+      window.location.href = deepLink;
+    }, 450);
+    return () => window.clearTimeout(timer);
+  }, [href, error, deepLink]);
 
-    if (!authError) {
-      // Attempt automatic open after HTTPS landing (works more reliably than
-      // Safari navigating straight to a custom scheme from Supabase)
-      const timer = window.setTimeout(() => {
-        window.location.href = link;
-      }, 450);
-      return () => window.clearTimeout(timer);
-    }
-  }, []);
-
-  const statusText = useMemo(() => {
-    if (error) return error;
-    return "Your account link was processed. Opening Plotly…";
-  }, [error]);
+  const statusText = error ?? "Your account link was processed. Opening Plotly…";
 
   return (
     <main className="confirmation-page">
