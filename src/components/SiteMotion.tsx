@@ -3,6 +3,9 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+// Headings plus the display-font <strong> labels used as card and link titles.
+const TITLE_SELECTOR = "h1, h2, h3, strong";
+
 export function SiteMotion() {
   const pathname = usePathname();
 
@@ -62,15 +65,15 @@ export function SiteMotion() {
       });
     }
 
-    // Keep the last two words of every heading together so titles never end
+    // Keep the last two words of every title together so titles never end
     // on a single stranded word. Re-applied when headings re-render.
-    document.querySelectorAll<HTMLElement>("h1, h2, h3").forEach(joinLastWords);
+    document.querySelectorAll<HTMLElement>(TITLE_SELECTOR).forEach(joinLastWords);
     const headingObserver = new MutationObserver((mutations) => {
       mutations.forEach(({ target }) => {
         const element = target instanceof Element ? target : target.parentElement;
-        const heading = element?.closest<HTMLElement>("h1, h2, h3");
+        const heading = element?.closest<HTMLElement>(TITLE_SELECTOR);
         if (heading) joinLastWords(heading);
-        else if (element) element.querySelectorAll<HTMLElement>("h1, h2, h3").forEach(joinLastWords);
+        else if (element) element.querySelectorAll<HTMLElement>(TITLE_SELECTOR).forEach(joinLastWords);
       });
     });
     headingObserver.observe(document.body, { childList: true, subtree: true, characterData: true });

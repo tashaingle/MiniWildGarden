@@ -1224,7 +1224,7 @@ em { font-weight: 440; }
 .pond-container-option::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,25,18,.88), rgba(5,25,18,.15) 72%); }
 .pond-container-option figcaption { position: absolute; z-index: 2; left: 38px; bottom: 38px; max-width: 460px; color: white; }
 .pond-container-option figcaption span { display: block; margin-bottom: 8px; color: var(--lime); font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.pond-container-option figcaption strong { display: block; font-family: var(--font-display); font-size: clamp(2rem,4vw,4rem); line-height: 1.05; }
+.pond-container-option figcaption strong { display: block; font-family: var(--font-display); font-size: clamp(1.8rem,2.6vw,2.6rem); line-height: 1.05; }
 .pond-container-option figcaption p { margin: 14px 0 0; color: rgba(255,255,255,.67); }
 
 .pond-steps { padding-bottom: 145px; }
@@ -1973,7 +1973,7 @@ em { font-weight: 440; }
 .guide-pagination a:hover { background: var(--forest-3); }
 .guide-pagination a:last-child { text-align: right; border-right: 0; }
 .guide-pagination span { margin-bottom: 13px; color: var(--lime); font-size: .6rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
-.guide-pagination strong { font-family: var(--font-display); font-size: clamp(1.7rem,3vw,3rem); line-height: 1.05; }
+.guide-pagination strong { font-family: var(--font-display); font-size: clamp(1.35rem,1.9vw,1.85rem); line-height: 1.1; letter-spacing: -.03em; }
 
 /* Seasonal checklist */
 .season-checklist { display: grid; gap: 20px; }
@@ -2586,6 +2586,28 @@ em { font-weight: 440; }
   .my-garden-sightings,
   .my-garden-saved > div:last-child:not(.my-garden-saved__empty) { grid-template-columns: 1fr; }
 }
+
+/* Display-font labels inside <strong> would otherwise fall back to heavy bold;
+   match the heading weight instead. */
+.start-path strong,
+.mosaic-stat strong,
+.contact-note strong,
+.footer-nav strong,
+.pond-container-option figcaption strong,
+.pond-maintenance__seasons strong,
+.pond-sources__links strong,
+.field-sources a strong,
+.quick-win-card strong,
+.guide-sources > strong,
+.guide-pagination strong,
+.season-checklist__progress strong,
+.planner-score__ring strong,
+.planner-question strong,
+.planner-recommendations strong,
+.planner-history strong,
+.planner-follow-card strong,
+.privacy-notice strong,
+.my-garden-score strong { font-weight: 520; text-wrap: pretty; }
 
 /* Forced breaks in display titles only suit wide screens; below that, let
    the whole title wrap naturally. */
