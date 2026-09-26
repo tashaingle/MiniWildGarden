@@ -17,8 +17,8 @@ export default function AboutPage() {
         eyebrow="Our story"
         title="Wildlife gardening without the guilt, jargon or grand redesign."
         intro="Mini Wild Garden exists to make helping nature feel beautiful, achievable and relevant to the space you actually have."
-        image="/images/uk-garden.webp"
-        imageAlt="A lush British garden with flowers, trees and a wildlife pond"
+        image="/images/cottage-flowers-fence.webp"
+        imageAlt="Cottage garden flowers growing thickly against a weathered wooden fence"
         focal="50% 52%"
       />
 

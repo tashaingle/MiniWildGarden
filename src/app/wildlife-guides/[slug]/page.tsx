@@ -48,10 +48,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         description: "Plant a long season of nectar, caterpillar food and warm shelter in a border, pot or tiny sunny corner.",
         type: "article",
         images: [{
-          url: "/images/butterfly-guide/butterfly-hero.webp",
-          width: 1152,
-          height: 768,
-          alt: "An orange butterfly feeding on a garden flower",
+          url: "/images/butterfly-guide/peacock-butterfly.webp",
+          width: 1920,
+          height: 1080,
+          alt: "A peacock butterfly resting on a garden flower",
         }],
       },
     };
@@ -67,10 +67,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         description: "Connect water, damp planting and quiet shelter so frogs can use the whole garden safely.",
         type: "article",
         images: [{
-          url: "/images/frog-guide/frog-hero.webp",
-          width: 784,
-          height: 1168,
-          alt: "A common frog resting in shallow water",
+          url: "/images/frog-guide/common-frog-grass.webp",
+          width: 1920,
+          height: 1080,
+          alt: "A common frog sitting low in long garden grass",
         }],
       },
     };

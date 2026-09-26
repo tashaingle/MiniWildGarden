@@ -17,8 +17,8 @@ export default function WildlifeGuidesPage() {
         eyebrow="Wildlife field guides"
         title="Meet the lives unfolding just outside your door."
         intro="Learn what different garden visitors need, how to recognise useful habitat and which small changes can make your space safer."
-        image="/images/wildlife-closeup.webp"
-        imageAlt="A frog and small bird sharing a miniature garden pond"
+        image="/images/tree-sparrows.webp"
+        imageAlt="Three tree sparrows perched together on woven twigs"
         focal="48% 48%"
       />
       <section className="section listing-intro">

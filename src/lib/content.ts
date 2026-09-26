@@ -221,8 +221,8 @@ export const wildlifeGuides: Guide[] = [
     ],
     images: [
       { src: "/images/hedgehog-guide/fence-before.webp", alt: "A closed wooden garden fence before a hedgehog access gap is made", focal: "50% 50%" },
-      { src: "/images/hedgehog-guide/measure-opening.webp", alt: "Measuring a ground-level opening in a garden fence", focal: "50% 52%" },
-      { src: "/images/hedgehog-guide/cut-opening.webp", alt: "A finished ground-level opening cut into a wooden fence", focal: "50% 50%" },
+      { src: "/images/hedgehog-guide/measure-fence.webp", alt: "A tape measure laid along the base of a wooden fence panel", focal: "30% 60%" },
+      { src: "/images/hedgehog-guide/finished-opening.webp", alt: "A finished arched hedgehog opening at the base of a painted fence", focal: "50% 60%" },
       { src: "/images/hedgehog-guide/hedgehog-through-fence.webp", alt: "A hedgehog using a finished highway opening under a fence", focal: "50% 54%" },
     ],
     nextStep: {

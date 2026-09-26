@@ -16,9 +16,9 @@ export default function SavedGuidesPage() {
         eyebrow="Your field notebook"
         title="Keep useful ideas close."
         intro="Saved guides live in this browser, so you can build a personal wildlife garden plan without creating an account."
-        image="/images/hands-gardening.webp"
-        imageAlt="Hands working carefully in a wildlife-friendly garden"
-        focal="50% 50%"
+        image="/images/seedling-closeup.webp"
+        imageAlt="A young seedling unfurling its first leaves from dark soil"
+        focal="62% 50%"
       />
       <section className="section saved-guides-section"><div className="shell"><SavedGuides items={libraryItems} /></div></section>
     </main>

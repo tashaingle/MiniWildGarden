@@ -90,9 +90,9 @@ const steps = [
       "Leave some seed heads standing, grow berry-bearing shrubs, allow leaf litter beneath hedges and plant flowers that support insects. Natural food spreads birds through the garden rather than concentrating them at one station.",
       "Dense shrubs, climbers and mixed-height planting provide cover, nesting structure and places to hunt. Feeders should supplement a living garden, not replace one.",
     ],
-    image: "/images/bird-guide/birds-at-water.webp",
-    alt: "Garden birds drinking and bathing beside a small water dish",
-    focal: "54% 52%",
+    image: "/images/tree-sparrows.webp",
+    alt: "Three tree sparrows perched together on woven twigs",
+    focal: "50% 45%",
   },
 ];
 
@@ -127,7 +127,7 @@ const structuredData = [
     description: "A practical UK guide to cleaner bird feeding, fresh water, seasonal food, safe nest boxes and natural garden habitat.",
     image: [
       "https://miniwildgarden.co.uk/images/bird-guide/garden-feeder.webp",
-      "https://miniwildgarden.co.uk/images/bird-guide/birds-at-water.webp",
+      "https://miniwildgarden.co.uk/images/robin.webp",
     ],
     totalTime: "PT20M",
     supply: [
@@ -178,7 +178,7 @@ export function BirdGuide() {
         <div className="shell field-hero__content">
           <Link className="back-link" href="/wildlife-guides">← All wildlife guides</Link>
           <span className="eyebrow eyebrow--light">Birds · Field guide 03</span>
-          <h1>Bring the garden<br />to <em>life in flight.</em></h1>
+          <h1>Bring the garden{" "}<br />to <em>life in flight.</em></h1>
           <p className="lead">Offer food, water and shelter without turning a busy feeding station into a place where disease can spread.</p>
           <div className="field-hero__meta">
             <span><Icon name="clock" size={17} /> 15 minutes weekly</span>
@@ -193,7 +193,7 @@ export function BirdGuide() {
         <div className="shell field-intro__grid">
           <div data-reveal>
             <span className="eyebrow">The healthy garden station</span>
-            <h2>Welcoming birds is easy.<br /><em>Keeping them healthy is the craft.</em></h2>
+            <h2>Welcoming birds is easy.{" "}<br /><em>Keeping them healthy is the craft.</em></h2>
             <p>Feeding gathers birds together, so good hygiene matters as much as the food itself. Spread activity through the garden, refresh water daily and let planting provide much of the natural menu.</p>
           </div>
           <div className="field-intro__rhythm" data-reveal>
@@ -277,7 +277,7 @@ export function BirdGuide() {
             </section>
 
             <section className="field-cinema bird-cinema" data-parallax-root>
-              <Image className="parallax-image" src="/images/bird-guide/birds-at-water.webp" alt="Garden birds gathered around a clean water dish" fill sizes="100vw" />
+              <Image className="parallax-image" src="/images/robin.webp" alt="A robin perched among bare garden stems" fill sizes="100vw" />
               <span className="field-cinema__shade" />
               <div data-reveal>
                 <span className="eyebrow eyebrow--light">The quiet reward</span>
@@ -320,7 +320,7 @@ export function BirdGuide() {
         <span className="field-closing__shade" />
         <div className="shell field-closing__content" data-reveal>
           <span className="eyebrow eyebrow--light">Connect the whole garden</span>
-          <h2>Water for wings.<br /><em>A doorway for paws.</em></h2>
+          <h2>Water for wings.{" "}<br /><em>A doorway for paws.</em></h2>
           <div>
             <Link className="button button--lime" href="/garden-guides/make-a-hedgehog-highway">Make a hedgehog highway <Icon name="arrow" size={18} /></Link>
             <Link className="field-closing__link" href="/wildlife-guides">Explore every wildlife guide <span>↗</span></Link>

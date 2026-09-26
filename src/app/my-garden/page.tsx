@@ -17,8 +17,8 @@ export default function MyGardenPage() {
         eyebrow="Your private garden notebook"
         title="Welcome back to your patch."
         intro="See what to do next, follow your habitat score and keep a simple record of the wildlife beginning to visit."
-        image="/images/wildlife-closeup.webp"
-        imageAlt="A close view of wildlife among leaves and garden habitat"
+        image="/images/tree-sparrows.webp"
+        imageAlt="Three tree sparrows perched together in a garden"
         focal="50% 45%"
       />
       <section className="section my-garden-section"><div className="shell"><MyGardenDashboard items={libraryItems} /></div></section>

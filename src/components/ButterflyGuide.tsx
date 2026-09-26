@@ -113,7 +113,7 @@ const structuredData = [
     name: "How to create a butterfly-friendly garden",
     description: "A practical UK guide to nectar planting, caterpillar food plants, sunny shelter and year-round butterfly habitat.",
     image: [
-      "https://miniwildgarden.co.uk/images/butterfly-guide/butterfly-hero.webp",
+      "https://miniwildgarden.co.uk/images/butterfly-guide/peacock-butterfly.webp",
       "https://miniwildgarden.co.uk/images/butterfly-guide/finished-border.webp",
     ],
     totalTime: "PT3H",
@@ -151,9 +151,9 @@ export function ButterflyGuide() {
       <section className="field-hero" data-parallax-root>
         <HeroImage
           className="field-hero__image parallax-image"
-          src="/images/butterfly-guide/butterfly-hero.webp"
-          alt="An orange butterfly feeding on a bright garden flower"
-          style={{ objectPosition: "50% 50%" }}
+          src="/images/butterfly-guide/peacock-butterfly.webp"
+          alt="A peacock butterfly with open wings resting on a garden flower"
+          style={{ objectPosition: "35% 50%" }}
         />
         <span className="field-hero__shade" />
         <span className="field-hero__halo" aria-hidden="true" />
@@ -161,7 +161,7 @@ export function ButterflyGuide() {
         <div className="shell field-hero__content">
           <Link className="back-link" href="/wildlife-guides">← All wildlife guides</Link>
           <span className="eyebrow eyebrow--light">Butterflies & moths · Field guide 05</span>
-          <h1>Plant a border<br />that <em>moves with wings.</em></h1>
+          <h1>Plant a border{" "}<br />that <em>moves with wings.</em></h1>
           <p className="lead">Create a long season of nectar, caterpillar food and warm shelter in a border, pot or tiny sunny corner.</p>
           <div className="field-hero__meta">
             <span><Icon name="clock" size={17} /> An afternoon</span>
@@ -176,7 +176,7 @@ export function ButterflyGuide() {
         <div className="shell field-intro__grid">
           <div data-reveal>
             <span className="eyebrow">More than a nectar bar</span>
-            <h2>Feed the adult.<br /><em>Grow the next generation.</em></h2>
+            <h2>Feed the adult.{" "}<br /><em>Grow the next generation.</em></h2>
             <p>A butterfly-friendly garden supports the entire life cycle: sunny flowers for adults, the right leaves for caterpillars and undisturbed cover when the season turns cold.</p>
           </div>
           <div className="field-intro__stat" data-reveal>
@@ -303,7 +303,7 @@ export function ButterflyGuide() {
         <span className="field-closing__shade" />
         <div className="shell field-closing__content" data-reveal>
           <span className="eyebrow eyebrow--light">Start with one sunny patch</span>
-          <h2>Flowers for now.<br /><em>Food for what comes next.</em></h2>
+          <h2>Flowers for now.{" "}<br /><em>Food for what comes next.</em></h2>
           <div>
             <Link className="button button--lime" href="/garden-guides/best-flowers-for-bees-and-pollinators">See the pollinator planting guide <Icon name="arrow" size={18} /></Link>
             <Link className="field-closing__link" href="/wildlife-guides/frog-friendly-space">Next: help frogs <span>↗</span></Link>

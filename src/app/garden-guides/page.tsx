@@ -17,8 +17,8 @@ export default function GardenGuidesPage() {
         eyebrow="Garden projects"
         title="Turn an ordinary corner into something alive."
         intro="Choose a project that fits your space and build practical habitat for feeding, drinking, shelter and safe movement."
-        image="/images/hands-gardening.webp"
-        imageAlt="Hands planting seedlings beside a bird feeder and wildlife shelter"
+        image="/images/hands-planting-bed.webp"
+        imageAlt="Gloved hands setting young plants into a freshly dug garden bed"
         focal="50% 50%"
       />
       <section className="section listing-intro">

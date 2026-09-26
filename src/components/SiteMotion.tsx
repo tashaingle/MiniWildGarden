@@ -62,11 +62,49 @@ export function SiteMotion() {
       });
     }
 
+    // Keep the last two words of every heading together so titles never end
+    // on a single stranded word. Re-applied when headings re-render.
+    document.querySelectorAll<HTMLElement>("h1, h2, h3").forEach(joinLastWords);
+    const headingObserver = new MutationObserver((mutations) => {
+      mutations.forEach(({ target }) => {
+        const element = target instanceof Element ? target : target.parentElement;
+        const heading = element?.closest<HTMLElement>("h1, h2, h3");
+        if (heading) joinLastWords(heading);
+        else if (element) element.querySelectorAll<HTMLElement>("h1, h2, h3").forEach(joinLastWords);
+      });
+    });
+    headingObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+
     return () => {
       observer?.disconnect();
+      headingObserver.disconnect();
       cleanups.forEach((cleanup) => cleanup());
     };
   }, [pathname]);
 
   return null;
+}
+
+function joinLastWords(heading: HTMLElement) {
+  const text = heading.textContent ?? "";
+  // One- and two-word titles would become a single unbreakable unit.
+  if (text.trim().split(/\s+/).length < 3) return;
+
+  const nodes: Text[] = [];
+  const walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT);
+  while (walker.nextNode()) nodes.push(walker.currentNode as Text);
+
+  let seenWord = false;
+  for (let n = nodes.length - 1; n >= 0; n -= 1) {
+    const value = nodes[n].data;
+    for (let i = value.length - 1; i >= 0; i -= 1) {
+      if (value[i] === " " && seenWord) return;
+      if (/\s/.test(value[i])) {
+        if (!seenWord) continue;
+        nodes[n].data = `${value.slice(0, i)} ${value.slice(i + 1)}`;
+        return;
+      }
+      seenWord = true;
+    }
+  }
 }

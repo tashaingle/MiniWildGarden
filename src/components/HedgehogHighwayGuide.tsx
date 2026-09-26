@@ -37,8 +37,8 @@ const steps = [
       "A square opening measuring 13 cm by 13 cm is sufficient for a hedgehog and is too small for nearly all pets. Mark it at the very bottom of the panel so the animal does not need to climb or squeeze over a lip.",
       "A reusable cardboard template makes it easier to repeat the same opening along a connected street. Check the dimensions twice before cutting and keep the outline clear of nails, screws and panel joints.",
     ],
-    image: "/images/hedgehog-guide/measure-opening.webp",
-    alt: "A person measuring the bottom of a wooden fence before marking a hedgehog opening",
+    image: "/images/hedgehog-guide/measure-fence.webp",
+    alt: "A tape measure laid along the base of a wooden fence panel before marking a hedgehog opening",
     focal: "54% 50%",
   },
   {
@@ -164,7 +164,7 @@ export function HedgehogHighwayGuide() {
         <div className="shell field-hero__content">
           <Link className="back-link" href="/garden-guides">← All garden projects</Link>
           <span className="eyebrow eyebrow--light">Connected gardens · Field guide 02</span>
-          <h1>Open a door<br />to the <em>night garden.</em></h1>
+          <h1>Open a door{" "}<br />to the <em>night garden.</em></h1>
           <p className="lead">Create a safe hedgehog highway through a wooden fence, then turn one small opening into a connected neighbourhood habitat.</p>
           <div className="field-hero__meta">
             <span><Icon name="clock" size={17} /> About 1 hour</span>
@@ -179,7 +179,7 @@ export function HedgehogHighwayGuide() {
         <div className="shell field-intro__grid">
           <div data-reveal>
             <span className="eyebrow">Why connection matters</span>
-            <h2>A garden can feed a visitor.<br /><em>A street can support a life.</em></h2>
+            <h2>A garden can feed a visitor.{" "}<br /><em>A street can support a life.</em></h2>
             <p>Hedgehogs move through many gardens to find food, mates and nesting places. Solid fences divide that habitat into isolated islands. A carefully finished ground-level opening restores one piece of the route.</p>
           </div>
           <div className="field-intro__stat" data-reveal>
@@ -300,7 +300,7 @@ export function HedgehogHighwayGuide() {
         <span className="field-closing__shade" />
         <div className="shell field-closing__content" data-reveal>
           <span className="eyebrow eyebrow--light">Next field guide</span>
-          <h2>Now make the garden<br /><em>worth travelling to.</em></h2>
+          <h2>Now make the garden{" "}<br /><em>worth travelling to.</em></h2>
           <div>
             <Link className="button button--lime" href="/wildlife-guides/help-garden-birds">Help garden birds safely <Icon name="arrow" size={18} /></Link>
             <Link className="field-closing__link" href="/wildlife-guides/welcome-hedgehogs">More ways to welcome hedgehogs <span>↗</span></Link>

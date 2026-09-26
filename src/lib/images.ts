@@ -23,14 +23,14 @@ const guideImages: Record<string, GuideImage> = {
     focal: "50% 52%",
   },
   "butterfly-friendly-garden": {
-    src: "/images/butterfly-guide/butterfly-hero.webp",
-    alt: "An orange butterfly feeding on a garden flower",
-    focal: "50% 50%",
+    src: "/images/butterfly-guide/peacock-butterfly.webp",
+    alt: "A peacock butterfly resting on a garden flower",
+    focal: "35% 50%",
   },
   "frog-friendly-space": {
-    src: "/images/frog-guide/frog-hero.webp",
-    alt: "A common frog resting in shallow water among leaves",
-    focal: "50% 52%",
+    src: "/images/frog-guide/common-frog-grass.webp",
+    alt: "A common frog sitting low in long garden grass",
+    focal: "55% 40%",
   },
   "wildlife-small-garden": {
     src: "/images/balcony.webp",
@@ -121,9 +121,9 @@ const guideImages: Record<string, GuideImage> = {
 
 export const seasonalImages: Record<string, GuideImage> = {
   spring: {
-    src: "/images/wildflowers.webp",
-    alt: "Fresh spring wildflowers glowing in soft sunlight",
-    focal: "50% 45%",
+    src: "/images/seedling-rows.webp",
+    alt: "Rows of young seedlings emerging from spring soil",
+    focal: "50% 50%",
   },
   summer: {
     src: "/images/bee.webp",
@@ -136,9 +136,9 @@ export const seasonalImages: Record<string, GuideImage> = {
     focal: "50% 50%",
   },
   winter: {
-    src: "/images/bird.webp",
-    alt: "A garden bird beside a feeder",
-    focal: "50% 45%",
+    src: "/images/robin.webp",
+    alt: "A robin perched among bare winter stems",
+    focal: "40% 50%",
   },
 };
 

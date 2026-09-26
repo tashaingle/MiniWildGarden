@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "Five small, achievable actions to make space for wildlife this week, whether you have a garden or a balcony.",
     type: "article",
     url: "/start-this-week",
-    images: [{ url: "/images/hands-gardening.webp", alt: "Hands planting in a wildlife-friendly garden" }],
+    images: [{ url: "/images/hands-planting-seedling.webp", width: 1920, height: 1080, alt: "Gloved hands planting a young seedling into dark soil" }],
   },
 };
 
@@ -85,9 +85,9 @@ export default function StartThisWeekPage() {
         eyebrow="Beginner path"
         title="Start this week. Five small changes for wildlife."
         intro="A calm, practical first week for any British garden, balcony or tiny outdoor corner. No redesign required."
-        image="/images/hands-gardening.webp"
-        imageAlt="Hands planting seedlings in a wildlife-friendly garden bed"
-        focal="48% 48%"
+        image="/images/hands-planting-seedling.webp"
+        imageAlt="Gloved hands planting a young seedling into dark soil"
+        focal="55% 42%"
       />
 
       <section className="section start-week-intro">

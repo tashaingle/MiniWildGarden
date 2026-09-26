@@ -7,7 +7,7 @@ type HeroImageProps = Omit<ImageProps, "fill" | "priority" | "sizes" | "quality"
 
 /**
  * Full-bleed hero photography.
- * Sources are ~1150–1170px wide, so we avoid heavy recompression and keep
+ * Sources are mostly 1920px wide, so we avoid heavy recompression and keep
  * sizes explicit so Next serves the largest available render of the asset.
  */
 export function HeroImage({ className, alt, compact = false, style, ...props }: HeroImageProps) {

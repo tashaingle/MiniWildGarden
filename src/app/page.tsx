@@ -34,7 +34,7 @@ export default function Home() {
         <div className="shell cinematic-hero__content">
           <div className="cinematic-hero__copy">
             <span className="hero-kicker"><i /> A field guide for the wildlife next door</span>
-            <h1>Make space<br />for the <em>wild.</em></h1>
+            <h1>Make space{" "}<br />for the <em>wild.</em></h1>
             <p>Transform any garden, balcony or tiny outdoor corner into somewhere life can feed, drink, shelter and thrive.</p>
             <div className="hero-actions">
               <Link className="button button--lime" href="/start-this-week">Start this week <Icon name="arrow" size={18} /></Link>
@@ -117,10 +117,10 @@ export default function Home() {
 
           <div className="ecosystem__mosaic" data-reveal>
             <figure className="mosaic-image mosaic-image--large">
-              <Image src="/images/uk-garden.webp" alt="A flower-filled British garden with a pond" fill sizes="(max-width: 800px) 100vw, 45vw" loading="lazy" />
+              <Image src="/images/rose-arch-garden.webp" alt="Climbing roses over a wooden arch above a brick garden path" fill sizes="(max-width: 800px) 100vw, 45vw" loading="lazy" />
             </figure>
             <figure className="mosaic-image mosaic-image--small">
-              <Image src="/images/frog.webp" alt="A frog among pond plants" fill sizes="220px" loading="lazy" />
+              <Image src="/images/common-frog-pond.webp" alt="A common frog peeking out of a garden pond" fill sizes="220px" loading="lazy" />
             </figure>
             <div className="mosaic-stat"><strong>4</strong><span>essentials</span><small>Food · water · shelter · access</small></div>
           </div>
@@ -168,7 +168,7 @@ export default function Home() {
           <span className="pond-story__chapter">Field project · 01</span>
           <div data-reveal>
             <span className="eyebrow eyebrow--light">The fastest habitat upgrade</span>
-            <h2>Add water.<br /><em>Watch life arrive.</em></h2>
+            <h2>Add water.{" "}<br /><em>Watch life arrive.</em></h2>
             <p>Build with shallow margins, a secure escape route and enough cover for wildlife to move safely between water and land.</p>
             <Link className="button button--lime" href="/garden-guides/make-a-mini-wildlife-pond">Build a wildlife pond <Icon name="arrow" size={18} /></Link>
           </div>
@@ -271,7 +271,7 @@ export default function Home() {
         <span className="closing-cta__shade" />
         <div className="shell closing-cta__content" data-reveal>
           <span className="eyebrow eyebrow--light">Begin where you are</span>
-          <h2>One pot.<br />One puddle.<br /><em>One wilder future.</em></h2>
+          <h2>One pot.{" "}<br />One puddle.{" "}<br /><em>One wilder future.</em></h2>
           <Link className="button button--lime" href="/garden-guides">Choose your first project <Icon name="arrow" size={18} /></Link>
         </div>
       </section>

@@ -16,8 +16,8 @@ export default function GuidesPage() {
         eyebrow="The complete field guide"
         title="Find the right change for your garden today."
         intro="Search every wildlife guide and practical project, from five-minute fixes to full weekend habitats."
-        image="/images/uk-garden.webp"
-        imageAlt="A wildlife-rich British garden filled with flowers, water and layered habitat"
+        image="/images/cottage-flowers-fence.webp"
+        imageAlt="Pollinator-friendly cottage flowers growing along a rustic wooden fence"
         focal="50% 50%"
       />
       <section className="section guide-library-section">

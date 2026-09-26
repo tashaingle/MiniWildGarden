@@ -61,8 +61,8 @@ export default function FaqPage() {
         eyebrow="Wildlife gardening questions"
         title="Clear answers for kinder gardens."
         intro="Practical answers to the questions that appear when a garden starts becoming a habitat."
-        image="/images/wildlife-closeup.webp"
-        imageAlt="A close view of wildlife using a miniature garden habitat"
+        image="/images/tree-sparrows.webp"
+        imageAlt="Three tree sparrows perched together on woven twigs"
         focal="50% 50%"
       />
       <section className="section faq-hub"><div className="shell faq-hub__grid">

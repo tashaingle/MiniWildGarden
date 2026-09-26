@@ -15,9 +15,9 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Tell us what is happening in your patch."
         intro="Ask a question, share a garden visitor or suggest the guide you would love to read next."
-        image="/images/butterfly.webp"
-        imageAlt="A butterfly feeding from a bright garden flower"
-        focal="48% 48%"
+        image="/images/peacock-buddleia.webp"
+        imageAlt="A peacock butterfly feeding on purple buddleia"
+        focal="62% 45%"
       />
       <section className="section contact-section">
         <div className="shell contact-grid">

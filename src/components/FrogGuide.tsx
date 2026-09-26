@@ -126,7 +126,7 @@ const structuredData = [
     name: "How to create a frog-friendly garden",
     description: "A practical UK guide to linking water, shallow exits, damp cover, logs, stones and leaf litter for frogs and other amphibians.",
     image: [
-      "https://miniwildgarden.co.uk/images/frog-guide/frog-hero.webp",
+      "https://miniwildgarden.co.uk/images/frog-guide/common-frog-grass.webp",
       "https://miniwildgarden.co.uk/images/frog-guide/damp-pond-habitat.webp",
     ],
     totalTime: "PT2H",
@@ -164,9 +164,9 @@ export function FrogGuide() {
       <section className="field-hero" data-parallax-root>
         <HeroImage
           className="field-hero__image parallax-image"
-          src="/images/frog-guide/frog-hero.webp"
-          alt="A common frog resting in shallow water among autumn leaves"
-          style={{ objectPosition: "50% 52%" }}
+          src="/images/frog-guide/common-frog-grass.webp"
+          alt="A common frog sitting low in long garden grass"
+          style={{ objectPosition: "55% 40%" }}
         />
         <span className="field-hero__shade" />
         <span className="field-hero__halo" aria-hidden="true" />
@@ -174,7 +174,7 @@ export function FrogGuide() {
         <div className="shell field-hero__content">
           <Link className="back-link" href="/wildlife-guides">← All wildlife guides</Link>
           <span className="eyebrow eyebrow--light">Frogs · Field guide 04</span>
-          <h1>Build a garden<br />between <em>water and land.</em></h1>
+          <h1>Build a garden{" "}<br />between <em>water and land.</em></h1>
           <p className="lead">Give frogs safe pond edges, damp routes and quiet shelter so the whole garden becomes usable habitat.</p>
           <div className="field-hero__meta">
             <span><Icon name="clock" size={17} /> 1–2 hours</span>
@@ -189,7 +189,7 @@ export function FrogGuide() {
         <div className="shell field-intro__grid">
           <div data-reveal>
             <span className="eyebrow">Two habitats, one journey</span>
-            <h2>The pond is only<br /><em>half the story.</em></h2>
+            <h2>The pond is only{" "}<br /><em>half the story.</em></h2>
             <p>Frogs breed in water but need connected shelter on land. A shallow edge, damp planting and undisturbed refuges let them move safely through changing seasons.</p>
           </div>
           <div className="field-intro__stat" data-reveal>
@@ -318,7 +318,7 @@ export function FrogGuide() {
         <span className="field-closing__shade" />
         <div className="shell field-closing__content" data-reveal>
           <span className="eyebrow eyebrow--light">Begin with the waterline</span>
-          <h2>One safe edge.<br /><em>A whole new route.</em></h2>
+          <h2>One safe edge.{" "}<br /><em>A whole new route.</em></h2>
           <div>
             <Link className="button button--lime" href="/garden-guides/make-a-mini-wildlife-pond">Build a wildlife pond <Icon name="arrow" size={18} /></Link>
             <Link className="field-closing__link" href="/wildlife-guides/butterfly-friendly-garden">Next: help butterflies <span>↗</span></Link>

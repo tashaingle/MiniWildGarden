@@ -318,7 +318,7 @@ export function PondGuide() {
               </div>
               <div className="pond-arrival__gallery">
                 <figure data-reveal><Image src="/images/pond-guide/pond-settling.webp" alt="A naturalising wildlife pond with emergent plants and reflections" fill sizes="(max-width: 840px) 100vw, 34vw" /></figure>
-                <figure data-reveal><Image src="/images/pond-guide/frog-dragonfly.webp" alt="A frog beside a garden pond with a dragonfly in flight" fill sizes="(max-width: 840px) 100vw, 28vw" /></figure>
+                <figure data-reveal><Image src="/images/pond-guide/frog-in-pond.webp" alt="A common frog resting among stems in a garden pond" fill sizes="(max-width: 840px) 100vw, 28vw" /></figure>
               </div>
             </section>
 
@@ -384,11 +384,11 @@ export function PondGuide() {
       </section>
 
       <section className="pond-guide-closing">
-        <Image src="/images/pond-guide/frog-dragonfly.webp" alt="A frog and dragonfly beside a garden wildlife pond" fill sizes="100vw" />
+        <Image src="/images/pond-guide/frog-in-pond.webp" alt="A common frog settled among stems in a garden wildlife pond" fill sizes="100vw" />
         <span className="pond-guide-closing__shade" />
         <div className="shell pond-guide-closing__content" data-reveal>
           <span className="eyebrow eyebrow--light">The first visitor changes everything</span>
-          <h2>Build the water.<br />Leave room for surprise.</h2>
+          <h2>Build the water.{" "}<br />Leave room for surprise.</h2>
           <div>
             <Link className="button button--lime" href="/wildlife-guides/frog-friendly-space">Help frogs beyond the pond <Icon name="arrow" size={18} /></Link>
             <Link className="pond-guide-closing__link" href="/garden-guides">Explore another project <span>↗</span></Link>
