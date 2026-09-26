@@ -65,6 +65,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-GB" className={`${display.variable} ${body.variable}`}>
+      <head>
+        {/* Google AdSense. A plain tag so AdSense's site check finds it in the HTML. */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1405426793776119"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body id="top">
         <a className="skip-link" href="#main-content">
           Skip to main content
