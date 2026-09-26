@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
 import { GuideEndMatter } from "@/components/GuideEndMatter";
+import { guidePageSchema } from "@/lib/structuredData";
 
 const kit = [
   "An easy-to-dismantle hanging feeder with good drainage",
@@ -120,14 +121,22 @@ const faqs = [
 ];
 
 const structuredData = [
+  ...guidePageSchema({
+    section: "wildlife-guides",
+    slug: "help-garden-birds",
+    title: "How to help garden birds safely",
+    description: "A practical UK guide to cleaner bird feeding, fresh water, seasonal food, safe nest boxes and natural garden habitat.",
+    image: "/images/bird-guide/garden-feeder.webp",
+    category: "Birds",
+  }),
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "How to help garden birds safely",
     description: "A practical UK guide to cleaner bird feeding, fresh water, seasonal food, safe nest boxes and natural garden habitat.",
     image: [
-      "https://miniwildgarden.co.uk/images/bird-guide/garden-feeder.webp",
-      "https://miniwildgarden.co.uk/images/robin.webp",
+      "https://www.miniwildgarden.co.uk/images/bird-guide/garden-feeder.webp",
+      "https://www.miniwildgarden.co.uk/images/robin.webp",
     ],
     totalTime: "PT20M",
     supply: [
@@ -144,8 +153,8 @@ const structuredData = [
       "@type": "HowToStep",
       name: step.title,
       text: step.copy.join(" "),
-      image: `https://miniwildgarden.co.uk${step.image}`,
-      url: `https://miniwildgarden.co.uk/wildlife-guides/help-garden-birds#${step.id}`,
+      image: `https://www.miniwildgarden.co.uk${step.image}`,
+      url: `https://www.miniwildgarden.co.uk/wildlife-guides/help-garden-birds#${step.id}`,
     })),
   },
   {

@@ -8,7 +8,20 @@ const structuredData = {
       name: "Mini Wild Garden",
       description: "Practical wildlife gardening guides for British gardens, balconies and small spaces.",
       inLanguage: "en-GB",
-      publisher: { "@id": "https://www.miniwildgarden.co.uk/#author" },
+      publisher: { "@id": "https://www.miniwildgarden.co.uk/#organization" },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.miniwildgarden.co.uk/#organization",
+      name: "Mini Wild Garden",
+      url: "https://www.miniwildgarden.co.uk/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.miniwildgarden.co.uk/images/brand/mini-wild-garden-logo.png",
+        width: 1200,
+        height: 649,
+      },
+      founder: { "@id": "https://www.miniwildgarden.co.uk/#author" },
     },
     {
       "@type": "Person",

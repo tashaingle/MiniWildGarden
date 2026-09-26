@@ -4,7 +4,7 @@ import { seasons } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.miniwildgarden.co.uk";
-  const updated = new Date("2026-07-30T00:00:00Z");
+  const updated = new Date("2026-09-26T00:00:00Z");
   const staticPages = [
     "",
     "/start-this-week",

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
 import { GuideEndMatter } from "@/components/GuideEndMatter";
+import { guidePageSchema } from "@/lib/structuredData";
 
 const kit = [
   "A shaded or semi-shaded corner close to planting",
@@ -120,14 +121,22 @@ const faqs = [
 ];
 
 const structuredData = [
+  ...guidePageSchema({
+    section: "wildlife-guides",
+    slug: "frog-friendly-space",
+    title: "How to create a frog-friendly garden",
+    description: "A practical UK guide to linking water, shallow exits, damp cover, logs, stones and leaf litter for frogs and other amphibians.",
+    image: "/images/frog-guide/common-frog-grass.webp",
+    category: "Frogs & amphibians",
+  }),
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "How to create a frog-friendly garden",
     description: "A practical UK guide to linking water, shallow exits, damp cover, logs, stones and leaf litter for frogs and other amphibians.",
     image: [
-      "https://miniwildgarden.co.uk/images/frog-guide/common-frog-grass.webp",
-      "https://miniwildgarden.co.uk/images/frog-guide/damp-pond-habitat.webp",
+      "https://www.miniwildgarden.co.uk/images/frog-guide/common-frog-grass.webp",
+      "https://www.miniwildgarden.co.uk/images/frog-guide/damp-pond-habitat.webp",
     ],
     totalTime: "PT2H",
     supply: [
@@ -140,8 +149,8 @@ const structuredData = [
       "@type": "HowToStep",
       name: step.title,
       text: step.copy.join(" "),
-      image: `https://miniwildgarden.co.uk${step.image}`,
-      url: `https://miniwildgarden.co.uk/wildlife-guides/frog-friendly-space#${step.id}`,
+      image: `https://www.miniwildgarden.co.uk${step.image}`,
+      url: `https://www.miniwildgarden.co.uk/wildlife-guides/frog-friendly-space#${step.id}`,
     })),
   },
   {

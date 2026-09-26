@@ -1,13 +1,15 @@
 # Mini Wild Garden SEO audit
 
-Audit date: 30 July 2026
+Audit date: 30 July 2026 (updated 26 September 2026)
 
 ## Implemented in source
 
 ### Crawlability and indexing
 
 - The XML sitemap uses `https://www.miniwildgarden.co.uk`.
-- `robots.txt` points to the same sitemap and blocks `/my-garden`, `/saved-guides`, `/newsletter-confirmed` and `/api/`.
+- `robots.txt` points to the same sitemap and blocks only `/api/`. Private pages (`/my-garden`, `/saved-guides`, `/newsletter-confirmed`, `/plotly-auth-callback`) stay crawlable so search engines can read their `noindex` tags.
+- Standard guides use search-focused titles and descriptions from `src/lib/seo.ts`; on-page headings are unchanged.
+- Site-level `Organization` (with logo) is the publisher; flagship guides add `Article` and `BreadcrumbList` via `src/lib/structuredData.ts`.
 - Public beginner path `/start-this-week` is included in the sitemap with high priority.
 
 ### Canonical URLs and host preference

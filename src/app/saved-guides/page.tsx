@@ -6,6 +6,7 @@ import { libraryItems } from "@/lib/library";
 export const metadata: Metadata = {
   title: "Saved guides",
   description: "Your locally saved Mini Wild Garden field guides and garden projects.",
+  alternates: { canonical: "/saved-guides" },
   robots: { index: false, follow: true },
 };
 

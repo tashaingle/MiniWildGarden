@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
 import { GuideEndMatter } from "@/components/GuideEndMatter";
+import { guidePageSchema } from "@/lib/structuredData";
 
 const tools = [
   "The boundary owner’s permission and your neighbour’s agreement",
@@ -106,14 +107,22 @@ const faqs = [
 ];
 
 const structuredData = [
+  ...guidePageSchema({
+    section: "garden-guides",
+    slug: "make-a-hedgehog-highway",
+    title: "How to make a hedgehog highway",
+    description: "Create a safe 13 cm by 13 cm access point through a wooden garden fence to connect neighbouring hedgehog habitat.",
+    image: "/images/hedgehog-guide/hedgehog-through-fence.webp",
+    category: "Hedgehogs",
+  }),
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "How to make a hedgehog highway",
     description: "Create a safe 13 cm by 13 cm access point through a wooden garden fence to connect neighbouring hedgehog habitat.",
     image: [
-      "https://miniwildgarden.co.uk/images/hedgehog-guide/hedgehog-through-fence.webp",
-      "https://miniwildgarden.co.uk/images/hedgehog-guide/connected-garden.webp",
+      "https://www.miniwildgarden.co.uk/images/hedgehog-guide/hedgehog-through-fence.webp",
+      "https://www.miniwildgarden.co.uk/images/hedgehog-guide/connected-garden.webp",
     ],
     totalTime: "PT1H",
     supply: [
@@ -130,8 +139,8 @@ const structuredData = [
       "@type": "HowToStep",
       name: step.title,
       text: step.copy.join(" "),
-      image: `https://miniwildgarden.co.uk${step.image}`,
-      url: `https://miniwildgarden.co.uk/garden-guides/make-a-hedgehog-highway#${step.id}`,
+      image: `https://www.miniwildgarden.co.uk${step.image}`,
+      url: `https://www.miniwildgarden.co.uk/garden-guides/make-a-hedgehog-highway#${step.id}`,
     })),
   },
   {

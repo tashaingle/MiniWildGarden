@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { gardenGuides } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Garden projects",
+  title: "Wildlife garden projects and ideas",
   description: "Beautiful, achievable wildlife garden projects for ponds, pollinator planting, dead-wood habitats, balconies, hedges and connected habitats.",
   alternates: { canonical: "/garden-guides" },
 };

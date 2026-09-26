@@ -6,7 +6,7 @@ import { seasons } from "@/lib/content";
 import { seasonalImages } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Seasonal wildlife gardening",
+  title: "Seasonal wildlife gardening jobs (UK)",
   description: "Follow the British garden year with practical wildlife-friendly jobs for spring, summer, autumn and winter.",
   alternates: { canonical: "/seasonal-advice" },
 };

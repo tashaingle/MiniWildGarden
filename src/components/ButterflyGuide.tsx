@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { FieldChecklist, FieldGuideProgress } from "@/components/FieldGuideTools";
 import { GuideEndMatter } from "@/components/GuideEndMatter";
+import { guidePageSchema } from "@/lib/structuredData";
 
 const kit = [
   "A sunny, sheltered border, large pot or window box",
@@ -107,14 +108,22 @@ const faqs = [
 ];
 
 const structuredData = [
+  ...guidePageSchema({
+    section: "wildlife-guides",
+    slug: "butterfly-friendly-garden",
+    title: "How to create a butterfly-friendly garden",
+    description: "A practical UK guide to nectar planting, caterpillar food plants, sunny shelter and year-round butterfly habitat.",
+    image: "/images/butterfly-guide/peacock-butterfly.webp",
+    category: "Butterflies",
+  }),
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "How to create a butterfly-friendly garden",
     description: "A practical UK guide to nectar planting, caterpillar food plants, sunny shelter and year-round butterfly habitat.",
     image: [
-      "https://miniwildgarden.co.uk/images/butterfly-guide/peacock-butterfly.webp",
-      "https://miniwildgarden.co.uk/images/butterfly-guide/finished-border.webp",
+      "https://www.miniwildgarden.co.uk/images/butterfly-guide/peacock-butterfly.webp",
+      "https://www.miniwildgarden.co.uk/images/butterfly-guide/finished-border.webp",
     ],
     totalTime: "PT3H",
     supply: [
@@ -127,8 +136,8 @@ const structuredData = [
       "@type": "HowToStep",
       name: step.title,
       text: step.copy.join(" "),
-      image: `https://miniwildgarden.co.uk${step.image}`,
-      url: `https://miniwildgarden.co.uk/wildlife-guides/butterfly-friendly-garden#${step.id}`,
+      image: `https://www.miniwildgarden.co.uk${step.image}`,
+      url: `https://www.miniwildgarden.co.uk/wildlife-guides/butterfly-friendly-garden#${step.id}`,
     })),
   },
   {

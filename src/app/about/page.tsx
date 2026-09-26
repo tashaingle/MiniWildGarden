@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Our story",
+  title: "About Mini Wild Garden",
   description: "Why Mini Wild Garden exists and the practical, evidence-informed approach behind every wildlife gardening guide.",
   alternates: { canonical: "/about" },
 };

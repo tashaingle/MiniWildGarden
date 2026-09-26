@@ -5,6 +5,7 @@ import { NewsletterConfirmationTracking } from "@/components/NewsletterConfirmat
 export const metadata: Metadata = {
   title: "Newsletter confirmation",
   description: "Confirmation status for Mini Wild Garden field notes.",
+  alternates: { canonical: "/newsletter-confirmed" },
   robots: { index: false, follow: true },
 };
 

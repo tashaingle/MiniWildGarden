@@ -14,10 +14,10 @@ const body = Manrope({ subsets: ["latin"], variable: "--font-body" });
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.miniwildgarden.co.uk"),
   title: {
-    default: "Mini Wild Garden | Make space for the wild",
+    default: "Wildlife gardening guides for UK gardens | Mini Wild Garden",
     template: "%s | Mini Wild Garden",
   },
-  description: "Beautiful, practical guides for helping birds, bees, hedgehogs and other wildlife in British gardens of every size.",
+  description: "Practical UK wildlife gardening guides for birds, bees, hedgehogs, frogs and butterflies, for gardens, balconies and small spaces of every size.",
   alternates: { canonical: "/" },
   authors: [{ name: "Natasha Card", url: "/about" }],
   creator: "Natasha Card",

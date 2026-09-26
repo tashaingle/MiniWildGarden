@@ -34,7 +34,7 @@ export function GuideArticle({ guide, backHref, backLabel }: { guide: Guide; bac
         inLanguage: "en-GB",
         mainEntityOfPage: pageUrl,
         author: { "@id": "https://www.miniwildgarden.co.uk/#author" },
-        publisher: { "@id": "https://www.miniwildgarden.co.uk/#author" },
+        publisher: { "@id": "https://www.miniwildgarden.co.uk/#organization" },
         articleSection: guide.category,
       },
       {

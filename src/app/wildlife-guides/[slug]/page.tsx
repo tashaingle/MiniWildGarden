@@ -6,6 +6,7 @@ import { FrogGuide } from "@/components/FrogGuide";
 import { GuideArticle } from "@/components/GuideArticle";
 import { getWildlifeGuide, wildlifeGuides } from "@/lib/content";
 import { getGuideImage } from "@/lib/images";
+import { getGuideSeo } from "@/lib/seo";
 
 const birdSlug = "help-garden-birds";
 const butterflySlug = "butterfly-friendly-garden";
@@ -79,21 +80,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = getWildlifeGuide(slug);
   if (!guide) return {};
   const image = getGuideImage(guide);
+  const seo = getGuideSeo(guide.slug, { title: guide.title, description: guide.excerpt });
   return {
-    title: guide.title,
-    description: guide.excerpt,
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical: `/wildlife-guides/${guide.slug}` },
     openGraph: {
-      title: guide.title,
-      description: guide.excerpt,
+      title: seo.title,
+      description: seo.description,
       type: "article",
       url: `/wildlife-guides/${guide.slug}`,
       images: [{ url: image.src, alt: image.alt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: guide.title,
-      description: guide.excerpt,
+      title: seo.title,
+      description: seo.description,
       images: [image.src],
     },
   };

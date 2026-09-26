@@ -16,21 +16,23 @@ export async function generateMetadata({ params }: { params: Promise<{ season: s
   const season = getSeason(slug);
   if (!season) return {};
   const image = seasonalImages[season.slug];
+  const title = `${season.name} wildlife garden jobs (UK guide)`;
+  const description = `${season.intro} A practical UK checklist for the ${season.name.toLowerCase()} garden.`;
   return {
-    title: `${season.name} wildlife gardening`,
-    description: season.intro,
+    title,
+    description,
     alternates: { canonical: `/seasonal-advice/${season.slug}` },
     openGraph: {
-      title: `${season.name} wildlife gardening`,
-      description: season.intro,
+      title,
+      description,
       type: "article",
       url: `/seasonal-advice/${season.slug}`,
       images: [{ url: image.src, alt: image.alt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${season.name} wildlife gardening`,
-      description: season.intro,
+      title,
+      description,
       images: [image.src],
     },
   };

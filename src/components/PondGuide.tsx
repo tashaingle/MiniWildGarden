@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { PondMaterialsChecklist, PondProgress } from "@/components/PondGuideTools";
 import { GuideEndMatter } from "@/components/GuideEndMatter";
+import { guidePageSchema } from "@/lib/structuredData";
 
 const steps = [
   {
@@ -136,14 +137,22 @@ const faqs = [
 ];
 
 const structuredData = [
+  ...guidePageSchema({
+    section: "garden-guides",
+    slug: "make-a-mini-wildlife-pond",
+    title: "How to make a wildlife pond",
+    description: "A practical UK garden guide to creating a wildlife pond with shallow margins, safe escape routes, rainwater and responsibly sourced plants.",
+    image: "/images/pond-guide/finished-low-angle.webp",
+    category: "Water",
+  }),
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
     name: "How to make a wildlife pond",
     description: "A practical UK garden guide to creating a wildlife pond with shallow margins, safe escape routes, rainwater and responsibly sourced plants.",
     image: [
-      "https://miniwildgarden.co.uk/images/pond-guide/finished-low-angle.webp",
-      "https://miniwildgarden.co.uk/images/pond-guide/finished-overhead.webp",
+      "https://www.miniwildgarden.co.uk/images/pond-guide/finished-low-angle.webp",
+      "https://www.miniwildgarden.co.uk/images/pond-guide/finished-overhead.webp",
     ],
     totalTime: "P2D",
     supply: [
@@ -162,8 +171,8 @@ const structuredData = [
       "@type": "HowToStep",
       name: step.title,
       text: step.copy.join(" "),
-      image: `https://miniwildgarden.co.uk${step.image}`,
-      url: `https://miniwildgarden.co.uk/garden-guides/make-a-mini-wildlife-pond#${step.id}`,
+      image: `https://www.miniwildgarden.co.uk${step.image}`,
+      url: `https://www.miniwildgarden.co.uk/garden-guides/make-a-mini-wildlife-pond#${step.id}`,
     })),
   },
   {

@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { wildlifeGuides } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Wildlife guides",
+  title: "UK garden wildlife guides",
   description: "Practical ways to help birds, bees, hedgehogs, butterflies, frogs and other British garden wildlife.",
   alternates: { canonical: "/wildlife-guides" },
 };

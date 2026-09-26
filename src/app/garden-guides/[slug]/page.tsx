@@ -5,6 +5,7 @@ import { HedgehogHighwayGuide } from "@/components/HedgehogHighwayGuide";
 import { PondGuide } from "@/components/PondGuide";
 import { gardenGuides, getGardenGuide } from "@/lib/content";
 import { getGuideImage } from "@/lib/images";
+import { getGuideSeo } from "@/lib/seo";
 
 const pondSlug = "make-a-mini-wildlife-pond";
 const hedgehogSlug = "make-a-hedgehog-highway";
@@ -45,10 +46,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         description: "Open a safe route through your garden boundary and help reconnect neighbourhood hedgehog habitat.",
         type: "article",
         images: [{
-          url: "/images/hedgehog-guide/hedgehog-through-fence.webp",
-          width: 784,
-          height: 1168,
-          alt: "A hedgehog using a ground-level opening in a wooden fence",
+          url: "/images/hedgehog.webp",
+          width: 1152,
+          height: 768,
+          alt: "A hedgehog coming through a gap at the base of a wooden fence",
         }],
       },
     };
@@ -57,21 +58,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = getGardenGuide(slug);
   if (!guide) return {};
   const image = getGuideImage(guide);
+  const seo = getGuideSeo(guide.slug, { title: guide.title, description: guide.excerpt });
   return {
-    title: guide.title,
-    description: guide.excerpt,
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical: `/garden-guides/${guide.slug}` },
     openGraph: {
-      title: guide.title,
-      description: guide.excerpt,
+      title: seo.title,
+      description: seo.description,
       type: "article",
       url: `/garden-guides/${guide.slug}`,
       images: [{ url: image.src, alt: image.alt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: guide.title,
-      description: guide.excerpt,
+      title: seo.title,
+      description: seo.description,
       images: [image.src],
     },
   };
